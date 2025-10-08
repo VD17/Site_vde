@@ -25,6 +25,215 @@
             --text-gray: #475569;
             --text-light: #64748B;
             --border: #E2E8F0;
+            --particle-color: rgba(37, 99, 235, 0.9);
+            --particle-glow: rgba(37, 99, 235, 0.2);
+        }
+
+        /* Hero Social Links */
+        .hero-social-links {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin: 30px 0 20px 0;
+            animation: slideDown 1s cubic-bezier(0.4, 0, 0.2, 1) 0.9s both;
+        }
+
+        .hero-social-link {
+            width: 55px;
+            height: 55px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--bg-white);
+            border: 2px solid var(--border);
+            border-radius: 50%;
+            color: var(--text-gray);
+            font-size: 1.4rem;
+            text-decoration: none;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-social-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 100%;
+            border-radius: 50%;
+            transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 0;
+        }
+
+        .hero-social-link:hover::before {
+            width: 100%;
+        }
+
+        .hero-social-link i {
+            position: relative;
+            z-index: 1;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .hero-social-link:hover {
+            transform: translateY(-5px) scale(1.1);
+            box-shadow: 0 8px 25px rgba(37, 99, 235, 0.3);
+        }
+
+        .hero-social-link:hover i {
+            color: #fff;
+            transform: rotate(360deg);
+        }
+
+        /* Couleurs spécifiques */
+        .hero-social-link.linkedin:hover {
+            border-color: #0077B5;
+        }
+
+        .hero-social-link.linkedin:hover::before {
+            background: #0077B5;
+        }
+
+        .hero-social-link.github:hover {
+            border-color: #333;
+        }
+
+        .hero-social-link.github:hover::before {
+            background: #333;
+        }
+
+        body.dark-mode .hero-social-link.github:hover {
+            border-color: #fff;
+        }
+
+        body.dark-mode .hero-social-link.github:hover::before {
+            background: #fff;
+        }
+
+        body.dark-mode .hero-social-link.github:hover i {
+            color: #000;
+        }
+
+        .hero-social-link.email:hover {
+            border-color: #EA4335;
+        }
+
+        .hero-social-link.email:hover::before {
+            background: #EA4335;
+        }
+
+        /* Animation d'apparition séquentielle */
+        .hero-social-link:nth-child(1) {
+            animation: socialBounce 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55) 1.1s both;
+        }
+
+        .hero-social-link:nth-child(2) {
+            animation: socialBounce 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55) 1.3s both;
+        }
+
+        .hero-social-link:nth-child(3) {
+            animation: socialBounce 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55) 1.5s both;
+        }
+
+        @keyframes socialBounce {
+            0% {
+                opacity: 0;
+                transform: scale(0) rotate(-180deg);
+            }
+            50% {
+                transform: scale(1.2) rotate(20deg);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1) rotate(0deg);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-social-link {
+                width: 50px;
+                height: 50px;
+                font-size: 1.2rem;
+            }
+        }
+
+
+        /* CV Download Button */
+        .cv-download-container {
+            margin: 30px 0;
+            display: flex;
+            justify-content: flex-start;
+        }
+
+        .cv-download-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 16px 32px;
+            background: var(--primary);
+            color: #fff;
+            border: none;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
+        }
+
+        .cv-download-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(37, 99, 235, 0.5);
+            background: var(--secondary);
+        }
+
+        .cv-download-btn:active {
+            transform: translateY(-1px);
+        }
+
+        .cv-download-btn i {
+            font-size: 1.2rem;
+            animation: downloadPulse 2s ease-in-out infinite;
+        }
+
+        @keyframes downloadPulse {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-3px);
+            }
+        }
+
+        /* Responsive CV Button */
+        @media (max-width: 768px) {
+            .cv-download-container {
+                justify-content: center;
+            }
+            
+            .cv-download-btn {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+
+        /* Dark Mode Variables */
+        body.dark-mode {
+            --primary: #60A5FA;
+            --secondary: #3B82F6;
+            --accent: #93C5FD;
+            --bg-white: #1E293B;
+            --bg-light: #0F172A;
+            --bg-gray: #1E293B;
+            --text-dark: #F1F5F9;
+            --text-gray: #CBD5E1;
+            --text-light: #94A3B8;
+            --border: #334155;
+            --particle-color: rgba(96, 165, 250, 0.9);
+            --particle-glow: rgba(96, 165, 250, 0.2);
         }
 
         body {
@@ -33,6 +242,94 @@
             color: var(--text-dark);
             line-height: 1.6;
             overflow-x: hidden;
+            transition: background 0.3s ease, color 0.3s ease;
+        }
+
+        /* Language & Dark Mode Toggle Container */
+        .controls-container {
+            position: fixed;
+            top: 90px;
+            right: 20px;
+            z-index: 10000;
+            display: flex;
+            gap: 10px;
+        }
+
+        /* Language Toggle Button */
+        .lang-toggle {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--bg-white);
+            border: 2px solid var(--border);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--primary);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .lang-toggle:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 30px rgba(37, 99, 235, 0.3);
+        }
+
+        /* Dark Mode Toggle Button */
+        .dark-mode-toggle {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--bg-white);
+            border: 2px solid var(--border);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            color: var(--primary);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .dark-mode-toggle:hover {
+            transform: scale(1.1) rotate(15deg);
+            box-shadow: 0 8px 30px rgba(37, 99, 235, 0.3);
+        }
+
+        body.dark-mode .dark-mode-toggle,
+        body.dark-mode .lang-toggle {
+            box-shadow: 0 4px 20px rgba(96, 165, 250, 0.3);
+        }
+
+        .dark-mode-toggle .sun-icon,
+        .dark-mode-toggle .moon-icon {
+            position: absolute;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .dark-mode-toggle .sun-icon {
+            opacity: 1;
+            transform: rotate(0deg) scale(1);
+        }
+
+        .dark-mode-toggle .moon-icon {
+            opacity: 0;
+            transform: rotate(180deg) scale(0);
+        }
+
+        body.dark-mode .dark-mode-toggle .sun-icon {
+            opacity: 0;
+            transform: rotate(-180deg) scale(0);
+        }
+
+        body.dark-mode .dark-mode-toggle .moon-icon {
+            opacity: 1;
+            transform: rotate(0deg) scale(1);
         }
 
         /* Interactive Particle Network Background */
@@ -44,7 +341,7 @@
             height: 100%;
             z-index: 0;
             opacity: 0.8;
-            filter: blur(0.5px); /* Flou léger de 5% */
+            filter: blur(0.5px);
         }
 
         /* Animated Gradient Overlay */
@@ -60,6 +357,12 @@
                 radial-gradient(circle at 20% 30%, rgba(37, 99, 235, 0.06), transparent 40%),
                 radial-gradient(circle at 80% 70%, rgba(59, 130, 246, 0.06), transparent 40%);
             animation: bgFlow 20s ease-in-out infinite;
+        }
+
+        body.dark-mode .animated-bg {
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(96, 165, 250, 0.08), transparent 40%),
+                radial-gradient(circle at 80% 70%, rgba(147, 197, 253, 0.08), transparent 40%);
         }
 
         @keyframes bgFlow {
@@ -128,7 +431,7 @@
             position: fixed;
             top: 0;
             width: 100%;
-            padding: 20px 80px;
+            padding: 15px 20px;
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(20px) saturate(180%);
             border-bottom: 1px solid var(--border);
@@ -139,14 +442,18 @@
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
+        body.dark-mode nav {
+            background: rgba(30, 41, 59, 0.95);
+        }
+
         nav.scrolled {
-            padding: 15px 80px;
+            padding: 12px 20px;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
         }
 
         .logo {
             font-family: 'JetBrains Mono', monospace;
-            font-size: 1.6rem;
+            font-size: 1.3rem;
             font-weight: 700;
             color: var(--primary);
             letter-spacing: -1px;
@@ -154,38 +461,7 @@
             position: relative;
             display: inline-block;
             cursor: pointer;
-        }
-
-        .logo::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 0;
-            height: 0;
-            border-radius: 50%;
-            background: rgba(37, 99, 235, 0.2);
-            transform: translate(-50%, -50%);
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .logo:hover::before {
-            width: 150%;
-            height: 150%;
-        }
-
-        .logo:hover {
-            transform: translateY(-2px);
-            animation: logoGlow 1.5s ease-in-out infinite;
-        }
-
-        @keyframes logoGlow {
-            0%, 100% {
-                text-shadow: 0 0 10px rgba(37, 99, 235, 0.5);
-            }
-            50% {
-                text-shadow: 0 0 20px rgba(37, 99, 235, 0.8), 0 0 30px rgba(59, 130, 246, 0.5);
-            }
+            z-index: 1001;
         }
 
         .logo-char {
@@ -210,10 +486,43 @@
             }
         }
 
+        /* Hamburger Menu */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            z-index: 1001;
+            background: none;
+            border: none;
+            padding: 5px;
+        }
+
+        .menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background: var(--primary);
+            margin: 3px 0;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border-radius: 3px;
+        }
+
+        .menu-toggle.active span:nth-child(1) {
+            transform: rotate(45deg) translate(8px, 8px);
+        }
+
+        .menu-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .menu-toggle.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -7px);
+        }
+
         .nav-menu {
             display: flex;
-            gap: 45px;
+            gap: 35px;
             list-style: none;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .nav-menu a {
@@ -251,7 +560,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 0 80px;
+            padding: 80px 20px 40px 20px;
             z-index: 1;
         }
 
@@ -268,13 +577,13 @@
 
         .hero-badge {
             display: inline-block;
-            font-size: 0.8rem;
+            font-size: 0.7rem;
             font-weight: 600;
             color: var(--primary);
             text-transform: uppercase;
             letter-spacing: 2px;
-            margin-bottom: 25px;
-            padding: 10px 24px;
+            margin-bottom: 20px;
+            padding: 8px 20px;
             border: 1px solid var(--primary);
             border-radius: 50px;
             background: rgba(37, 99, 235, 0.05);
@@ -287,19 +596,19 @@
         }
 
         .hero-name {
-            font-size: 5rem;
+            font-size: clamp(2.5rem, 8vw, 5rem);
             font-weight: 900;
             line-height: 1.1;
-            margin-bottom: 25px;
+            margin-bottom: 20px;
             color: var(--text-dark);
             animation: slideDown 1s cubic-bezier(0.4, 0, 0.2, 1) 0.4s both;
         }
 
         .hero-title {
-            font-size: 2rem;
+            font-size: clamp(1.2rem, 4vw, 2rem);
             font-weight: 600;
             color: var(--text-gray);
-            margin-bottom: 25px;
+            margin-bottom: 20px;
             animation: slideDown 1s cubic-bezier(0.4, 0, 0.2, 1) 0.6s both;
         }
 
@@ -308,24 +617,26 @@
         }
 
         .hero-description {
-            font-size: 1.1rem;
+            font-size: clamp(0.95rem, 2.5vw, 1.1rem);
             line-height: 1.8;
             color: var(--text-light);
             max-width: 650px;
-            margin: 0 auto 40px;
+            margin: 0 auto 30px;
             animation: slideDown 1s cubic-bezier(0.4, 0, 0.2, 1) 0.8s both;
+            padding: 0 15px;
         }
 
         .hero-buttons {
             display: flex;
-            gap: 20px;
+            gap: 15px;
             justify-content: center;
             animation: slideDown 1s cubic-bezier(0.4, 0, 0.2, 1) 1s both;
+            flex-wrap: wrap;
         }
 
         .btn-primary, .btn-secondary {
-            padding: 16px 40px;
-            font-size: 0.95rem;
+            padding: 14px 30px;
+            font-size: 0.9rem;
             font-weight: 600;
             border: none;
             border-radius: 12px;
@@ -362,13 +673,13 @@
         /* Section */
         .section {
             position: relative;
-            padding: 80px 80px;
+            padding: 60px 20px;
             z-index: 1;
         }
 
         .section-header {
             text-align: center;
-            margin-bottom: 60px;
+            margin-bottom: 50px;
             opacity: 0;
             transform: translateY(30px);
             transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
@@ -381,34 +692,34 @@
 
         .section-badge {
             display: inline-block;
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             font-weight: 600;
             color: var(--primary);
             text-transform: uppercase;
             letter-spacing: 2px;
-            margin-bottom: 15px;
-            padding: 6px 16px;
+            margin-bottom: 12px;
+            padding: 6px 14px;
             border-radius: 50px;
             background: rgba(37, 99, 235, 0.1);
         }
 
         .section-title {
-            font-size: 3rem;
+            font-size: clamp(2rem, 5vw, 3rem);
             font-weight: 800;
             color: var(--text-dark);
-            margin-bottom: 15px;
+            margin-bottom: 12px;
         }
 
         .section-subtitle {
-            font-size: 1.1rem;
+            font-size: clamp(0.9rem, 2.5vw, 1.1rem);
             color: var(--text-light);
         }
 
         /* About */
         .about-grid {
             display: grid;
-            grid-template-columns: 1fr 1.5fr;
-            gap: 60px;
+            grid-template-columns: 1fr;
+            gap: 40px;
             align-items: center;
             max-width: 1300px;
             margin: 0 auto;
@@ -416,6 +727,7 @@
 
         .about-image {
             width: 100%;
+            max-width: 300px;
             aspect-ratio: 1;
             background: linear-gradient(135deg, rgba(37, 99, 235, 0.05), rgba(59, 130, 246, 0.05));
             border-radius: 50%;
@@ -425,15 +737,16 @@
             align-items: center;
             justify-content: center;
             opacity: 0;
-            transform: translateX(-40px);
+            transform: translateY(20px);
             transition: all 1s cubic-bezier(0.4, 0, 0.2, 1);
             overflow: hidden;
             position: relative;
+            margin: 0 auto;
         }
 
         .about-image.visible {
             opacity: 1;
-            transform: translateX(0);
+            transform: translateY(0);
         }
 
         .about-image:hover {
@@ -448,29 +761,28 @@
             border-radius: 50%;
         }
 
-        /* Fallback si pas d'image */
         .about-image i {
-            font-size: 8rem;
+            font-size: 6rem;
             color: var(--primary);
             opacity: 0.3;
         }
 
         .about-content {
             opacity: 0;
-            transform: translateX(40px);
+            transform: translateY(20px);
             transition: all 1s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .about-content.visible {
             opacity: 1;
-            transform: translateX(0);
+            transform: translateY(0);
         }
 
         .about-text {
-            font-size: 1.05rem;
+            font-size: clamp(0.95rem, 2.5vw, 1.05rem);
             line-height: 1.9;
             color: var(--text-gray);
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }
 
         .about-text strong {
@@ -480,13 +792,13 @@
 
         .stats-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 25px;
-            margin-top: 40px;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
         }
 
         .stat-card {
-            padding: 30px;
+            padding: 25px 15px;
             background: var(--bg-white);
             border: 1px solid var(--border);
             border-radius: 16px;
@@ -508,22 +820,28 @@
 
         .stat-number {
             font-family: 'JetBrains Mono', monospace;
-            font-size: 2.5rem;
+            font-size: clamp(1.8rem, 5vw, 2.5rem);
             font-weight: 700;
             color: var(--primary);
             margin-bottom: 8px;
         }
 
         .stat-label {
-            font-size: 0.9rem;
+            font-size: clamp(0.8rem, 2vw, 0.9rem);
             color: var(--text-gray);
             font-weight: 500;
         }
 
-        /* Certifications */
+        /* Certifications Section */
+        .certifications-section {
+            position: relative;
+            padding: 60px 0;
+            z-index: 1;
+        }
+
         .certifications-scroll {
             overflow: hidden;
-            padding: 60px 0;
+            padding: 40px 0;
             background: var(--bg-white);
             border-top: 1px solid var(--border);
             border-bottom: 1px solid var(--border);
@@ -532,7 +850,7 @@
 
         .certifications-track {
             display: flex;
-            gap: 30px;
+            gap: 20px;
             animation: scrollCerts 30s linear infinite;
         }
 
@@ -546,14 +864,14 @@
         }
 
         .cert-card {
-            min-width: 300px;
-            padding: 25px;
+            min-width: 280px;
+            padding: 20px;
             background: var(--bg-light);
             border: 1px solid var(--border);
             border-radius: 12px;
             display: flex;
             align-items: center;
-            gap: 20px;
+            gap: 15px;
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
@@ -563,27 +881,27 @@
         }
 
         .cert-icon {
-            width: 55px;
-            height: 55px;
+            width: 50px;
+            height: 50px;
             background: var(--primary);
             border-radius: 10px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.6rem;
+            font-size: 1.4rem;
             color: #fff;
             flex-shrink: 0;
         }
 
         .cert-info h4 {
-            font-size: 1.05rem;
+            font-size: clamp(0.95rem, 2.5vw, 1.05rem);
             color: var(--text-dark);
             margin-bottom: 5px;
             font-weight: 600;
         }
 
         .cert-info p {
-            font-size: 0.85rem;
+            font-size: clamp(0.8rem, 2vw, 0.85rem);
             color: var(--text-light);
         }
 
@@ -592,23 +910,24 @@
             max-width: 1000px;
             margin: 0 auto;
             position: relative;
+            padding-left: 0;
         }
 
         .timeline-container::before {
             content: '';
             position: absolute;
-            left: 50%;
+            left: 20px;
             top: 0;
             bottom: 0;
             width: 2px;
             background: var(--border);
-            transform: translateX(-50%);
         }
 
         .timeline-item {
             position: relative;
-            margin-bottom: 50px;
-            width: 48%;
+            margin-bottom: 40px;
+            width: 100%;
+            padding-left: 60px;
             opacity: 0;
             transform: translateY(30px);
             transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
@@ -619,21 +938,10 @@
             transform: translateY(0);
         }
 
-        .timeline-item:nth-child(odd) {
-            margin-left: 0;
-            margin-right: auto;
-            padding-right: 50px;
-        }
-
-        .timeline-item:nth-child(even) {
-            margin-left: auto;
-            margin-right: 0;
-            padding-left: 50px;
-        }
-
         .timeline-dot {
             position: absolute;
             top: 0;
+            left: 12px;
             width: 16px;
             height: 16px;
             background: var(--primary);
@@ -643,16 +951,8 @@
             z-index: 2;
         }
 
-        .timeline-item:nth-child(odd) .timeline-dot {
-            right: -8px;
-        }
-
-        .timeline-item:nth-child(even) .timeline-dot {
-            left: -8px;
-        }
-
         .timeline-card {
-            padding: 30px;
+            padding: 25px;
             background: var(--bg-white);
             border: 1px solid var(--border);
             border-radius: 12px;
@@ -666,33 +966,33 @@
 
         .timeline-date {
             font-family: 'JetBrains Mono', monospace;
-            font-size: 0.8rem;
+            font-size: clamp(0.75rem, 2vw, 0.8rem);
             color: var(--primary);
-            margin-bottom: 12px;
+            margin-bottom: 10px;
             letter-spacing: 1px;
         }
 
         .timeline-title {
-            font-size: 1.5rem;
+            font-size: clamp(1.2rem, 3vw, 1.5rem);
             font-weight: 700;
             color: var(--text-dark);
             margin-bottom: 8px;
         }
 
         .timeline-company {
-            font-size: 1.05rem;
+            font-size: clamp(0.9rem, 2.5vw, 1.05rem);
             color: var(--text-gray);
-            margin-bottom: 15px;
+            margin-bottom: 12px;
         }
 
         .timeline-description {
-            font-size: 0.95rem;
+            font-size: clamp(0.85rem, 2vw, 0.95rem);
             line-height: 1.8;
             color: var(--text-light);
         }
 
         .timeline-description li {
-            margin-bottom: 10px;
+            margin-bottom: 8px;
             padding-left: 20px;
             position: relative;
         }
@@ -707,14 +1007,14 @@
         /* Formation */
         .formation-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
             max-width: 1200px;
             margin: 0 auto;
         }
 
         .formation-card {
-            padding: 35px;
+            padding: 30px 20px;
             background: var(--bg-white);
             border: 1px solid var(--border);
             border-radius: 12px;
@@ -734,29 +1034,29 @@
         }
 
         .formation-icon {
-            width: 55px;
-            height: 55px;
+            width: 50px;
+            height: 50px;
             background: var(--primary);
             border-radius: 10px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.6rem;
+            font-size: 1.4rem;
             color: #fff;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }
 
         /* Skills */
         .skills-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 25px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
             max-width: 1300px;
             margin: 0 auto;
         }
 
         .skill-card {
-            padding: 35px;
+            padding: 30px 20px;
             background: var(--bg-white);
             border: 1px solid var(--border);
             border-radius: 12px;
@@ -776,30 +1076,30 @@
         }
 
         .skill-icon {
-            font-size: 2.2rem;
+            font-size: 2rem;
             color: var(--primary);
-            margin-bottom: 18px;
+            margin-bottom: 15px;
         }
 
         .skill-card h3 {
-            font-size: 1.4rem;
+            font-size: clamp(1.1rem, 3vw, 1.4rem);
             font-weight: 700;
             color: var(--text-dark);
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }
 
         .skill-tags {
             display: flex;
             flex-wrap: wrap;
-            gap: 10px;
+            gap: 8px;
         }
 
         .skill-tag {
-            padding: 8px 16px;
+            padding: 7px 14px;
             background: rgba(37, 99, 235, 0.08);
             border: 1px solid rgba(37, 99, 235, 0.2);
             border-radius: 8px;
-            font-size: 0.85rem;
+            font-size: clamp(0.75rem, 2vw, 0.85rem);
             font-weight: 500;
             color: var(--text-dark);
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -814,14 +1114,14 @@
         /* Projects */
         .projects-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
             max-width: 1300px;
             margin: 0 auto;
         }
 
         .project-card {
-            padding: 35px;
+            padding: 30px 20px;
             background: var(--bg-white);
             border: 1px solid var(--border);
             border-radius: 12px;
@@ -845,17 +1145,17 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }
 
         .project-icon {
-            font-size: 2.5rem;
+            font-size: 2.2rem;
             color: var(--primary);
         }
 
         .project-link {
             color: var(--text-gray);
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             transition: all 0.3s;
         }
 
@@ -865,17 +1165,17 @@
         }
 
         .project-card h3 {
-            font-size: 1.6rem;
+            font-size: clamp(1.2rem, 3vw, 1.6rem);
             font-weight: 700;
             color: var(--text-dark);
-            margin-bottom: 12px;
+            margin-bottom: 10px;
         }
 
         .project-card p {
-            font-size: 1rem;
+            font-size: clamp(0.9rem, 2.5vw, 1rem);
             line-height: 1.8;
             color: var(--text-light);
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }
 
         .project-tags {
@@ -888,7 +1188,7 @@
             padding: 6px 12px;
             background: rgba(37, 99, 235, 0.08);
             border-radius: 6px;
-            font-size: 0.8rem;
+            font-size: clamp(0.75rem, 2vw, 0.8rem);
             font-weight: 500;
             color: var(--primary);
         }
@@ -896,13 +1196,15 @@
         /* Solutions */
         .solutions-scroll {
             overflow: hidden;
-            padding: 60px 0;
+            padding: 40px 0;
             background: var(--bg-white);
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
         }
 
         .solutions-track {
             display: flex;
-            gap: 30px;
+            gap: 20px;
             animation: scrollSolutions 40s linear infinite;
         }
 
@@ -916,9 +1218,9 @@
         }
 
         .solution-card {
-            min-width: 260px;
-            height: 150px;
-            padding: 25px;
+            min-width: 220px;
+            height: 140px;
+            padding: 20px;
             background: var(--bg-light);
             border: 1px solid var(--border);
             border-radius: 12px;
@@ -926,7 +1228,7 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            gap: 12px;
+            gap: 10px;
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
@@ -936,18 +1238,25 @@
         }
 
         .solution-logo {
-            font-size: 2.2rem;
-            color: var(--primary);
+            width: 100px;
+            height: 100px;
+            object-fit: contain;
+            transition: all 0.3s ease;
+        }
+
+        .solution-logo:hover {
+            transform: scale(1.1);
         }
 
         .solution-name {
-            font-size: 1.2rem;
+            font-size: clamp(1rem, 2.5vw, 1.2rem);
             font-weight: 700;
             color: var(--text-dark);
+            text-align: center;
         }
 
         .solution-category {
-            font-size: 0.8rem;
+            font-size: clamp(0.7rem, 2vw, 0.8rem);
             color: var(--text-light);
             text-transform: uppercase;
             letter-spacing: 1px;
@@ -973,7 +1282,7 @@
 
         .terminal-header {
             background: #0F172A;
-            padding: 12px 20px;
+            padding: 12px 15px;
             display: flex;
             align-items: center;
             gap: 8px;
@@ -992,22 +1301,22 @@
 
         .terminal-title {
             font-family: 'JetBrains Mono', monospace;
-            font-size: 0.85rem;
+            font-size: clamp(0.75rem, 2vw, 0.85rem);
             color: #94A3B8;
-            margin-left: 15px;
+            margin-left: 10px;
         }
 
         .terminal-body {
-            padding: 30px;
+            padding: 20px 15px;
             font-family: 'JetBrains Mono', monospace;
-            font-size: 0.9rem;
+            font-size: clamp(0.8rem, 2vw, 0.9rem);
             line-height: 1.8;
             color: #E2E8F0;
-            min-height: 400px;
+            min-height: 350px;
         }
 
         .terminal-line {
-            margin-bottom: 15px;
+            margin-bottom: 12px;
             animation: typeLine 0.5s ease-in-out;
         }
 
@@ -1032,9 +1341,9 @@
             padding: 10px 0;
             color: #E2E8F0;
             font-family: 'JetBrains Mono', monospace;
-            font-size: 0.9rem;
+            font-size: clamp(0.8rem, 2vw, 0.9rem);
             outline: none;
-            margin-top: 10px;
+            margin-top: 8px;
             transition: border-color 0.3s;
         }
 
@@ -1047,14 +1356,14 @@
             background: transparent;
             border: 2px solid #334155;
             border-radius: 6px;
-            padding: 15px;
+            padding: 12px;
             color: #E2E8F0;
             font-family: 'JetBrains Mono', monospace;
-            font-size: 0.9rem;
+            font-size: clamp(0.8rem, 2vw, 0.9rem);
             outline: none;
             resize: vertical;
-            min-height: 120px;
-            margin-top: 10px;
+            min-height: 100px;
+            margin-top: 8px;
             transition: border-color 0.3s;
         }
 
@@ -1066,14 +1375,14 @@
             background: #3B82F6;
             color: #fff;
             border: none;
-            padding: 12px 30px;
+            padding: 12px 25px;
             border-radius: 6px;
             font-family: 'JetBrains Mono', monospace;
-            font-size: 0.9rem;
+            font-size: clamp(0.8rem, 2vw, 0.9rem);
             font-weight: 600;
             cursor: pointer;
             transition: all 0.3s;
-            margin-top: 20px;
+            margin-top: 15px;
         }
 
         .terminal-btn:hover {
@@ -1115,13 +1424,14 @@
             background: var(--bg-white);
             border: 1px solid var(--border);
             border-radius: 16px;
-            padding: 50px;
+            padding: 40px 25px;
             text-align: center;
             z-index: 1000;
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
             opacity: 0;
             transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-            max-width: 500px;
+            max-width: 90%;
+            width: 450px;
         }
 
         .success-modal.show {
@@ -1130,39 +1440,39 @@
         }
 
         .success-icon {
-            width: 80px;
-            height: 80px;
+            width: 70px;
+            height: 70px;
             background: var(--primary);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 25px;
-            font-size: 2.5rem;
+            margin: 0 auto 20px;
+            font-size: 2rem;
             color: #fff;
         }
 
         .success-title {
-            font-size: 1.8rem;
+            font-size: clamp(1.3rem, 4vw, 1.8rem);
             font-weight: 700;
             color: var(--text-dark);
-            margin-bottom: 12px;
+            margin-bottom: 10px;
         }
 
         .success-message {
-            font-size: 1.05rem;
+            font-size: clamp(0.9rem, 2.5vw, 1.05rem);
             color: var(--text-gray);
             line-height: 1.7;
-            margin-bottom: 30px;
+            margin-bottom: 25px;
         }
 
         .close-modal-btn {
-            padding: 14px 35px;
+            padding: 12px 30px;
             background: var(--primary);
             border: none;
             border-radius: 10px;
             color: #fff;
-            font-size: 0.95rem;
+            font-size: clamp(0.85rem, 2vw, 0.95rem);
             font-weight: 600;
             cursor: pointer;
             transition: all 0.3s;
@@ -1176,63 +1486,162 @@
         footer {
             background: var(--bg-white);
             border-top: 1px solid var(--border);
-            padding: 40px 80px;
+            padding: 30px 20px;
             text-align: center;
         }
 
         footer p {
-            font-size: 0.95rem;
+            font-size: clamp(0.85rem, 2vw, 0.95rem);
             color: var(--text-gray);
         }
 
-        /* Responsive */
-        @media (max-width: 1200px) {
-            .hero-section, .section {
-                padding: 80px 60px;
-            }
-            
-            .hero-name {
-                font-size: 4rem;
-            }
-        }
-
+        /* Mobile Navigation */
         @media (max-width: 968px) {
-            nav {
-                padding: 15px 40px;
+            .menu-toggle {
+                display: flex;
+            }
+
+            .nav-menu {
+                position: fixed;
+                top: 70px;
+                right: -100%;
+                width: 80%;
+                max-width: 300px;
+                height: calc(100vh - 70px);
+                background: var(--bg-white);
+                border-left: 1px solid var(--border);
+                flex-direction: column;
+                gap: 0;
+                padding: 30px 0;
+                box-shadow: -5px 0 20px rgba(0, 0, 0, 0.1);
+                transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            }
+
+            .nav-menu.active {
+                right: 0;
+            }
+
+            .nav-menu li {
+                width: 100%;
+            }
+
+            .nav-menu a {
+                display: block;
+                padding: 15px 30px;
+                font-size: 1rem;
+                border-bottom: 1px solid var(--border);
+            }
+
+            .nav-menu a::after {
+                display: none;
+            }
+
+            .controls-container {
+                top: 80px;
+                right: 15px;
             }
 
             .about-grid {
                 grid-template-columns: 1fr;
             }
 
+            .about-image {
+                max-width: 250px;
+            }
+
+            .about-image i {
+                font-size: 4rem;
+            }
+
             .timeline-container::before {
-                left: 30px;
+                left: 20px;
             }
 
             .timeline-item {
-                width: 100%;
-                padding-left: 80px !important;
-                padding-right: 0 !important;
+                padding-left: 60px;
             }
 
-            .timeline-item .timeline-dot {
-                left: 22px !important;
-            }
-
-            .formation-grid,
-            .skills-grid,
-            .projects-grid {
-                grid-template-columns: 1fr;
+            .timeline-dot {
+                left: 12px;
             }
         }
 
-        @media (max-width: 768px) {
-            .hero-name {
-                font-size: 3rem;
+        /* Tablet */
+        @media (min-width: 769px) {
+            .about-grid {
+                grid-template-columns: 1fr 1.5fr;
             }
 
-            .section-title {
-                font-size: 2.5rem;
+            .section {
+                padding: 70px 40px;
+            }
+
+            nav {
+                padding: 15px 40px;
+            }
+
+            .hero-section {
+                padding: 100px 40px 60px 40px;
+            }
+        }
+
+        /* Desktop */
+        @media (min-width: 1200px) {
+            .section {
+                padding: 80px 80px;
+            }
+
+            nav {
+                padding: 20px 80px;
+            }
+
+            .hero-section {
+                padding: 0 80px;
+            }
+
+            .controls-container {
+                width: auto;
+                height: auto;
+                top: 100px;
+                right: 40px;
+            }
+
+            .lang-toggle,
+            .dark-mode-toggle {
+                width: 60px;
+                height: 60px;
+                font-size: 1.2rem;
+            }
+
+            .timeline-container::before {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+
+            .timeline-item {
+                width: 48%;
+                padding-left: 0;
+            }
+
+            .timeline-item:nth-child(odd) {
+                margin-left: 0;
+                margin-right: auto;
+                padding-right: 50px;
+            }
+
+            .timeline-item:nth-child(even) {
+                margin-left: auto;
+                margin-right: 0;
+                padding-left: 50px;
+            }
+
+            .timeline-item:nth-child(odd) .timeline-dot {
+                right: -8px;
+                left: auto;
+            }
+
+            .timeline-item:nth-child(even) .timeline-dot {
+                left: -8px;
             }
         }
     </style>
@@ -1241,10 +1650,19 @@
     <!-- Scroll Progress -->
     <div id="scroll-progress"></div>
 
+    <!-- Language & Dark Mode Toggle -->
+    <div class="controls-container">
+        <button class="lang-toggle" id="langToggle" aria-label="Toggle language">FR</button>
+        <button class="dark-mode-toggle" id="darkModeToggle" aria-label="Toggle dark mode">
+            <i class="fas fa-sun sun-icon"></i>
+            <i class="fas fa-moon moon-icon"></i>
+        </button>
+    </div>
+
     <!-- Loading -->
     <div class="loader-screen" id="loader">
         <div class="loader-ring"></div>
-        <div class="loader-text">Initializing</div>
+        <div class="loader-text" data-fr="Initializing" data-en="Initializing">Initializing</div>
     </div>
 
     <!-- Interactive Particle Network Background -->
@@ -1254,157 +1672,168 @@
     <!-- Navigation -->
     <nav id="navbar">
         <div class="logo"><span class="logo-char">V</span><span class="logo-char">D</span></div>
-        <ul class="nav-menu">
-            <li><a href="#home">Accueil</a></li>
-            <li><a href="#about">À propos</a></li>
-            <li><a href="#experience">Expérience</a></li>
-            <li><a href="#formation">Formation</a></li>
-            <li><a href="#skills">Compétences</a></li>
-            <li><a href="#projects">Projets</a></li>
-            <li><a href="#contact">Contact</a></li>
+        
+        <!-- Mobile Menu Toggle -->
+        <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <ul class="nav-menu" id="navMenu">
+            <li><a href="#home" data-fr="Accueil" data-en="Home">Accueil</a></li>
+            <li><a href="#about" data-fr="À propos" data-en="About">À propos</a></li>
+            <li><a href="#experience" data-fr="Expérience" data-en="Experience">Expérience</a></li>
+            <li><a href="#skills" data-fr="Compétences" data-en="Skills">Compétences</a></li>
+            <li><a href="#certifications" data-fr="Certifications" data-en="Certifications">Certifications</a></li>
+            <li><a href="#formation" data-fr="Formation" data-en="Education">Formation</a></li>
+            <li><a href="#projects" data-fr="Projets" data-en="Projects">Projets</a></li>
+            <li><a href="#contact" data-fr="Contact" data-en="Contact">Contact</a></li>
         </ul>
     </nav>
 
     <!-- Hero -->
     <section class="hero-section" id="home">
         <div class="hero-content">
-            <div class="hero-badge">Ingénieur Cybersécurité</div>
+            <div class="hero-badge" data-fr="Ingénieur Cybersécurité" data-en="Cybersecurity Engineer">Ingénieur Cybersécurité</div>
             <h1 class="hero-name">VISHAL DESAI</h1>
-            <h2 class="hero-title">Expert en <span>Solutions de Sécurité</span></h2>
-            <p class="hero-description">
+            <h2 class="hero-title" data-fr="Expert en <span>Solutions de Sécurité</span>" data-en="Expert in <span>Security Solutions</span>">Expert en <span>Solutions de Sécurité</span></h2>
+            <p class="hero-description" 
+            data-fr="Spécialiste EDR/XDR, IAM & Zero Trust avec plus de 3 ans d'expérience dans l'intégration et la gestion de solutions de sécurité avancées pour des environnements d'entreprise critiques." 
+            data-en="EDR/XDR, IAM & Zero Trust specialist with over 3 years of experience in integrating and managing advanced security solutions for critical enterprise environments.">
                 Spécialiste EDR/XDR, IAM & Zero Trust avec plus de 3 ans d'expérience dans l'intégration 
                 et la gestion de solutions de sécurité avancées pour des environnements d'entreprise critiques.
             </p>
+            
+            <!-- Liens sociaux Hero -->
+            <div class="hero-social-links">
+                <a href="https://www.linkedin.com/in/vishaldesai-cybersecurity/" target="_blank" rel="noopener noreferrer" class="hero-social-link linkedin" title="LinkedIn">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="https://github.com/VD17" target="_blank" rel="noopener noreferrer" class="hero-social-link github" title="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="mailto:contact@vishal-desai.fr" class="hero-social-link email" title="Email">
+                    <i class="fas fa-envelope"></i>
+                </a>
+            </div>
+            
             <div class="hero-buttons">
-                <a href="#contact" class="btn-primary">Me Contacter</a>
-                <a href="#projects" class="btn-secondary">Voir mes Projets</a>
+                <a href="#contact" class="btn-primary" data-fr="Me Contacter" data-en="Contact Me">Me Contacter</a>
+                <a href="#projects" class="btn-secondary" data-fr="Voir mes Projets" data-en="View My Projects">Voir mes Projets</a>
             </div>
         </div>
     </section>
 
+
     <!-- About -->
     <section class="section" id="about">
         <div class="section-header">
-            <div class="section-badge">Qui suis-je</div>
-            <h2 class="section-title">À Propos</h2>
-            <p class="section-subtitle">Découvrez mon parcours et mes expertises</p>
+            <div class="section-badge" data-fr="Qui suis-je" data-en="Who am I">Qui suis-je</div>
+            <h2 class="section-title" data-fr="À Propos" data-en="About">À Propos</h2>
+            <p class="section-subtitle" data-fr="Découvrez mon parcours et mes expertises" data-en="Discover my background and expertise">Découvrez mon parcours et mes expertises</p>
         </div>
         <div class="about-grid">
             <div class="about-image">
                 <img src="photo-profil.jpg" alt="Vishal DESAI" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                 <i class="fas fa-user-shield" style="display: none;"></i>
             </div>
-            <div class="about-content">
-                <p class="about-text">
+           <div class="about-content">
+                <p class="about-text" 
+                data-fr="Ingénieur en <strong>cybersécurité</strong> passionné, actuellement en Master 2 Sécurité Informatique à l'ESGI Paris. Consultant chez <strong>SAYCURIT</strong> depuis septembre 2022, je me spécialise dans l'intégration et la gestion de solutions de sécurité avancées : <strong>EDR/XDR, IAM, SIEM, DLP, NGFW, SASE</strong>." 
+                data-en="Passionate <strong>cybersecurity</strong> engineer, currently in Master 2 IT Security at ESGI Paris. Consultant at <strong>SAYCURIT</strong> since September 2022, I specialize in integrating and managing advanced security solutions: <strong>EDR/XDR, IAM, SIEM, DLP, NGFW, SASE</strong>.">
                     Ingénieur en <strong>cybersécurité</strong> passionné, actuellement en Master 2 Sécurité Informatique à l'ESGI Paris. 
                     Consultant chez <strong>SAYCURIT</strong> depuis septembre 2022, je me spécialise dans l'intégration et la gestion 
                     de solutions de sécurité avancées : <strong>EDR/XDR, IAM, SIEM, DLP, NGFW, SASE</strong>.
                 </p>
-                <p class="about-text">
+                <p class="about-text" 
+                data-fr="Mon expertise couvre les architectures <strong>Zero Trust</strong>, la réponse aux incidents, et l'audit de sécurité. Formateur freelance depuis 2021, je partage mes connaissances en cybersécurité, réseaux et administration système." 
+                data-en="My expertise covers <strong>Zero Trust</strong> architectures, incident response, and security audits. Freelance trainer since 2021, I share my knowledge in cybersecurity, networks, and system administration.">
                     Mon expertise couvre les architectures <strong>Zero Trust</strong>, la réponse aux incidents, et l'audit de sécurité. 
                     Formateur freelance depuis 2021, je partage mes connaissances en cybersécurité, réseaux et administration système.
                 </p>
+                
+                <!-- Bouton téléchargement CV -->
+                <div class="cv-download-container">
+                    <button class="cv-download-btn" id="cvDownloadBtn" onclick="downloadCV()">
+                        <i class="fas fa-download"></i>
+                        <span data-fr="Télécharger mon CV" data-en="Download my Resume">Télécharger mon CV</span>
+                    </button>
+                </div>
+                
                 <div class="stats-grid">
                     <div class="stat-card">
                         <div class="stat-number" data-target="3">0</div>
-                        <div class="stat-label">Années d'Expérience</div>
+                        <div class="stat-label" data-fr="Années d'Expérience" data-en="Years of Experience">Années d'Expérience</div>
                     </div>
                     <div class="stat-card">
                         <div class="stat-number" data-target="6">0</div>
-                        <div class="stat-label">Certifications</div>
+                        <div class="stat-label" data-fr="Certifications" data-en="Certifications">Certifications</div>
                     </div>
                     <div class="stat-card">
                         <div class="stat-number" data-target="15">0</div>
-                        <div class="stat-label">Technologies Maîtrisées</div>
+                        <div class="stat-label" data-fr="Technologies Maîtrisées" data-en="Mastered Technologies">Technologies Maîtrisées</div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Certifications -->
-    <div class="certifications-scroll">
-        <div class="certifications-track">
-            <div class="cert-card"><div class="cert-icon"><i class="fas fa-shield-alt"></i></div><div class="cert-info"><h4>MOOC ANSSI</h4><p>Cybersécurité</p></div></div>
-            <div class="cert-card"><div class="cert-icon"><i class="fas fa-robot"></i></div><div class="cert-info"><h4>SentinelOne SIREN</h4><p>IR Engineer</p></div></div>
-            <div class="cert-card"><div class="cert-icon"><i class="fas fa-fire"></i></div><div class="cert-info"><h4>Palo Alto PSE</h4><p>System Engineer</p></div></div>
-            <div class="cert-card"><div class="cert-icon"><i class="fas fa-cloud"></i></div><div class="cert-info"><h4>CATO Certified</h4><p>Associate</p></div></div>
-            <div class="cert-card"><div class="cert-icon"><i class="fas fa-lock"></i></div><div class="cert-info"><h4>Netwrix PSE</h4><p>Privilege Secure</p></div></div>
-            <div class="cert-card"><div class="cert-icon"><i class="fas fa-network-wired"></i></div><div class="cert-info"><h4>Cisco CCNA</h4><p>Networking</p></div></div>
-            <div class="cert-card"><div class="cert-icon"><i class="fas fa-shield-alt"></i></div><div class="cert-info"><h4>MOOC ANSSI</h4><p>Cybersécurité</p></div></div>
-            <div class="cert-card"><div class="cert-icon"><i class="fas fa-robot"></i></div><div class="cert-info"><h4>SentinelOne SIREN</h4><p>IR Engineer</p></div></div>
-            <div class="cert-card"><div class="cert-icon"><i class="fas fa-fire"></i></div><div class="cert-info"><h4>Palo Alto PSE</h4><p>System Engineer</p></div></div>
-            <div class="cert-card"><div class="cert-icon"><i class="fas fa-cloud"></i></div><div class="cert-info"><h4>CATO Certified</h4><p>Associate</p></div></div>
-            <div class="cert-card"><div class="cert-icon"><i class="fas fa-lock"></i></div><div class="cert-info"><h4>Netwrix PSE</h4><p>Privilege Secure</p></div></div>
-            <div class="cert-card"><div class="cert-icon"><i class="fas fa-network-wired"></i></div><div class="cert-info"><h4>Cisco CCNA</h4><p>Networking</p></div></div>
-        </div>
-    </div>
-
     <!-- Experience -->
     <section class="section" id="experience">
         <div class="section-header">
-            <div class="section-badge">Parcours</div>
-            <h2 class="section-title">Expérience</h2>
-            <p class="section-subtitle">Mon parcours professionnel</p>
+            <div class="section-badge" data-fr="Parcours" data-en="Journey">Parcours</div>
+            <h2 class="section-title" data-fr="Expérience" data-en="Experience">Expérience</h2>
+            <p class="section-subtitle" data-fr="Mon parcours professionnel" data-en="My professional journey">Mon parcours professionnel</p>
         </div>
         <div class="timeline-container">
             <div class="timeline-item">
                 <div class="timeline-dot"></div>
                 <div class="timeline-card">
-                    <div class="timeline-date">Sep 2022 - Aujourd'hui</div>
-                    <h3 class="timeline-title">Consultant Cybersécurité</h3>
+                    <div class="timeline-date" data-fr="Sep 2022 - Aujourd'hui" data-en="Sep 2022 - Present">Sep 2022 - Aujourd'hui</div>
+                    <h3 class="timeline-title" data-fr="Consultant Cybersécurité" data-en="Cybersecurity Consultant">Consultant Cybersécurité</h3>
                     <div class="timeline-company">SAYCURIT, Paris 13</div>
                     <ul class="timeline-description">
-                        <li>Référent Rapid7 (InsightVM, AppSec, IDR) : intégration, formation client, analyse de vulnérabilités</li>
-                        <li>SentinelOne : déploiement EDR, analyse d'alertes et réponse à incidents</li>
-                        <li>Okta (IAM) : SSO, MFA, provisioning SCIM, automatisation via Workflows, posture Zero Trust</li>
-                        <li>Palo Alto (NGFW, Panorama, GlobalProtect) : gestion firewalls, création règles, migrations</li>
+                        <li data-fr="Référent Rapid7 (InsightVM, AppSec, IDR) : intégration, formation client, analyse de vulnérabilités" 
+                            data-en="Rapid7 Expert (InsightVM, AppSec, IDR): integration, client training, vulnerability analysis">
+                            Référent Rapid7 (InsightVM, AppSec, IDR) : intégration, formation client, analyse de vulnérabilités
+                        </li>
+                        <li data-fr="SentinelOne : déploiement EDR, analyse d'alertes et réponse à incidents" 
+                            data-en="SentinelOne: EDR deployment, alert analysis and incident response">
+                            SentinelOne : déploiement EDR, analyse d'alertes et réponse à incidents
+                        </li>
+                        <li data-fr="Okta (IAM) : SSO, MFA, provisioning SCIM, automatisation via Workflows, posture Zero Trust" 
+                            data-en="Okta (IAM): SSO, MFA, SCIM provisioning, automation via Workflows, Zero Trust posture">
+                            Okta (IAM) : SSO, MFA, provisioning SCIM, automatisation via Workflows, posture Zero Trust
+                        </li>
+                        <li data-fr="Palo Alto (NGFW, Panorama, GlobalProtect) : gestion firewalls, création règles, migrations" 
+                            data-en="Palo Alto (NGFW, Panorama, GlobalProtect): firewall management, rule creation, migrations">
+                            Palo Alto (NGFW, Panorama, GlobalProtect) : gestion firewalls, création règles, migrations
+                        </li>
                     </ul>
                 </div>
             </div>
             <div class="timeline-item">
                 <div class="timeline-dot"></div>
                 <div class="timeline-card">
-                    <div class="timeline-date">Sep 2021 - Aujourd'hui</div>
-                    <h3 class="timeline-title">Formateur Freelance</h3>
-                    <div class="timeline-company">VD Formations – Paris & Région PACA</div>
+                    <div class="timeline-date" data-fr="Sep 2021 - Aujourd'hui" data-en="Sep 2021 - Present">Sep 2021 - Aujourd'hui</div>
+                    <h3 class="timeline-title" data-fr="Formateur Freelance" data-en="Freelance Trainer">Formateur Freelance</h3>
+                    <div class="timeline-company" data-fr="VD Formations – Paris & Région PACA" data-en="VD Formations – Paris & PACA Region">VD Formations – Paris & Région PACA</div>
                     <ul class="timeline-description">
-                        <li>Formation BTS/TAI : Linux (Bash, hardening, iptables), Windows Server (AD, GPO)</li>
-                        <li>Réseaux : TCP/IP, VLAN, VPN</li>
-                        <li>Modules cybersécurité : Pentest, SIEM, XDR, IAM, SOC opérationnel</li>
+                        <li data-fr="Formation BTS/TAI : Linux (Bash, hardening, iptables), Windows Server (AD, GPO)" 
+                            data-en="BTS/TAI Training: Linux (Bash, hardening, iptables), Windows Server (AD, GPO)">
+                            Formation BTS/TAI : Linux (Bash, hardening, iptables), Windows Server (AD, GPO)
+                        </li>
+                        <li data-fr="Réseaux : TCP/IP, VLAN, VPN" 
+                            data-en="Networks: TCP/IP, VLAN, VPN">
+                            Réseaux : TCP/IP, VLAN, VPN
+                        </li>
+                        <li data-fr="Modules cybersécurité : Pentest, SIEM, XDR, IAM, SOC opérationnel" 
+                            data-en="Cybersecurity modules: Pentest, SIEM, XDR, IAM, Operational SOC">
+                            Modules cybersécurité : Pentest, SIEM, XDR, IAM, SOC opérationnel
+                        </li>
                     </ul>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Formation -->
-    <section class="section" id="formation">
-        <div class="section-header">
-            <div class="section-badge">Académique</div>
-            <h2 class="section-title">Formation</h2>
-            <p class="section-subtitle">Mon parcours académique</p>
-        </div>
-        <div class="formation-grid">
-            <div class="formation-card">
-                <div class="formation-icon"><i class="fas fa-graduation-cap"></i></div>
-                <div class="timeline-date">2023 – 2025</div>
-                <h3 class="timeline-title">Master Cybersécurité</h3>
-                <div class="timeline-company">ESGI, Paris</div>
-                <p class="timeline-description">
-                    Master Informatique spécialisation Cybersécurité avec focus sur la sécurité des systèmes d'information, 
-                    l'architecture Zero Trust, le SOC et la réponse aux incidents.
-                </p>
-            </div>
-            <div class="formation-card">
-                <div class="formation-icon"><i class="fas fa-laptop-code"></i></div>
-                <div class="timeline-date">2022 – 2023</div>
-                <h3 class="timeline-title">Bachelor 3 Cybersécurité</h3>
-                <div class="timeline-company">ESGI, Paris</div>
-                <p class="timeline-description">
-                    Bachelor 3 Informatique spécialisation Cybersécurité couvrant les fondamentaux de la sécurité informatique, 
-                    l'administration système et les réseaux sécurisés.
-                </p>
             </div>
         </div>
     </section>
@@ -1412,14 +1841,14 @@
     <!-- Skills -->
     <section class="section" id="skills">
         <div class="section-header">
-            <div class="section-badge">Expertise</div>
-            <h2 class="section-title">Compétences</h2>
-            <p class="section-subtitle">Technologies et expertises</p>
+            <div class="section-badge" data-fr="Expertise" data-en="Expertise">Expertise</div>
+            <h2 class="section-title" data-fr="Compétences" data-en="Skills">Compétences</h2>
+            <p class="section-subtitle" data-fr="Technologies et expertises" data-en="Technologies and expertise">Technologies et expertises</p>
         </div>
         <div class="skills-grid">
             <div class="skill-card">
                 <div class="skill-icon"><i class="fas fa-shield-alt"></i></div>
-                <h3>Sécurité Offensive/Défensive</h3>
+                <h3 data-fr="Sécurité Offensive/Défensive" data-en="Offensive/Defensive Security">Sécurité Offensive/Défensive</h3>
                 <div class="skill-tags">
                     <span class="skill-tag">SIEM</span>
                     <span class="skill-tag">EDR/XDR</span>
@@ -1431,7 +1860,7 @@
             </div>
             <div class="skill-card">
                 <div class="skill-icon"><i class="fas fa-user-lock"></i></div>
-                <h3>IAM & Access Management</h3>
+                <h3 data-fr="IAM & Access Management" data-en="IAM & Access Management">IAM & Access Management</h3>
                 <div class="skill-tags">
                     <span class="skill-tag">SSO/MFA</span>
                     <span class="skill-tag">SAML</span>
@@ -1444,7 +1873,7 @@
             </div>
             <div class="skill-card">
                 <div class="skill-icon"><i class="fas fa-network-wired"></i></div>
-                <h3>Réseau & Infrastructure</h3>
+                <h3 data-fr="Réseau & Infrastructure" data-en="Network & Infrastructure">Réseau & Infrastructure</h3>
                 <div class="skill-tags">
                     <span class="skill-tag">NGFW</span>
                     <span class="skill-tag">VPN IPSec/SSL</span>
@@ -1456,7 +1885,7 @@
             </div>
             <div class="skill-card">
                 <div class="skill-icon"><i class="fas fa-code"></i></div>
-                <h3>Développement & Automation</h3>
+                <h3 data-fr="Développement & Automation" data-en="Development & Automation">Développement & Automation</h3>
                 <div class="skill-tags">
                     <span class="skill-tag">Python</span>
                     <span class="skill-tag">PowerShell</span>
@@ -1467,7 +1896,7 @@
             </div>
             <div class="skill-card">
                 <div class="skill-icon"><i class="fas fa-cloud"></i></div>
-                <h3>Cloud & Virtualisation</h3>
+                <h3 data-fr="Cloud & Virtualisation" data-en="Cloud & Virtualization">Cloud & Virtualisation</h3>
                 <div class="skill-tags">
                     <span class="skill-tag">Azure</span>
                     <span class="skill-tag">IaaS</span>
@@ -1479,21 +1908,84 @@
         </div>
     </section>
 
+    <!-- Certifications Section -->
+    <section class="certifications-section" id="certifications">
+        <div class="section-header">
+            <div class="section-badge" data-fr="Reconnaissance" data-en="Recognition">Reconnaissance</div>
+            <h2 class="section-title" data-fr="Certifications" data-en="Certifications">Certifications</h2>
+            <p class="section-subtitle" data-fr="Mes certifications professionnelles" data-en="My professional certifications">Mes certifications professionnelles</p>
+        </div>
+        <div class="certifications-scroll">
+            <div class="certifications-track">
+                <div class="cert-card"><div class="cert-icon"><i class="fas fa-shield-alt"></i></div><div class="cert-info"><h4>MOOC ANSSI</h4><p data-fr="Cybersécurité" data-en="Cybersecurity">Cybersécurité</p></div></div>
+                <div class="cert-card"><div class="cert-icon"><i class="fas fa-robot"></i></div><div class="cert-info"><h4>SentinelOne SIREN</h4><p>IR Engineer</p></div></div>
+                <div class="cert-card"><div class="cert-icon"><i class="fas fa-fire"></i></div><div class="cert-info"><h4>Palo Alto PSE</h4><p>System Engineer</p></div></div>
+                <div class="cert-card"><div class="cert-icon"><i class="fas fa-cloud"></i></div><div class="cert-info"><h4>CATO Certified</h4><p>Associate</p></div></div>
+                <div class="cert-card"><div class="cert-icon"><i class="fas fa-lock"></i></div><div class="cert-info"><h4>Netwrix PSE</h4><p>Privilege Secure</p></div></div>
+                <div class="cert-card"><div class="cert-icon"><i class="fas fa-network-wired"></i></div><div class="cert-info"><h4>Cisco CCNA</h4><p>Networking</p></div></div>
+                <div class="cert-card"><div class="cert-icon"><i class="fas fa-shield-alt"></i></div><div class="cert-info"><h4>MOOC ANSSI</h4><p data-fr="Cybersécurité" data-en="Cybersecurity">Cybersécurité</p></div></div>
+                <div class="cert-card"><div class="cert-icon"><i class="fas fa-robot"></i></div><div class="cert-info"><h4>SentinelOne SIREN</h4><p>IR Engineer</p></div></div>
+                <div class="cert-card"><div class="cert-icon"><i class="fas fa-fire"></i></div><div class="cert-info"><h4>Palo Alto PSE</h4><p>System Engineer</p></div></div>
+                <div class="cert-card"><div class="cert-icon"><i class="fas fa-cloud"></i></div><div class="cert-info"><h4>CATO Certified</h4><p>Associate</p></div></div>
+                <div class="cert-card"><div class="cert-icon"><i class="fas fa-lock"></i></div><div class="cert-info"><h4>Netwrix PSE</h4><p>Privilege Secure</p></div></div>
+                <div class="cert-card"><div class="cert-icon"><i class="fas fa-network-wired"></i></div><div class="cert-info"><h4>Cisco CCNA</h4><p>Networking</p></div></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Formation -->
+    <section class="section" id="formation">
+        <div class="section-header">
+            <div class="section-badge" data-fr="Académique" data-en="Academic">Académique</div>
+            <h2 class="section-title" data-fr="Formation" data-en="Education">Formation</h2>
+            <p class="section-subtitle" data-fr="Mon parcours académique" data-en="My academic background">Mon parcours académique</p>
+        </div>
+        <div class="formation-grid">
+            <div class="formation-card">
+                <div class="formation-icon"><i class="fas fa-graduation-cap"></i></div>
+                <div class="timeline-date">2023 – 2025</div>
+                <h3 class="timeline-title" data-fr="Master Cybersécurité" data-en="Master in Cybersecurity">Master Cybersécurité</h3>
+                <div class="timeline-company">ESGI, Paris</div>
+                <p class="timeline-description" 
+                   data-fr="Master Informatique spécialisation Cybersécurité avec focus sur la sécurité des systèmes d'information, l'architecture Zero Trust, le SOC et la réponse aux incidents." 
+                   data-en="Master in IT specializing in Cybersecurity with focus on information systems security, Zero Trust architecture, SOC and incident response.">
+                    Master Informatique spécialisation Cybersécurité avec focus sur la sécurité des systèmes d'information, 
+                    l'architecture Zero Trust, le SOC et la réponse aux incidents.
+                </p>
+            </div>
+            <div class="formation-card">
+                <div class="formation-icon"><i class="fas fa-laptop-code"></i></div>
+                <div class="timeline-date">2022 – 2023</div>
+                <h3 class="timeline-title" data-fr="Bachelor 3 Cybersécurité" data-en="Bachelor 3 Cybersecurity">Bachelor 3 Cybersécurité</h3>
+                <div class="timeline-company">ESGI, Paris</div>
+                <p class="timeline-description" 
+                   data-fr="Bachelor 3 Informatique spécialisation Cybersécurité couvrant les fondamentaux de la sécurité informatique, l'administration système et les réseaux sécurisés." 
+                   data-en="Bachelor 3 in IT specializing in Cybersecurity covering IT security fundamentals, system administration and secure networks.">
+                    Bachelor 3 Informatique spécialisation Cybersécurité couvrant les fondamentaux de la sécurité informatique, 
+                    l'administration système et les réseaux sécurisés.
+                </p>
+            </div>
+        </div>
+    </section>
+
     <!-- Projects -->
     <section class="section" id="projects">
         <div class="section-header">
-            <div class="section-badge">Réalisations</div>
-            <h2 class="section-title">Projets</h2>
-            <p class="section-subtitle">Mes réalisations personnelles</p>
+            <div class="section-badge" data-fr="Réalisations" data-en="Achievements">Réalisations</div>
+            <h2 class="section-title" data-fr="Projets" data-en="Projects">Projets</h2>
+            <p class="section-subtitle" data-fr="Mes réalisations personnelles" data-en="My personal achievements">Mes réalisations personnelles</p>
         </div>
         <div class="projects-grid">
             <div class="project-card">
                 <div class="project-header">
-                    <div class="project-icon"><i class="fas fa-radar"></i></div>
-                    <a href="#" class="project-link"><i class="fab fa-github"></i></a>
+                    <div class="project-icon"><i class="fas fa-eye"></i></div>
+                    <a href="https://github.com/VD17/PANTHERASOC" class="project-link"><i class="fab fa-github"></i></a>
                 </div>
                 <h3>Panther ASOC</h3>
-                <p>SOC Automatisé complet orchestrant Wazuh (SIEM), Suricata (IDS/IPS), TheHive (gestion incidents) et pfSense (firewall). Déploiement automatisé via Ansible.</p>
+                <p data-fr="SOC Automatisé complet orchestrant Wazuh (SIEM), Suricata (IDS/IPS), TheHive (gestion incidents) et pfSense (firewall). Déploiement automatisé via Ansible." 
+                   data-en="Complete Automated SOC orchestrating Wazuh (SIEM), Suricata (IDS/IPS), TheHive (incident management) and pfSense (firewall). Automated deployment via Ansible.">
+                    SOC Automatisé complet orchestrant Wazuh (SIEM), Suricata (IDS/IPS), TheHive (gestion incidents) et pfSense (firewall). Déploiement automatisé via Ansible.
+                </p>
                 <div class="project-tags">
                     <span class="project-tag">Wazuh</span>
                     <span class="project-tag">Suricata</span>
@@ -1505,10 +1997,13 @@
             <div class="project-card">
                 <div class="project-header">
                     <div class="project-icon"><i class="fas fa-balance-scale"></i></div>
-                    <a href="#" class="project-link"><i class="fab fa-github"></i></a>
+                    <a href="https://github.com/VD17/RustLoadBalancer" class="project-link"><i class="fab fa-github"></i></a>
                 </div>
                 <h3>Harmony Load Balancer</h3>
-                <p>Load balancer HTTP modulaire avec répartition intelligente du trafic, vérification d'état des backends, limitation de débit et journalisation avancée.</p>
+                <p data-fr="Load balancer HTTP modulaire avec répartition intelligente du trafic, vérification d'état des backends, limitation de débit et journalisation avancée." 
+                   data-en="Modular HTTP load balancer with intelligent traffic distribution, backend health checking, rate limiting and advanced logging.">
+                    Load balancer HTTP modulaire avec répartition intelligente du trafic, vérification d'état des backends, limitation de débit et journalisation avancée.
+                </p>
                 <div class="project-tags">
                     <span class="project-tag">Rust</span>
                     <span class="project-tag">HTTP</span>
@@ -1519,10 +2014,12 @@
             <div class="project-card">
                 <div class="project-header">
                     <div class="project-icon"><i class="fas fa-server"></i></div>
-                    <a href="#" class="project-link"><i class="fab fa-github"></i></a>
                 </div>
                 <h3>Infrastructure Proxmox</h3>
-                <p>HomeLab complet avec virtualisation avancée, haute disponibilité (HA), intégration IoT et VPN site-to-site pour test de solutions cybersécurité.</p>
+                <p data-fr="HomeLab complet avec virtualisation avancée, haute disponibilité (HA), intégration IoT et VPN site-to-site pour test de solutions cybersécurité." 
+                   data-en="Complete HomeLab with advanced virtualization, high availability (HA), IoT integration and site-to-site VPN for cybersecurity solution testing.">
+                    HomeLab complet avec virtualisation avancée, haute disponibilité (HA), intégration IoT et VPN site-to-site pour test de solutions cybersécurité.
+                </p>
                 <div class="project-tags">
                     <span class="project-tag">Proxmox</span>
                     <span class="project-tag">High Availability</span>
@@ -1536,32 +2033,122 @@
     <!-- Solutions -->
     <section class="section" style="padding: 60px 0;">
         <div class="section-header">
-            <div class="section-badge">Technologies</div>
-            <h2 class="section-title">Solutions Maîtrisées</h2>
-            <p class="section-subtitle">Outils utilisés quotidiennement</p>
+            <div class="section-badge" data-fr="Technologies" data-en="Technologies">Technologies</div>
+            <h2 class="section-title" data-fr="Solutions Maîtrisées" data-en="Mastered Solutions">Solutions Maîtrisées</h2>
+            <p class="section-subtitle" data-fr="Outils utilisés quotidiennement" data-en="Daily used tools">Outils utilisés quotidiennement</p>
         </div>
         <div class="solutions-scroll">
             <div class="solutions-track">
-                <div class="solution-card"><div class="solution-logo"><i class="fas fa-search"></i></div><div class="solution-name">Rapid7</div><div class="solution-category">Vulnerability</div></div>
-                <div class="solution-card"><div class="solution-logo"><i class="fas fa-shield-virus"></i></div><div class="solution-name">SentinelOne</div><div class="solution-category">EDR/XDR</div></div>
-                <div class="solution-card"><div class="solution-logo"><i class="fas fa-key"></i></div><div class="solution-name">Okta</div><div class="solution-category">IAM</div></div>
-                <div class="solution-card"><div class="solution-logo"><i class="fas fa-fire"></i></div><div class="solution-name">Palo Alto</div><div class="solution-category">NGFW</div></div>
-                <div class="solution-card"><div class="solution-logo"><i class="fas fa-cloud"></i></div><div class="solution-name">CATO Networks</div><div class="solution-category">SASE</div></div>
-                <div class="solution-card"><div class="solution-logo"><i class="fas fa-user-shield"></i></div><div class="solution-name">Netwrix</div><div class="solution-category">PAM</div></div>
-                <div class="solution-card"><div class="solution-logo"><i class="fas fa-lock"></i></div><div class="solution-name">Digital Guardian</div><div class="solution-category">DLP</div></div>
-                <div class="solution-card"><div class="solution-logo"><i class="fas fa-chart-line"></i></div><div class="solution-name">Wazuh</div><div class="solution-category">SIEM</div></div>
-                <div class="solution-card"><div class="solution-logo"><i class="fas fa-binoculars"></i></div><div class="solution-name">Suricata</div><div class="solution-category">IDS/IPS</div></div>
-                <div class="solution-card"><div class="solution-logo"><i class="fas fa-project-diagram"></i></div><div class="solution-name">TheHive</div><div class="solution-category">SOAR</div></div>
-                <div class="solution-card"><div class="solution-logo"><i class="fas fa-search"></i></div><div class="solution-name">Rapid7</div><div class="solution-category">Vulnerability</div></div>
-                <div class="solution-card"><div class="solution-logo"><i class="fas fa-shield-virus"></i></div><div class="solution-name">SentinelOne</div><div class="solution-category">EDR/XDR</div></div>
-                <div class="solution-card"><div class="solution-logo"><i class="fas fa-key"></i></div><div class="solution-name">Okta</div><div class="solution-category">IAM</div></div>
-                <div class="solution-card"><div class="solution-logo"><i class="fas fa-fire"></i></div><div class="solution-name">Palo Alto</div><div class="solution-category">NGFW</div></div>
-                <div class="solution-card"><div class="solution-logo"><i class="fas fa-cloud"></i></div><div class="solution-name">CATO Networks</div><div class="solution-category">SASE</div></div>
-                <div class="solution-card"><div class="solution-logo"><i class="fas fa-user-shield"></i></div><div class="solution-name">Netwrix</div><div class="solution-category">PAM</div></div>
-                <div class="solution-card"><div class="solution-logo"><i class="fas fa-lock"></i></div><div class="solution-name">Digital Guardian</div><div class="solution-category">DLP</div></div>
-                <div class="solution-card"><div class="solution-logo"><i class="fas fa-chart-line"></i></div><div class="solution-name">Wazuh</div><div class="solution-category">SIEM</div></div>
-                <div class="solution-card"><div class="solution-logo"><i class="fas fa-binoculars"></i></div><div class="solution-name">Suricata</div><div class="solution-category">IDS/IPS</div></div>
-                <div class="solution-card"><div class="solution-logo"><i class="fas fa-project-diagram"></i></div><div class="solution-name">TheHive</div><div class="solution-category">SOAR</div></div>
+                <!-- Rapid7 -->
+                <div class="solution-card">
+                    <img src="logos/rapid7.png" alt="Rapid7" class="solution-logo">
+                    <div class="solution-category">Vulnerability</div>
+                </div>
+                
+                <!-- SentinelOne -->
+                <div class="solution-card">
+                    <img src="logos/sentinelone.png" alt="SentinelOne" class="solution-logo">
+                    <div class="solution-category">EDR/XDR</div>
+                </div>
+                
+                <!-- Okta -->
+                <div class="solution-card">
+                    <img src="logos/okta.png" alt="Okta" class="solution-logo">
+                    <div class="solution-category">IAM</div>
+                </div>
+                
+                <!-- Palo Alto -->
+                <div class="solution-card">
+                    <img src="logos/paloalto.png" alt="Palo Alto" class="solution-logo">
+                    <div class="solution-category">NGFW</div>
+                </div>
+                
+                <!-- CATO Networks -->
+                <div class="solution-card">
+                    <img src="logos/cato.png" alt="CATO Networks" class="solution-logo">
+                    <div class="solution-category">SASE</div>
+                </div>
+                
+                <!-- Netwrix -->
+                <div class="solution-card">
+                    <img src="logos/netwrix.png" alt="Netwrix" class="solution-logo">
+                    <div class="solution-category">PAM & Audit AD</div>
+                </div>
+                
+                <!-- Digital Guardian -->
+                <div class="solution-card">
+                    <img src="logos/digitalguardian.png" alt="Digital Guardian" class="solution-logo">
+                    <div class="solution-category">DLP</div>
+                </div>
+                
+                <!-- Wazuh -->
+                <div class="solution-card">
+                    <img src="logos/wazuh.png" alt="Wazuh" class="solution-logo">
+                    <div class="solution-category">SIEM</div>
+                </div>
+                
+                <!-- Suricata -->
+                <div class="solution-card">
+                    <img src="logos/suricata.png" alt="Suricata" class="solution-logo">
+                    <div class="solution-category">IDS/IPS</div>
+                </div>
+                
+                <!-- TheHive -->
+                <div class="solution-card">
+                    <img src="logos/thehive.png" alt="TheHive" class="solution-logo">
+                    <div class="solution-category">SOAR</div>
+                </div>
+
+                <!-- Duplicate pour l'animation infinie -->
+                <div class="solution-card">
+                    <img src="logos/rapid7.png" alt="Rapid7" class="solution-logo">
+                    <div class="solution-category">Vulnerability</div>
+                </div>
+                
+                <div class="solution-card">
+                    <img src="logos/sentinelone.png" alt="SentinelOne" class="solution-logo">
+                    <div class="solution-category">EDR/XDR</div>
+                </div>
+                
+                <div class="solution-card">
+                    <img src="logos/okta.png" alt="Okta" class="solution-logo">
+                    <div class="solution-category">IAM</div>
+                </div>
+                
+                <div class="solution-card">
+                    <img src="logos/paloalto.png" alt="Palo Alto" class="solution-logo">
+                    <div class="solution-category">NGFW</div>
+                </div>
+                
+                <div class="solution-card">
+                    <img src="logos/cato.png" alt="CATO Networks" class="solution-logo">
+                    <div class="solution-category">SASE</div>
+                </div>
+                
+                <div class="solution-card">
+                    <img src="logos/netwrix.png" alt="Netwrix" class="solution-logo">
+                    <div class="solution-category">PAM & Audit AD</div>
+                </div>
+                
+                <div class="solution-card">
+                    <img src="logos/digitalguardian.png" alt="Digital Guardian" class="solution-logo">
+                    <div class="solution-category">DLP</div>
+                </div>
+                
+                <div class="solution-card">
+                    <img src="logos/wazuh.png" alt="Wazuh" class="solution-logo">
+                    <div class="solution-category">SIEM</div>
+                </div>
+                
+                <div class="solution-card">
+                    <img src="logos/suricata.png" alt="Suricata" class="solution-logo">
+                    <div class="solution-category">IDS/IPS</div>
+                </div>
+                
+                <div class="solution-card">
+                    <img src="logos/thehive.png" alt="TheHive" class="solution-logo">
+                    <div class="solution-category">SOAR</div>
+                </div>
             </div>
         </div>
     </section>
@@ -1569,9 +2156,9 @@
     <!-- Terminal Contact -->
     <section class="section" id="contact">
         <div class="section-header">
-            <div class="section-badge">Me joindre</div>
-            <h2 class="section-title">Contact</h2>
-            <p class="section-subtitle">Discutons de vos projets</p>
+            <div class="section-badge" data-fr="Me joindre" data-en="Get in touch">Me joindre</div>
+            <h2 class="section-title" data-fr="Contact" data-en="Contact">Contact</h2>
+            <p class="section-subtitle" data-fr="Discutons de vos projets" data-en="Let's discuss your projects">Discutons de vos projets</p>
         </div>
         <div class="terminal-wrapper">
             <div class="terminal-header">
@@ -1582,19 +2169,19 @@
             </div>
             <div class="terminal-body" id="terminalBody">
                 <div class="terminal-line"><span class="terminal-prompt">vishal@portfolio:~$</span> cat contact.txt</div>
-                <div class="terminal-line">Bienvenue sur mon terminal de contact !</div>
-                <div class="terminal-line">Remplissez les champs ci-dessous pour m'envoyer un message.</div>
-                <div class="terminal-line" style="margin-top: 20px;"><span class="terminal-prompt">></span> <span class="terminal-command">Votre nom :</span></div>
-                <input type="text" class="terminal-input" id="contactName" placeholder="John Doe">
+                <div class="terminal-line" data-fr="Bienvenue sur mon terminal de contact !" data-en="Welcome to my contact terminal!">Bienvenue sur mon terminal de contact !</div>
+                <div class="terminal-line" data-fr="Remplissez les champs ci-dessous pour m'envoyer un message." data-en="Fill the fields below to send me a message.">Remplissez les champs ci-dessous pour m'envoyer un message.</div>
+                <div class="terminal-line" style="margin-top: 15px;"><span class="terminal-prompt">></span> <span class="terminal-command" data-fr="Votre nom :" data-en="Your name:">Votre nom :</span></div>
+                <input type="text" class="terminal-input" id="contactName" data-placeholder-fr="John Doe" data-placeholder-en="John Doe" placeholder="John Doe">
                 
-                <div class="terminal-line" style="margin-top: 15px;"><span class="terminal-prompt">></span> <span class="terminal-command">Votre email :</span></div>
-                <input type="email" class="terminal-input" id="contactEmail" placeholder="john@example.com">
+                <div class="terminal-line" style="margin-top: 12px;"><span class="terminal-prompt">></span> <span class="terminal-command" data-fr="Votre email :" data-en="Your email:">Votre email :</span></div>
+                <input type="email" class="terminal-input" id="contactEmail" data-placeholder-fr="john@example.com" data-placeholder-en="john@example.com" placeholder="john@example.com">
                 
-                <div class="terminal-line" style="margin-top: 15px;"><span class="terminal-prompt">></span> <span class="terminal-command">Sujet :</span></div>
-                <input type="text" class="terminal-input" id="contactSubject" placeholder="Consultation Cybersécurité">
+                <div class="terminal-line" style="margin-top: 12px;"><span class="terminal-prompt">></span> <span class="terminal-command" data-fr="Sujet :" data-en="Subject:">Sujet :</span></div>
+                <input type="text" class="terminal-input" id="contactSubject" data-placeholder-fr="Consultation Cybersécurité" data-placeholder-en="Cybersecurity Consultation" placeholder="Consultation Cybersécurité">
                 
-                <div class="terminal-line" style="margin-top: 15px;"><span class="terminal-prompt">></span> <span class="terminal-command">Votre message :</span></div>
-                <textarea class="terminal-textarea" id="contactMessage" placeholder="Décrivez votre projet..."></textarea>
+                <div class="terminal-line" style="margin-top: 12px;"><span class="terminal-prompt">></span> <span class="terminal-command" data-fr="Votre message :" data-en="Your message:">Votre message :</span></div>
+                <textarea class="terminal-textarea" id="contactMessage" data-placeholder-fr="Décrivez votre projet..." data-placeholder-en="Describe your project..." placeholder="Décrivez votre projet..."></textarea>
                 
                 <button class="terminal-btn" onclick="sendMessage()">./send-message.sh</button>
                 <div id="terminalResponse"></div>
@@ -1606,17 +2193,81 @@
     <div class="modal-overlay" id="modalOverlay"></div>
     <div class="success-modal" id="successModal">
         <div class="success-icon"><i class="fas fa-check"></i></div>
-        <h3 class="success-title">Message Envoyé !</h3>
-        <p class="success-message">Merci pour votre message ! Je vous répondrai dans les 24 heures.</p>
+        <h3 class="success-title" data-fr="Message Envoyé !" data-en="Message Sent!">Message Envoyé !</h3>
+        <p class="success-message" data-fr="Merci pour votre message ! Je vous répondrai dans les 24 heures." data-en="Thank you for your message! I will reply within 24 hours.">Merci pour votre message ! Je vous répondrai dans les 24 heures.</p>
         <button class="close-modal-btn" onclick="closeModal()">OK</button>
     </div>
 
     <!-- Footer -->
     <footer>
-        <p>© 2025 Vishal DESAI - Ingénieur Cybersécurité | Designed with precision</p>
+        <p data-fr="© 2025 Vishal DESAI - Ingénieur Cybersécurité | Designed with precision" data-en="© 2025 Vishal DESAI - Cybersecurity Engineer | Designed with precision">© 2025 Vishal DESAI - Ingénieur Cybersécurité | Designed with precision</p>
     </footer>
 
     <script>
+        // Translation System
+        let currentLang = localStorage.getItem('lang') || 'fr';
+        
+        function updateLanguage() {
+            const elements = document.querySelectorAll('[data-fr]');
+            elements.forEach(el => {
+                const langAttr = `data-${currentLang}`;
+                if (el.hasAttribute(langAttr)) {
+                    if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+                        el.placeholder = el.getAttribute(langAttr.replace('data-', 'data-placeholder-'));
+                    } else {
+                        el.innerHTML = el.getAttribute(langAttr);
+                    }
+                }
+            });
+            
+            // Update lang toggle button
+            document.getElementById('langToggle').textContent = currentLang.toUpperCase();
+            
+            // Save preference
+            localStorage.setItem('lang', currentLang);
+        }
+        
+        // Initialize language on load
+        updateLanguage();
+        
+        // Language Toggle
+        document.getElementById('langToggle').addEventListener('click', () => {
+            currentLang = currentLang === 'fr' ? 'en' : 'fr';
+            updateLanguage();
+        });
+
+        // Mobile Menu Toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const navMenu = document.getElementById('navMenu');
+
+        menuToggle.addEventListener('click', () => {
+            menuToggle.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        // Close menu on link click
+        document.querySelectorAll('.nav-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                menuToggle.classList.remove('active');
+                navMenu.classList.remove('active');
+            });
+        });
+
+        // Dark Mode Toggle
+        const darkModeToggle = document.getElementById('darkModeToggle');
+        const body = document.body;
+
+        const currentTheme = localStorage.getItem('theme') || 'light';
+        if (currentTheme === 'dark') {
+            body.classList.add('dark-mode');
+        }
+
+        darkModeToggle.addEventListener('click', () => {
+            body.classList.toggle('dark-mode');
+            const theme = body.classList.contains('dark-mode') ? 'dark' : 'light';
+            localStorage.setItem('theme', theme);
+        });
+
         // Loading
         window.addEventListener('load', () => {
             setTimeout(() => {
@@ -1631,7 +2282,7 @@
         canvas.height = window.innerHeight;
 
         const particles = [];
-        const particleCount = 80; // Réduit de 100 à 80 (-20%)
+        const particleCount = window.innerWidth < 768 ? 40 : 80;
         const connectionDistance = 120;
         const mouse = { x: null, y: null, radius: 150 };
 
@@ -1668,14 +2319,18 @@
             }
 
             draw() {
+                const isDark = document.body.classList.contains('dark-mode');
+                const particleColor = isDark ? 'rgba(96, 165, 250, 0.9)' : 'rgba(37, 99, 235, 0.9)';
+                const particleGlow = isDark ? 'rgba(96, 165, 250, 0.2)' : 'rgba(37, 99, 235, 0.2)';
+
                 ctx.beginPath();
                 ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-                ctx.fillStyle = 'rgba(37, 99, 235, 0.9)';
+                ctx.fillStyle = particleColor;
                 ctx.fill();
                 
                 ctx.beginPath();
                 ctx.arc(this.x, this.y, this.radius * 2, 0, Math.PI * 2);
-                ctx.fillStyle = 'rgba(37, 99, 235, 0.2)';
+                ctx.fillStyle = particleGlow;
                 ctx.fill();
             }
         }
@@ -1685,6 +2340,7 @@
         }
 
         function connectParticles() {
+            const isDark = document.body.classList.contains('dark-mode');
             for (let i = 0; i < particles.length; i++) {
                 for (let j = i + 1; j < particles.length; j++) {
                     const dx = particles[i].x - particles[j].x;
@@ -1693,8 +2349,9 @@
 
                     if (distance < connectionDistance) {
                         const opacity = 1 - distance / connectionDistance;
+                        const lineColor = isDark ? 'rgba(96, 165, 250,' : 'rgba(37, 99, 235,';
                         ctx.beginPath();
-                        ctx.strokeStyle = `rgba(37, 99, 235, ${opacity * 0.3})`;
+                        ctx.strokeStyle = `${lineColor} ${opacity * 0.3})`;
                         ctx.lineWidth = 1;
                         ctx.moveTo(particles[i].x, particles[i].y);
                         ctx.lineTo(particles[j].x, particles[j].y);
@@ -1803,9 +2460,11 @@
             const subject = document.getElementById('contactSubject').value;
             const message = document.getElementById('contactMessage').value;
 
+            const errorMsg = currentLang === 'fr' ? 'Erreur : Tous les champs sont requis !' : 'Error: All fields are required!';
+            
             if (!name || !email || !subject || !message) {
                 const response = document.getElementById('terminalResponse');
-                response.innerHTML = '<div class="terminal-line" style="color: #EF4444; margin-top: 20px;">Erreur : Tous les champs sont requis !</div>';
+                response.innerHTML = `<div class="terminal-line" style="color: #EF4444; margin-top: 20px;">${errorMsg}</div>`;
                 return;
             }
 
@@ -1815,9 +2474,12 @@
 
             setTimeout(() => {
                 const response = document.getElementById('terminalResponse');
+                const successMsg1 = currentLang === 'fr' ? '✓ Message envoyé avec succès !' : '✓ Message sent successfully!';
+                const successMsg2 = currentLang === 'fr' ? '✓ Vous recevrez une réponse sous 24h' : '✓ You will receive a response within 24h';
+                
                 response.innerHTML = `
-                    <div class="terminal-line terminal-success" style="margin-top: 20px;">✓ Message envoyé avec succès !</div>
-                    <div class="terminal-line terminal-success">✓ Vous recevrez une réponse sous 24h</div>
+                    <div class="terminal-line terminal-success" style="margin-top: 20px;">${successMsg1}</div>
+                    <div class="terminal-line terminal-success">${successMsg2}</div>
                 `;
                 
                 document.getElementById('contactName').value = '';
@@ -1841,6 +2503,50 @@
         }
 
         document.getElementById('modalOverlay').addEventListener('click', closeModal);
+
+        // CV Download Function
+        function downloadCV() {
+            // Détermine quelle version du CV télécharger selon la langue
+            const cvFile = currentLang === 'fr' ? 'CV_Vishal_DESAI_FR.pdf' : 'CV_Vishal_DESAI_EN.pdf';
+            
+            // Crée un élément <a> temporaire pour déclencher le téléchargement
+            const link = document.createElement('a');
+            link.href = cvFile;
+            link.download = cvFile;
+            link.target = '_blank'; // Ouvre dans un nouvel onglet si le fichier n'existe pas
+            
+            // Ajoute au DOM, clique et supprime
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            
+            // Animation visuelle du bouton
+            const btn = document.getElementById('cvDownloadBtn');
+            const originalContent = btn.innerHTML;
+            
+            const downloadingText = currentLang === 'fr' ? 
+                '<i class="fas fa-spinner fa-spin"></i><span>Téléchargement...</span>' : 
+                '<i class="fas fa-spinner fa-spin"></i><span>Downloading...</span>';
+            
+            const successText = currentLang === 'fr' ? 
+                '<i class="fas fa-check"></i><span>Téléchargé !</span>' : 
+                '<i class="fas fa-check"></i><span>Downloaded!</span>';
+            
+            btn.innerHTML = downloadingText;
+            btn.style.pointerEvents = 'none';
+            
+            setTimeout(() => {
+                btn.innerHTML = successText;
+                btn.style.background = '#10B981';
+                
+                setTimeout(() => {
+                    btn.innerHTML = originalContent;
+                    btn.style.background = '';
+                    btn.style.pointerEvents = '';
+                    updateLanguage(); // Réapplique la traduction
+                }, 2000);
+            }, 1000);
+        }
     </script>
 </body>
 </html>
