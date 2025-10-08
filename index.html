@@ -1720,7 +1720,7 @@
         <div class="hero-content">
             <div class="hero-badge" data-fr="Ingénieur Cybersécurité" data-en="Cybersecurity Engineer">Ingénieur Cybersécurité</div>
             <h1 class="hero-name">VISHAL DESAI</h1>
-            <h2 class="hero-title" data-fr="Consultant en <span>Cybersécurité</span>" data-en="<span>Cybersecurity</span> Expert">Expert en <span>Solutions de Sécurité</span></h2>
+            <h2 class="hero-title" data-fr="Consultant en <span>Cybersécurité</span>" data-en="<span>Cybersecurity</span>Expert">Expert en <span>Solutions de Sécurité</span></h2>
             <p class="hero-description" 
             data-fr="Ingénieur & consultant cybersécurité avec plus de 3 ans d'expérience dans l'intégration et la gestion de solutions de sécurité avancées pour des environnements d'entreprise critiques." 
             data-en="Cybersecurity engineer & consultant with over 3 years of experience in integrating and managing advanced security solutions for critical enterprise environments.">
@@ -2199,6 +2199,7 @@ security incidents (post-mortem investigations).">
         </div>
     </section>
 
+
     <!-- Terminal Contact -->
     <section class="section" id="contact">
         <div class="section-header">
@@ -2206,34 +2207,43 @@ security incidents (post-mortem investigations).">
             <h2 class="section-title" data-fr="Contact" data-en="Contact">Contact</h2>
             <p class="section-subtitle" data-fr="Discutons de vos projets" data-en="Let's discuss your projects">Discutons de vos projets</p>
         </div>
-        <div class="terminal-wrapper">
-            <div class="terminal-header">
-                <div class="terminal-dot dot-red"></div>
-                <div class="terminal-dot dot-yellow"></div>
-                <div class="terminal-dot dot-green"></div>
-                <span class="terminal-title">contact@vishaldesai.sh</span>
-            </div>
-            <div class="terminal-body" id="terminalBody">
-                <div class="terminal-line"><span class="terminal-prompt">vishal@portfolio:~$</span> cat contact.txt</div>
-                <div class="terminal-line" data-fr="Bienvenue sur mon terminal de contact !" data-en="Welcome to my contact terminal!">Bienvenue sur mon terminal de contact !</div>
-                <div class="terminal-line" data-fr="Remplissez les champs ci-dessous pour m'envoyer un message." data-en="Fill the fields below to send me a message.">Remplissez les champs ci-dessous pour m'envoyer un message.</div>
-                <div class="terminal-line" style="margin-top: 15px;"><span class="terminal-prompt">></span> <span class="terminal-command" data-fr="Votre nom :" data-en="Your name:">Votre nom :</span></div>
-                <input type="text" class="terminal-input" id="contactName" data-placeholder-fr="John Doe" data-placeholder-en="John Doe" placeholder="John Doe">
+
+        <!-- Boutons de contact directs -->
+        <div style="max-width: 700px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; padding: 40px 20px;">
+            
+            <!-- Bouton LinkedIn -->
+            <a href="https://www.linkedin.com/in/vishaldesai-cybersecurity" target="_blank" rel="noopener noreferrer" 
+            style="display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 50px 30px; background: var(--bg-white); border: 2px solid var(--border); border-radius: 16px; text-decoration: none; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); box-shadow: 0 4px 15px rgba(0,0,0,0.05);"
+            onmouseover="this.style.transform='translateY(-10px)'; this.style.boxShadow='0 15px 40px rgba(0,119,181,0.3)'; this.style.borderColor='#0077B5';"
+            onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 15px rgba(0,0,0,0.05)'; this.style.borderColor='var(--border)';">
                 
-                <div class="terminal-line" style="margin-top: 12px;"><span class="terminal-prompt">></span> <span class="terminal-command" data-fr="Votre email :" data-en="Your email:">Votre email :</span></div>
-                <input type="email" class="terminal-input" id="contactEmail" data-placeholder-fr="john@example.com" data-placeholder-en="john@example.com" placeholder="john@example.com">
+                <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #0077B5, #00A0DC); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 20px; box-shadow: 0 8px 25px rgba(0,119,181,0.3);">
+                    <i class="fab fa-linkedin-in" style="font-size: 2.5rem; color: #fff;"></i>
+                </div>
                 
-                <div class="terminal-line" style="margin-top: 12px;"><span class="terminal-prompt">></span> <span class="terminal-command" data-fr="Sujet :" data-en="Subject:">Sujet :</span></div>
-                <input type="text" class="terminal-input" id="contactSubject" data-placeholder-fr="Consultation Cybersécurité" data-placeholder-en="Cybersecurity Consultation" placeholder="Consultation Cybersécurité">
+                <h3 style="font-size: clamp(1.3rem, 4vw, 1.6rem); font-weight: 700; color: var(--text-dark); margin-bottom: 10px;" data-fr="Me contacter sur LinkedIn" data-en="Contact me on LinkedIn">Me contacter sur LinkedIn</h3>
                 
-                <div class="terminal-line" style="margin-top: 12px;"><span class="terminal-prompt">></span> <span class="terminal-command" data-fr="Votre message :" data-en="Your message:">Votre message :</span></div>
-                <textarea class="terminal-textarea" id="contactMessage" data-placeholder-fr="Décrivez votre projet..." data-placeholder-en="Describe your project..." placeholder="Décrivez votre projet..."></textarea>
+                <p style="font-size: clamp(0.9rem, 2.5vw, 1rem); color: var(--text-light); text-align: center; line-height: 1.6;" data-fr="Discutons de vos projets de cybersécurité" data-en="Let's discuss your cybersecurity projects">Discutons de vos projets de cybersécurité</p>
+            </a>
+
+            <!-- Bouton Email -->
+            <a href="mailto:desai.vishal@outlook.fr?subject=Demande%20de%20contact&body=Bonjour%20Vishal,%0D%0A%0D%0AJe%20souhaite%20discuter%20d'un%20projet..." 
+            style="display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 50px 30px; background: var(--bg-white); border: 2px solid var(--border); border-radius: 16px; text-decoration: none; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); box-shadow: 0 4px 15px rgba(0,0,0,0.05);"
+            onmouseover="this.style.transform='translateY(-10px)'; this.style.boxShadow='0 15px 40px rgba(234,67,53,0.3)'; this.style.borderColor='#EA4335';"
+            onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 15px rgba(0,0,0,0.05)'; this.style.borderColor='var(--border)';">
                 
-                <button class="terminal-btn" onclick="sendMessage()">./send-message.sh</button>
-                <div id="terminalResponse"></div>
-            </div>
+                <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #EA4335, #FF6B6B); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 20px; box-shadow: 0 8px 25px rgba(234,67,53,0.3);">
+                    <i class="fas fa-envelope" style="font-size: 2.5rem; color: #fff;"></i>
+                </div>
+                
+                <h3 style="font-size: clamp(1.3rem, 4vw, 1.6rem); font-weight: 700; color: var(--text-dark); margin-bottom: 10px;" data-fr="M'envoyer un email" data-en="Send me an email">M'envoyer un email</h3>
+                
+                <p style="font-size: clamp(0.9rem, 2.5vw, 1rem); color: var(--text-light); text-align: center; line-height: 1.6;">desai.vishal@outlook.fr</p>
+            </a>
+
         </div>
     </section>
+
 
     <!-- Modal -->
     <div class="modal-overlay" id="modalOverlay"></div>
@@ -2499,57 +2509,7 @@ security incidents (post-mortem investigations).">
             observerCounter.observe(counter);
         });
 
-        // Terminal Contact
-        function sendMessage() {
-            const name = document.getElementById('contactName').value;
-            const email = document.getElementById('contactEmail').value;
-            const subject = document.getElementById('contactSubject').value;
-            const message = document.getElementById('contactMessage').value;
-
-            const errorMsg = currentLang === 'fr' ? 'Erreur : Tous les champs sont requis !' : 'Error: All fields are required!';
-            
-            if (!name || !email || !subject || !message) {
-                const response = document.getElementById('terminalResponse');
-                response.innerHTML = `<div class="terminal-line" style="color: #EF4444; margin-top: 20px;">${errorMsg}</div>`;
-                return;
-            }
-
-            const btn = document.querySelector('.terminal-btn');
-            btn.textContent = './sending...';
-            btn.disabled = true;
-
-            setTimeout(() => {
-                const response = document.getElementById('terminalResponse');
-                const successMsg1 = currentLang === 'fr' ? '✓ Message envoyé avec succès !' : '✓ Message sent successfully!';
-                const successMsg2 = currentLang === 'fr' ? '✓ Vous recevrez une réponse sous 24h' : '✓ You will receive a response within 24h';
-                
-                response.innerHTML = `
-                    <div class="terminal-line terminal-success" style="margin-top: 20px;">${successMsg1}</div>
-                    <div class="terminal-line terminal-success">${successMsg2}</div>
-                `;
-                
-                document.getElementById('contactName').value = '';
-                document.getElementById('contactEmail').value = '';
-                document.getElementById('contactSubject').value = '';
-                document.getElementById('contactMessage').value = '';
-                
-                btn.textContent = './send-message.sh';
-                btn.disabled = false;
-
-                setTimeout(() => {
-                    document.getElementById('modalOverlay').classList.add('show');
-                    document.getElementById('successModal').classList.add('show');
-                }, 1000);
-            }, 2000);
-        }
-
-        function closeModal() {
-            document.getElementById('modalOverlay').classList.remove('show');
-            document.getElementById('successModal').classList.remove('show');
-        }
-
-        document.getElementById('modalOverlay').addEventListener('click', closeModal);
-
+    
         // CV Download Function
         function downloadCV() {
             // Détermine quelle version du CV télécharger selon la langue
@@ -2596,7 +2556,3 @@ security incidents (post-mortem investigations).">
     </script>
 </body>
 </html>
-
-
-
-
