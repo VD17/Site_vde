@@ -590,7 +590,7 @@
             padding: 8px 20px;
             border: 1px solid var(--primary);
             border-radius: 50px;
-            background: rgba(37, 99, 235, 0.05);
+            background: rgba(235, 37, 37, 0.274);
             animation: slideDown 1s cubic-bezier(0.4, 0, 0.2, 1) 0.2s both;
         }
 
@@ -1003,17 +1003,21 @@
             color: var(--text-light);
         }
 
-        .timeline-description li {
+        .timeline-description p {
             margin-bottom: 8px;
             padding-left: 20px;
             position: relative;
         }
 
-        .timeline-description li::before {
+        .timeline-description p::before {
             content: '→';
             position: absolute;
             left: 0;
-            color: var(--primary);
+            color: red;
+        }
+
+        .timeline-description strong{
+            color: #60a5fa;
         }
 
         /* Formation */
@@ -1716,7 +1720,7 @@
         <div class="hero-content">
             <div class="hero-badge" data-fr="Ingénieur Cybersécurité" data-en="Cybersecurity Engineer">Ingénieur Cybersécurité</div>
             <h1 class="hero-name">VISHAL DESAI</h1>
-            <h2 class="hero-title" data-fr="Expert en <span>Solutions de Sécurité</span>" data-en="Expert in <span>Security Solutions</span>">Expert en <span>Solutions de Sécurité</span></h2>
+            <h2 class="hero-title" data-fr="Consultant en <span>Solutions de Sécurité</span>" data-en="Expert in <span>Security Solutions</span>">Expert en <span>Solutions de Sécurité</span></h2>
             <p class="hero-description" 
             data-fr="Ingénieur & consultant cybersécurité avec plus de 3 ans d'expérience dans l'intégration et la gestion de solutions de sécurité avancées pour des environnements d'entreprise critiques." 
             data-en="Cybersecurity engineer & consultant with over 3 years of experience in integrating and managing advanced security solutions for critical enterprise environments.">
@@ -1759,8 +1763,8 @@
             </div>
            <div class="about-content">
                 <p class="about-text" 
-                data-fr="Ingénieur en <strong>cybersécurité</strong> passionné, actuellement en Master 2 Sécurité Informatique à l'ESGI Paris. Consultant chez <strong>SAYCURIT</strong> depuis septembre 2022, je me spécialise dans l'intégration et la gestion de solutions de sécurité avancées : <strong>EDR/XDR, IAM, SIEM, DLP, NGFW, SASE</strong>." 
-                data-en="Passionate <strong>cybersecurity</strong> engineer, currently in Master 2 IT Security at ESGI Paris. Consultant at <strong>SAYCURIT</strong> since September 2022, I specialize in integrating and managing advanced security solutions: <strong>EDR/XDR, IAM, SIEM, DLP, NGFW, SASE</strong>.">
+                data-fr="Ingénieur en <strong>cybersécurité</strong> passionné, diplômé d'un Master 2 Sécurité Informatique à l'ESGI Paris. Consultant chez <strong>SAYCURIT</strong> depuis septembre 2022, je me spécialise dans l'intégration et la gestion de solutions de sécurité avancées : <strong>EDR/XDR, IAM, SIEM, DLP, NGFW, SASE</strong>." 
+                data-en="Passionate <strong>cybersecurity</strong> engineer, graduate of a Master 2 IT Security at ESGI Paris. Consultant at <strong>SAYCURIT</strong> since September 2022, I specialize in integrating and managing advanced security solutions: <strong>EDR/XDR, IAM, SIEM, DLP, NGFW, SASE</strong>.">
                     Ingénieur en <strong>cybersécurité</strong> passionné, actuellement en Master 2 Sécurité Informatique à l'ESGI Paris. 
                     Consultant chez <strong>SAYCURIT</strong> depuis septembre 2022, je me spécialise dans l'intégration et la gestion 
                     de solutions de sécurité avancées : <strong>EDR/XDR, IAM, SIEM, DLP, NGFW, SASE</strong>.
@@ -1813,22 +1817,45 @@
                     <h3 class="timeline-title" data-fr="Consultant Cybersécurité" data-en="Cybersecurity Consultant">Consultant Cybersécurité</h3>
                     <div class="timeline-company">SAYCURIT, Paris 13</div>
                     <ul class="timeline-description">
-                        <li data-fr="Référent Rapid7 (InsightVM, AppSec, IDR) : intégration, formation client, analyse de vulnérabilités" 
-                            data-en="Rapid7 Expert (InsightVM, AppSec, IDR): integration, client training, vulnerability analysis">
+                        <p data-fr="<strong>Référent Rapid7 (InsightVM, AppSec, IDR) : </strong>intégration, formation client, analyse de vulnérabilités" 
+                            data-en="<strong>Rapid7 Expert (InsightVM, AppSec, IDR): </strong>integration, client training, vulnerability analysis">
                             Référent Rapid7 (InsightVM, AppSec, IDR) : intégration, formation client, analyse de vulnérabilités
-                        </li>
-                        <li data-fr="SentinelOne : déploiement EDR, analyse d'alertes et réponse à incidents" 
-                            data-en="SentinelOne: EDR deployment, alert analysis and incident response">
+                        </p> 
+                        <br>
+                        <p data-fr="<strong>SentinelOne :</strong> déploiement EDR, analyse d'alertes et réponse à incidents" 
+                            data-en="<strong>SentinelOne :</strong> EDR deployment, alert analysis and incident response">
                             SentinelOne : déploiement EDR, analyse d'alertes et réponse à incidents
-                        </li>
-                        <li data-fr="Okta (IAM) : SSO, MFA, provisioning SCIM, automatisation via Workflows, posture Zero Trust" 
-                            data-en="Okta (IAM): SSO, MFA, SCIM provisioning, automation via Workflows, Zero Trust posture">
+                        </p>
+                      
+                        <br>
+                        <p data-fr="<strong>Okta (IAM) :</strong> SSO, MFA, provisioning SCIM, automatisation via Workflows, posture Zero Trust" 
+                            data-en="<strong>Okta (IAM):</strong> SSO, MFA, SCIM provisioning, automation via Workflows, Zero Trust posture">
                             Okta (IAM) : SSO, MFA, provisioning SCIM, automatisation via Workflows, posture Zero Trust
-                        </li>
-                        <li data-fr="Palo Alto (NGFW, Panorama, GlobalProtect) : gestion firewalls, création règles, migrations" 
-                            data-en="Palo Alto (NGFW, Panorama, GlobalProtect): firewall management, rule creation, migrations">
+                        </p>
+                        <br>
+                        <p data-fr="<strong>Palo Alto (NGFW, Panorama, GlobalProtect) :</strong> gestion firewalls, création règles, migrations" 
+                            data-en="<strong>Palo Alto (NGFW, Panorama, GlobalProtect) :</strong> firewall management, rule creation, migrations">
                             Palo Alto (NGFW, Panorama, GlobalProtect) : gestion firewalls, création règles, migrations
-                        </li>
+                        </p>
+                        <br>
+                         <p data-fr="<strong>CATO Networks (SASE/SD-WAN) :</strong> Implémentation de sockets CATO, déploiement d’infrastructure réseau sécurisée." 
+                            data-en="<strong>CATO Networks (SASE/SD-WAN) :</strong> Implementation of CATO sockets, deployment of secure network infrastructure.">
+                            CATO Networks (SASE/SD-WAN)  : Implémentation de sockets CATO, déploiement d’infrastructure réseau sécurisée.
+                        </p>
+                        <br>
+                         <p data-fr="<strong>Netwrix Auditor & Privilege Secure :</strong>  Audit de sécurité avancé sur Active Directory, analyse des logs d’accès et détections d’anomalies suite
+à des incidents de sécurité (investigations post-mortem)." 
+                            data-en="<strong>Netwrix Auditor & Privilege Secure :</strong> Advanced security auditing of Active Directory, analysis of access logs and detection of anomalies following
+security incidents (post-mortem investigations).">
+                            Netwrix Auditor & Privilege Secure : Audit de sécurité avancé sur Active Directory, analyse des logs d’accès et détections d’anomalies suite
+à des incidents de sécurité (post-mortem investigations).
+                        </p>
+                        <br>
+                             <p data-fr="<strong>Digital Guardian (DLP) :</strong> : Création de politiques, analyse incidents de fuite de données." 
+                            data-en="<strong>Digital Guardian (DLP) :</strong> Creation of policies, analysis of data leak incidents.">
+                            Digital Guardian (DLP)  : Creation of policies, analysis of data leak incidents.
+                        </p>
+                        <br>
                     </ul>
                 </div>
             </div>
@@ -1839,18 +1866,18 @@
                     <h3 class="timeline-title" data-fr="Formateur Freelance" data-en="Freelance Trainer">Formateur Freelance</h3>
                     <div class="timeline-company" data-fr="VD Formations – Paris & Région PACA" data-en="VD Formations – Paris & PACA Region">VD Formations – Paris & Région PACA</div>
                     <ul class="timeline-description">
-                        <li data-fr="Formation BTS/TAI : Linux (Bash, hardening, iptables), Windows Server (AD, GPO)" 
-                            data-en="BTS/TAI Training: Linux (Bash, hardening, iptables), Windows Server (AD, GPO)">
-                            Formation BTS/TAI : Linux (Bash, hardening, iptables), Windows Server (AD, GPO)
-                        </li>
-                        <li data-fr="Réseaux : TCP/IP, VLAN, VPN" 
-                            data-en="Networks: TCP/IP, VLAN, VPN">
+                        <p data-fr="<strong>Formation BTS/TAI & première Années :</strong> Linux (Bash, hardening, iptables), Windows Server (AD, GPO)" 
+                            data-en="<strong>BTS/TAI Training :</strong> Linux (Bash, hardening, iptables), Windows Server (AD, GPO)">
+                            Formation BTS/TAI & première Années: Linux (Bash, hardening, iptables), Windows Server (AD, GPO)
+                        </p>
+                        <p data-fr="<strong>Réseaux :</strong> TCP/IP, VLAN, VPN" 
+                            data-en="<strong>Networks:</strong> TCP/IP, VLAN, VPN">
                             Réseaux : TCP/IP, VLAN, VPN
-                        </li>
-                        <li data-fr="Modules cybersécurité : Pentest, SIEM, XDR, IAM, SOC opérationnel" 
-                            data-en="Cybersecurity modules: Pentest, SIEM, XDR, IAM, Operational SOC">
+                        </p>
+                        <p data-fr="<strong>Modules cybersécurité :</strong> Pentest, SIEM, XDR, IAM, SOC opérationnel" 
+                            data-en="<strong>Cybersecurity modules :</strong> Pentest, SIEM, XDR, IAM, Operational SOC">
                             Modules cybersécurité : Pentest, SIEM, XDR, IAM, SOC opérationnel
-                        </li>
+                        </p>
                     </ul>
                 </div>
             </div>
@@ -2219,7 +2246,7 @@
 
     <!-- Footer -->
     <footer>
-        <p data-fr="© 2025 Vishal DESAI - Ingénieur Cybersécurité | Designed with precision" data-en="© 2025 Vishal DESAI - Cybersecurity Engineer | Designed with precision">© 2025 Vishal DESAI - Ingénieur Cybersécurité | Designed with precision</p>
+        <p data-fr="© 2025 Vishal DESAI - Ingénieur cybersécurité" data-en="© 2025 Vishal DESAI - Cybersecurity Engineer">© 2025 Vishal DESAI - Ingénieur Cybersécurité | Designed with precision</p>
     </footer>
 
     <script>
@@ -2569,9 +2596,3 @@
     </script>
 </body>
 </html>
-
-
-
-
-
-
