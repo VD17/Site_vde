@@ -4,14 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Vishal DESAI — Ingénieur & Consultant Cybersécurité. EDR/XDR, IAM, NGFW, SIEM, Zero Trust.">
-  <title>Vishal DESAI — Ingénieur Cybersécurité</title>
+  <title>Vishal DESAI — Ingénieur Cybersécurité &amp; Réseau</title>
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='12' fill='%230a0a0a'/><text x='50' y='68' font-size='44' font-family='system-ui' font-weight='800' fill='white' text-anchor='middle'>VD</text></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <!-- Anti-FOUC : applique le thème avant le premier rendu -->
-  <script>if(localStorage.getItem('theme')==='dark')document.documentElement.classList.add('dark-init')</script>
+  <script>if(localStorage.getItem('theme')==='dark')document.documentElement.classList.add('dark-init');document.documentElement.classList.add('js-anim')</script>
 <style>
 /* ─── Variables — Light (défaut) ─── */
 :root{
@@ -78,17 +78,23 @@ strong{color:var(--text);font-weight:600}
 body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9000;opacity:.03;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");background-size:200px}
 
 /* ─── Loader ─── */
-#loader{position:fixed;inset:0;z-index:10000;background:var(--bg);display:flex;align-items:center;justify-content:center;transition:opacity .6s ease}
-#loader.out{opacity:0;pointer-events:none}
-.loader-name{font-size:clamp(48px,8vw,100px);font-weight:800;letter-spacing:-3px;color:var(--text);opacity:0;animation:loaderIn .5s .1s ease forwards}
-.loader-name span{color:var(--accent)}
-@keyframes loaderIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
-.loader-bar-wrap{width:120px;height:1px;background:var(--border);margin-top:24px;overflow:hidden}
-.loader-bar{height:100%;background:var(--text);animation:lbar .8s ease forwards}
-@keyframes lbar{from{width:0}to{width:100%}}
+#loader{position:fixed;inset:0;z-index:10000;background:var(--bg);display:flex;align-items:center;justify-content:center}
+#loader.done{pointer-events:none}
+.loader-stage{display:flex;flex-direction:column;align-items:stretch;gap:18px;width:min(560px,78vw)}
+.loader-name{font-size:clamp(34px,6.5vw,72px);font-weight:800;letter-spacing:-3px;color:var(--text);line-height:1;display:flex;gap:.28em;flex-wrap:wrap}
+.ln-mask{display:inline-block;overflow:hidden;padding-bottom:.06em}
+.ln-in{display:inline-block;transform:translateY(110%)}
+.ln-acc{color:var(--accent)}
+.loader-meta{display:flex;justify-content:space-between;align-items:baseline;opacity:0}
+.loader-tag{font-size:10px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--muted)}
+.loader-count{font-size:12px;font-weight:700;letter-spacing:2px;color:var(--muted);font-variant-numeric:tabular-nums}
+.loader-count::after{content:'%'}
+.loader-bar-wrap{height:1px;background:var(--border);overflow:hidden}
+.loader-bar{height:100%;width:0;background:var(--text);transform-origin:left}
+.loader-curtain{position:absolute;inset:0;background:var(--text);transform:scaleY(0);transform-origin:bottom;z-index:2}
 
 /* ─── Typography ─── */
-.label{font-size:11px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--accent);display:block;margin-bottom:16px}
+.label{font-size:12px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--accent);display:block;margin-bottom:16px}
 .display{font-size:clamp(56px,9vw,128px);font-weight:800;line-height:.92;letter-spacing:-3px}
 .heading{font-size:clamp(36px,5vw,64px);font-weight:800;line-height:1;letter-spacing:-2px;color:var(--text)}
 .section-header .heading{margin-top:16px}
@@ -118,7 +124,7 @@ nav.scrolled{background:var(--nav-bg);backdrop-filter:blur(20px);-webkit-backdro
 .theme-btn{width:34px;height:34px;border-radius:50%;background:var(--bg-card);border:1px solid var(--border);color:var(--muted);font-size:13px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:color .2s,border-color .2s,background .2s}
 .theme-btn:hover{color:var(--text);border-color:var(--text)}
 .nav-cta{display:inline-flex;align-items:center;gap:8px;padding:10px 22px;background:var(--text);color:var(--bg);border-radius:100px;font-size:13px;font-weight:600;transition:opacity .2s,transform .2s;font-family:inherit}
-.nav-cta:hover{opacity:.85;transform:translateY(-1px)}
+.nav-cta:hover{opacity:.85}
 .menu-btn{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:4px}
 .menu-btn span{display:block;width:20px;height:1.5px;background:var(--text);transition:transform .3s,opacity .3s}
 .menu-btn.open span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
@@ -185,15 +191,15 @@ nav.scrolled{background:var(--nav-bg);backdrop-filter:blur(20px);-webkit-backdro
 .hero-name .line2{color:var(--accent)}
 .hero-subtitle{font-size:clamp(20px,3vw,30px);font-weight:700;letter-spacing:-.5px;color:var(--text);margin-bottom:28px}
 .hero-subtitle span{color:var(--accent)}
-.hero-desc{font-size:17px;color:var(--muted);max-width:480px;line-height:1.75;margin:0 auto 44px;font-weight:400}
+.hero-desc{font-size:18px;color:var(--muted);max-width:480px;line-height:1.75;margin:0 auto 44px;font-weight:400}
 .hero-actions{display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap;margin-bottom:36px}
 .hero-soc-row{display:flex;justify-content:center;gap:10px}
 .hero-soc{width:40px;height:40px;border:1px solid var(--border);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;color:var(--muted);background:var(--bg-card);transition:color .2s,border-color .2s,transform .2s,background .35s}
-.hero-soc:hover{color:var(--text);border-color:var(--text);transform:translateY(-2px)}
+.hero-soc:hover{color:var(--text);border-color:var(--text)}
 .btn-dark{display:inline-flex;align-items:center;gap:10px;padding:13px 26px;background:var(--text);color:var(--bg);border-radius:100px;font-size:14px;font-weight:600;transition:opacity .2s,transform .2s;cursor:pointer;border:none;font-family:inherit}
-.btn-dark:hover{opacity:.85;transform:translateY(-2px)}
+.btn-dark:hover{opacity:.85}
 .btn-ghost{display:inline-flex;align-items:center;gap:10px;padding:13px 26px;border:1px solid var(--border);color:var(--text);border-radius:100px;font-size:14px;font-weight:600;transition:border-color .25s,transform .2s;background:none;cursor:pointer;font-family:inherit}
-.btn-ghost:hover{border-color:var(--text);transform:translateY(-2px)}
+.btn-ghost:hover{border-color:var(--text)}
 .scroll-hint{position:absolute;bottom:40px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:8px}
 .scroll-hint span{font-size:9px;font-weight:600;letter-spacing:3px;color:var(--muted);text-transform:uppercase}
 .scroll-line{width:1px;height:40px;background:linear-gradient(to bottom,var(--border),transparent)}
@@ -216,7 +222,6 @@ nav.scrolled{background:var(--nav-bg);backdrop-filter:blur(20px);-webkit-backdro
 .c-dot{width:7px;height:7px;background:var(--text);transition:transform .15s,background .2s}
 .c-ring{width:38px;height:38px;border:1.5px solid var(--text);opacity:.35;transition:width .3s,height .3s,opacity .3s,border-color .3s}
 .c-ring.hov{width:60px;height:60px;opacity:.6}
-.c-dot.hov{transform:translate(-50%,-50%) scale(.4)}
 @media(pointer:coarse){.c-dot,.c-ring{display:none}}
 
 /* ─── Scroll band ─── */
@@ -235,7 +240,7 @@ nav.scrolled{background:var(--nav-bg);backdrop-filter:blur(20px);-webkit-backdro
 .about-grid{display:grid;grid-template-columns:360px 1fr;gap:80px;align-items:start}
 .about-photo{position:relative}
 .photo-frame{border-radius:24px;overflow:hidden;aspect-ratio:3/4;background:var(--bg-surface);position:relative;transition:background .35s}
-.photo-frame img{width:100%;height:100%;object-fit:cover;object-position:top;position:relative;z-index:1}
+.photo-frame img{width:100%;height:112%;object-fit:cover;object-position:top;position:relative;z-index:1;will-change:transform}
 .photo-ph{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:80px;color:var(--muted)}
 .about-tag{position:absolute;bottom:20px;left:20px;background:var(--bg-card);border-radius:100px;padding:10px 18px;font-size:12px;font-weight:600;display:flex;align-items:center;gap:8px;box-shadow:0 4px 20px rgba(0,0,0,.12);color:var(--text);transition:background .35s}
 .about-tag i{color:var(--accent);font-size:10px}
@@ -245,7 +250,7 @@ nav.scrolled{background:var(--nav-bg);backdrop-filter:blur(20px);-webkit-backdro
 .stat-num{font-size:34px;font-weight:800;letter-spacing:-1px;color:var(--text);display:block}
 .stat-lbl{font-size:11px;color:var(--muted);font-weight:500;margin-top:4px;display:block}
 .about-content{display:flex;flex-direction:column;gap:24px;padding-top:6px}
-.about-text{font-size:16px;line-height:1.85;color:var(--text-2)}
+.about-text{font-size:17.5px;line-height:1.85;color:var(--text-2)}
 
 /* ─── Experience accordion ─── */
 .exp-acc{border-top:1px solid var(--border)}
@@ -258,12 +263,12 @@ nav.scrolled{background:var(--nav-bg);backdrop-filter:blur(20px);-webkit-backdro
 }
 .exp-acc-trigger:hover{background:var(--hover-wash);border-radius:10px;padding-left:16px;padding-right:16px;margin:0 -16px;width:calc(100% + 32px)}
 .exp-an{font-size:10px;font-weight:600;color:var(--muted);letter-spacing:2px;flex-shrink:0}
-.exp-aname{font-size:26px;font-weight:800;letter-spacing:-.8px;color:var(--text);line-height:1.1;transition:color .3s}
+.exp-aname{font-size:28px;font-weight:800;letter-spacing:-.8px;color:var(--text);line-height:1.1;transition:color .3s}
 .exp-asub{display:flex;align-items:center;gap:12px;margin-top:6px;flex-wrap:wrap}
-.exp-arole{font-size:13px;color:var(--muted);font-weight:400}
-.exp-aloc{font-size:12px;color:var(--muted);opacity:.5}
+.exp-arole{font-size:14.5px;color:var(--muted);font-weight:400}
+.exp-aloc{font-size:13px;color:var(--muted);opacity:.55}
 .exp-aloc::before{content:'·';margin-right:12px}
-.exp-adate{font-size:11px;font-weight:700;color:var(--accent);letter-spacing:1px;white-space:nowrap;text-align:right}
+.exp-adate{font-size:12.5px;font-weight:700;color:var(--accent);letter-spacing:1px;white-space:nowrap;text-align:right}
 .exp-aico{
   width:36px;height:36px;border:1.5px solid var(--border);border-radius:50%;
   display:flex;align-items:center;justify-content:center;
@@ -274,22 +279,22 @@ nav.scrolled{background:var(--nav-bg);backdrop-filter:blur(20px);-webkit-backdro
 .exp-acc-item.open .exp-aname{color:var(--accent)}
 .exp-panel{height:0;overflow:hidden}
 .exp-panel-inner{padding:4px 0 44px 72px}
-.exp-pi-sector{font-size:13px;color:var(--muted);font-style:italic;margin-bottom:24px}
+.exp-pi-sector{font-size:14.5px;color:var(--muted);font-style:italic;margin-bottom:24px}
 .exp-pi-list{list-style:none;display:flex;flex-direction:column;gap:11px}
-.exp-pi-list li{font-size:14px;color:var(--text-3);padding-left:20px;position:relative;line-height:1.65}
+.exp-pi-list li{font-size:15.5px;color:var(--text-3);padding-left:22px;position:relative;line-height:1.7}
 .exp-pi-list li::before{content:'→';position:absolute;left:0;color:var(--accent);font-size:11px;top:3px}
 .exp-pi-list li strong{color:var(--text);font-weight:600}
 
 /* ─── Skills ─── */
 .skills-table{border-top:1px solid var(--border)}
-.skill-row{display:grid;grid-template-columns:260px 1fr 28px;gap:40px;align-items:center;padding:26px 0;border-bottom:1px solid var(--border);transition:background .3s}
+.skill-row{display:grid;grid-template-columns:290px 1fr 28px;gap:40px;align-items:center;padding:32px 0;border-bottom:1px solid var(--border);transition:background .3s}
 .skill-row:hover{background:var(--hover-wash);border-radius:10px;padding-left:16px;padding-right:16px;margin:0 -16px;width:calc(100% + 32px)}
-.skill-name{font-size:16px;font-weight:700;letter-spacing:-.3px;color:var(--text)}
-.skill-num{font-size:10px;font-weight:600;color:var(--muted);letter-spacing:2px;display:block;margin-bottom:6px}
+.skill-name{font-size:19px;font-weight:700;letter-spacing:-.4px;color:var(--text)}
+.skill-num{font-size:11px;font-weight:600;color:var(--muted);letter-spacing:2px;display:block;margin-bottom:7px}
 .tags{display:flex;flex-wrap:wrap;gap:8px}
-.tag{font-size:11px;font-weight:500;padding:5px 13px;background:var(--bg-tag);color:var(--tag-text);border-radius:100px;transition:background .2s}
+.tag{font-size:12.5px;font-weight:500;padding:7px 15px;background:var(--bg-tag);color:var(--tag-text);border-radius:100px;transition:background .2s}
 .skill-row:hover .tag{background:var(--bg-card)}
-.skill-ico{font-size:13px;color:var(--border);text-align:right;transition:color .3s}
+.skill-ico{font-size:15px;color:var(--border);text-align:right;transition:color .3s}
 .skill-row:hover .skill-ico{color:var(--text)}
 
 /* ─── Certifications ─── */
@@ -300,37 +305,37 @@ nav.scrolled{background:var(--nav-bg);backdrop-filter:blur(20px);-webkit-backdro
 .cert-list{border-top:1px solid var(--border)}
 .cert-row{
   display:grid;
-  grid-template-columns:40px 1fr 220px 140px;
+  grid-template-columns:46px 1fr 240px 180px;
   gap:24px;align-items:center;
-  padding:22px 0;border-bottom:1px solid var(--border);
+  padding:30px 0;border-bottom:1px solid var(--border);
   transition:background .3s;
 }
 .cert-row:hover{background:var(--hover-wash);border-radius:10px;padding-left:16px;padding-right:16px;margin:0 -16px;width:calc(100% + 32px)}
-.cert-idx{font-size:10px;font-weight:600;color:var(--muted);letter-spacing:2px}
-.cert-name{font-size:16px;font-weight:700;color:var(--text);letter-spacing:-.3px}
-.cert-editor{font-size:13px;color:var(--muted);font-weight:400}
-.cert-badge{font-size:10px;font-weight:600;padding:5px 14px;background:var(--bg-tag);color:var(--tag-text);border-radius:100px;white-space:nowrap;justify-self:start}
+.cert-idx{font-size:12px;font-weight:600;color:var(--muted);letter-spacing:2px}
+.cert-name{font-size:21px;font-weight:700;color:var(--text);letter-spacing:-.4px;line-height:1.25}
+.cert-editor{font-size:14.5px;color:var(--muted);font-weight:400}
+.cert-badge{font-size:11.5px;font-weight:600;padding:7px 16px;background:var(--bg-tag);color:var(--tag-text);border-radius:100px;white-space:nowrap;justify-self:start}
 
 /* ─── Formation ─── */
 .formation-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
 .form-card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:40px;transition:box-shadow var(--ease),transform var(--ease),background .35s,border-color .35s}
 .form-card:hover{box-shadow:0 12px 48px rgba(0,0,0,.07);transform:translateY(-4px)}
 .form-year{font-size:11px;font-weight:700;letter-spacing:3px;color:var(--accent);margin-bottom:16px;display:block}
-.form-degree{font-size:20px;font-weight:700;letter-spacing:-.3px;margin-bottom:6px;color:var(--text)}
-.form-school{font-size:13px;color:var(--muted);font-weight:500;margin-bottom:16px}
-.form-desc{font-size:14px;color:var(--text-3);line-height:1.75}
+.form-degree{font-size:22px;font-weight:700;letter-spacing:-.3px;margin-bottom:6px;color:var(--text)}
+.form-school{font-size:14.5px;color:var(--muted);font-weight:500;margin-bottom:16px}
+.form-desc{font-size:15.5px;color:var(--text-3);line-height:1.75}
 
 /* ─── Projects ─── */
 .projects-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
 .proj-card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:36px;display:flex;flex-direction:column;transition:box-shadow var(--ease),transform var(--ease),background .35s,border-color .35s}
 .proj-card:hover{box-shadow:0 16px 56px rgba(0,0,0,.08);transform:translateY(-4px)}
-.proj-idx{font-size:10px;font-weight:700;letter-spacing:3px;color:var(--muted);margin-bottom:24px;display:flex;align-items:center;gap:8px}
+.proj-idx{font-size:11px;font-weight:700;letter-spacing:3px;color:var(--muted);margin-bottom:24px;display:flex;align-items:center;gap:8px}
 .proj-idx::after{content:'';flex:1;height:1px;background:var(--border)}
-.proj-card h3{font-size:20px;font-weight:700;letter-spacing:-.3px;margin-bottom:12px;color:var(--text)}
-.proj-card p{font-size:14px;color:var(--text-3);line-height:1.75;flex:1;margin-bottom:24px}
+.proj-card h3{font-size:22px;font-weight:700;letter-spacing:-.3px;margin-bottom:12px;color:var(--text)}
+.proj-card p{font-size:15.5px;color:var(--text-3);line-height:1.75;flex:1;margin-bottom:24px}
 .proj-footer{display:flex;align-items:center;justify-content:space-between;margin-top:auto}
 .proj-tags{display:flex;flex-wrap:wrap;gap:6px}
-.proj-tag{font-size:10px;font-weight:600;padding:4px 12px;background:var(--bg-tag);color:var(--tag-text);border-radius:100px}
+.proj-tag{font-size:11.5px;font-weight:600;padding:5px 13px;background:var(--bg-tag);color:var(--tag-text);border-radius:100px}
 .proj-link{width:34px;height:34px;border:1px solid var(--border);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;color:var(--muted);transition:color .2s,border-color .2s,transform .35s;flex-shrink:0}
 .proj-link:hover{color:var(--text);border-color:var(--text);transform:rotate(45deg)}
 
@@ -353,8 +358,8 @@ nav.scrolled{background:var(--nav-bg);backdrop-filter:blur(20px);-webkit-backdro
 .tech-card img{width:72px;height:46px;object-fit:contain;transition:transform .3s}
 .tech-card:hover img{transform:scale(1.08)}
 .tc-info{display:flex;flex-direction:column;align-items:center;gap:3px}
-.tc-name{font-size:13px;font-weight:700;color:var(--text);letter-spacing:-.2px}
-.tc-cat{font-size:9px;font-weight:600;color:var(--muted);letter-spacing:2px;text-transform:uppercase}
+.tc-name{font-size:14.5px;font-weight:700;color:var(--text);letter-spacing:-.2px}
+.tc-cat{font-size:10px;font-weight:600;color:var(--muted);letter-spacing:2px;text-transform:uppercase}
 
 /* ─── Contact ─── */
 .contact-wrap{display:grid;grid-template-columns:1fr 1fr;gap:20px;max-width:700px;margin:0 auto}
@@ -363,18 +368,18 @@ nav.scrolled{background:var(--nav-bg);backdrop-filter:blur(20px);-webkit-backdro
 .ct-icon-wrap{width:50px;height:50px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:20px;color:#fff;margin-bottom:24px;flex-shrink:0}
 .ct-li .ct-icon-wrap{background:linear-gradient(135deg,#0077B5,#00A0DC)}
 .ct-em .ct-icon-wrap{background:linear-gradient(135deg,#EA4335,#FF6B6B)}
-.ct-card h3{font-size:17px;font-weight:700;letter-spacing:-.3px;margin-bottom:8px;color:var(--text)}
-.ct-card p{font-size:13px;color:var(--muted);line-height:1.6;margin-bottom:24px}
+.ct-card h3{font-size:19px;font-weight:700;letter-spacing:-.3px;margin-bottom:8px;color:var(--text)}
+.ct-card p{font-size:14.5px;color:var(--muted);line-height:1.65;margin-bottom:24px}
 .ct-arrow{margin-top:auto;width:34px;height:34px;border:1px solid var(--border);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;color:var(--muted);transition:transform .4s,color .2s,border-color .2s}
 .ct-card:hover .ct-arrow{transform:rotate(45deg);color:var(--text);border-color:var(--text)}
 
 /* ─── Footer ─── */
 footer{padding:36px 0;border-top:1px solid var(--border)}
 .footer-inner{max-width:1200px;margin:0 auto;padding:0 48px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
-.ft-copy{font-size:12px;color:var(--muted);font-weight:500}
+.ft-copy{font-size:13px;color:var(--muted);font-weight:500}
 .ft-copy strong{color:var(--text);font-weight:700}
 .ft-links{display:flex;gap:24px}
-.ft-links a{font-size:12px;color:var(--muted);font-weight:500;transition:color .2s}
+.ft-links a{font-size:13px;color:var(--muted);font-weight:500;transition:color .2s}
 .ft-links a:hover{color:var(--text)}
 
 /* ─── OTW ─── */
@@ -405,6 +410,128 @@ body.dark .otw-dot{background:#34d399}
 .exp-list{position:relative}
 .exp-line{position:absolute;left:-28px;top:0;width:2px;height:0;background:var(--accent);border-radius:2px;z-index:2}
 
+/* ══════════════════════════════════════════════
+   FRONT v2 — couche animation
+   ══════════════════════════════════════════════ */
+
+/* ─── Fond animé du hero ─── */
+.hero-bg{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:0}
+.hero-body{position:relative;z-index:1}
+.scroll-hint{z-index:1}
+.aurora{position:absolute;border-radius:50%;filter:blur(90px);opacity:.5;will-change:transform}
+.a1{width:46vw;height:46vw;left:-8vw;top:-6vw;background:radial-gradient(circle,rgba(37,99,235,.42),transparent 68%)}
+.a2{width:40vw;height:40vw;right:-6vw;top:8vw;background:radial-gradient(circle,rgba(139,92,246,.34),transparent 68%)}
+.a3{width:36vw;height:36vw;left:28vw;bottom:-12vw;background:radial-gradient(circle,rgba(6,182,212,.3),transparent 68%)}
+body.dark .aurora{opacity:.42}
+body.dark .a1{background:radial-gradient(circle,rgba(96,165,250,.4),transparent 68%)}
+body.dark .a2{background:radial-gradient(circle,rgba(167,139,250,.32),transparent 68%)}
+body.dark .a3{background:radial-gradient(circle,rgba(34,211,238,.26),transparent 68%)}
+.hero-grid{
+  position:absolute;inset:0;opacity:.5;
+  background-image:linear-gradient(var(--border) 1px,transparent 1px),linear-gradient(90deg,var(--border) 1px,transparent 1px);
+  background-size:64px 64px;
+  -webkit-mask-image:radial-gradient(ellipse 62% 58% at 50% 42%,#000 12%,transparent 72%);
+  mask-image:radial-gradient(ellipse 62% 58% at 50% 42%,#000 12%,transparent 72%);
+}
+
+/* ─── Masques de révélation typographique ─── */
+.line-mask{display:block;overflow:hidden}
+.hero-name .line1,.hero-name .line2{display:inline-block}
+.split-char{display:inline-block;will-change:transform}
+
+/* ─── Curseur v2 ─── */
+.c-ring{display:flex;align-items:center;justify-content:center}
+.c-label{font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--text);opacity:0;transition:opacity .2s;white-space:nowrap}
+.c-ring.lbl{width:74px;height:74px;opacity:1;background:var(--text);border-color:transparent}
+.c-ring.lbl .c-label{opacity:1;color:var(--bg)}
+.c-dot.hide{opacity:0}
+.c-dot{transition:transform .15s,background .2s,opacity .2s}
+
+/* ─── Nav auto-hide ─── */
+nav{transform:translateY(0);will-change:transform}
+nav.nav-hide{transform:translateY(-104%)}
+
+/* ─── Retour en haut ─── */
+.to-top{
+  position:fixed;right:28px;bottom:28px;z-index:991;
+  width:44px;height:44px;border-radius:50%;border:none;padding:0;
+  background:var(--bg-card);color:var(--text);cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 6px 22px rgba(0,0,0,.12);
+  opacity:0;transform:scale(.6);pointer-events:none;
+  transition:opacity .35s,transform .35s,background .35s;
+}
+.to-top.show{opacity:1;transform:scale(1);pointer-events:auto}
+.to-top:hover{transform:scale(1.08)}
+.to-top i{font-size:12px;position:relative;z-index:1}
+.to-top svg{position:absolute;inset:0;width:44px;height:44px;transform:rotate(-90deg)}
+.tt-track{fill:none;stroke:var(--border);stroke-width:2}
+.tt-fill{fill:none;stroke:var(--accent);stroke-width:2;stroke-linecap:round;stroke-dasharray:126;stroke-dashoffset:126}
+
+/* ─── Skills : balayage accent au survol ─── */
+.skill-row{position:relative;overflow:hidden}
+.skill-row::before{
+  content:'';position:absolute;left:0;top:0;bottom:0;width:100%;
+  background:linear-gradient(90deg,var(--hover-wash),transparent);
+  transform:scaleX(0);transform-origin:left;
+  transition:transform .55s cubic-bezier(.25,.46,.45,.94);
+  pointer-events:none;z-index:0;
+}
+.skill-row:hover::before{transform:scaleX(1)}
+.skill-row>*{position:relative;z-index:1}
+.skill-row .skill-name,.skill-ico{transition:transform .45s cubic-bezier(.25,.46,.45,.94),color .3s}
+.skill-row:hover .skill-name{transform:translateX(8px)}
+.skill-row:hover .skill-ico{transform:translateX(-4px) scale(1.15)}
+
+/* ─── Certifications : survol ─── */
+.cert-row{position:relative}
+.cert-name,.cert-idx,.cert-badge{transition:transform .45s cubic-bezier(.25,.46,.45,.94),color .3s,background .3s}
+.cert-row:hover .cert-name{transform:translateX(10px)}
+.cert-row:hover .cert-idx{color:var(--accent)}
+.cert-row:hover .cert-badge{background:var(--accent);color:#fff}
+
+/* ─── Cartes : halo qui suit le curseur ─── */
+.proj-card,.form-card,.ct-card,.tech-card{position:relative;overflow:hidden;isolation:isolate}
+.proj-card::before,.form-card::before,.ct-card::before{
+  content:'';position:absolute;inset:0;z-index:-1;pointer-events:none;
+  opacity:0;transition:opacity .4s;
+  background:radial-gradient(320px circle at var(--mx,50%) var(--my,50%),rgba(37,99,235,.13),transparent 62%);
+}
+body.dark .proj-card::before,body.dark .form-card::before,body.dark .ct-card::before{
+  background:radial-gradient(320px circle at var(--mx,50%) var(--my,50%),rgba(96,165,250,.16),transparent 62%);
+}
+.proj-card:hover::before,.form-card:hover::before,.ct-card:hover::before{opacity:1}
+
+/* ─── Accordéon expérience : barre d'accent ─── */
+.exp-acc-item{position:relative}
+.exp-acc-item::after{
+  content:'';position:absolute;left:0;bottom:-1px;height:1px;width:100%;
+  background:var(--accent);transform:scaleX(0);transform-origin:left;
+  transition:transform .6s cubic-bezier(.25,.46,.45,.94);
+}
+.exp-acc-item.open::after{transform:scaleX(1)}
+.exp-pi-list li{will-change:transform,opacity}
+
+/* ─── Marquee piloté en JS ─── */
+.tech-track{animation:none!important}
+
+/* ─── Footer : signature géante ─── */
+.ft-bigname{overflow:hidden;padding:0 0 28px;margin-bottom:12px;display:flex;justify-content:center}
+.ft-bigname span{
+  font-size:clamp(52px,13vw,190px);font-weight:800;letter-spacing:-.05em;line-height:.9;
+  white-space:nowrap;color:transparent;-webkit-text-stroke:1px var(--border);
+  will-change:transform;user-select:none;
+}
+body.dark .ft-bigname span{-webkit-text-stroke-color:rgba(255,255,255,.14)}
+
+/* ─── États initiaux (évite le flash avant GSAP) ─── */
+.js-anim .section-header .label,
+.js-anim .hero-eyebrow,
+.js-anim .hero-subtitle,
+.js-anim .hero-desc,
+.js-anim .hero-actions,
+.js-anim .hero-soc-row{opacity:0}
+
 /* ─── Responsive ─── */
 @media(max-width:1024px){
   .about-grid{grid-template-columns:320px 1fr;gap:60px}
@@ -421,24 +548,52 @@ body.dark .otw-dot{background:#34d399}
   .photo-frame{max-width:300px;aspect-ratio:1/1;margin:0 auto}
   .exp-item{grid-template-columns:1fr;gap:14px;padding:40px 0}
   .exp-item:hover{margin:0;padding-left:0;padding-right:0;width:100%;border-radius:0}
+  .exp-acc-trigger{grid-template-columns:1fr 36px;gap:8px 16px;padding:26px 0}
+  .exp-acc-trigger:hover{margin:0;padding-left:0;padding-right:0;width:100%;border-radius:0;background:none}
+  .exp-an{grid-column:1;grid-row:1}
+  .exp-ahead{grid-column:1;grid-row:2}
+  .exp-aname{font-size:22px}
+  .exp-asub{gap:4px}
+  .exp-aloc::before{content:none}
+  .exp-adate{grid-column:1;grid-row:3;text-align:left}
+  .exp-aico{grid-column:2;grid-row:1/span 3;align-self:center}
+  .exp-panel-inner{padding-left:0;padding-bottom:36px}
   .skill-row{grid-template-columns:1fr;gap:12px;padding:22px 0}
   .skill-row:hover{margin:0;padding-left:0;padding-right:0;width:100%;border-radius:0}
-  .cert-row{grid-template-columns:32px 1fr auto;gap:14px}
-  .cert-editor{display:none}
+  /* ligne de certif empilée : l'intitulé prend toute la largeur */
+  .cert-row{grid-template-columns:30px 1fr;gap:7px 14px;padding:22px 0;align-items:start}
+  .cert-idx{grid-column:1;grid-row:1;padding-top:4px}
+  .cert-name{grid-column:2;grid-row:1;font-size:18.5px;line-height:1.35;letter-spacing:-.3px}
+  .cert-editor{grid-column:2;grid-row:2;display:block;font-size:12.5px}
+  .cert-badge{grid-column:2;grid-row:3;justify-self:start;font-size:12px;padding:7px 16px;margin-top:6px}
   .cert-row:hover{margin:0;padding-left:0;padding-right:0;width:100%;border-radius:0}
-  .cert-badge{justify-self:end}
+  .cert-row:hover .cert-name{transform:none}
   .skill-ico{display:none}
   .projects-grid{grid-template-columns:1fr}
   .formation-grid{grid-template-columns:1fr}
   .contact-wrap{grid-template-columns:1fr}
   .scroll-hint{display:none}
-  .otw{right:16px}
+  /* le badge flottant doublonne avec celui de la section À propos */
+  .otw{display:none}
+  .c-dot,.c-ring{display:none}
+  .to-top{right:16px;bottom:20px;width:40px;height:40px}
+  .to-top svg{width:40px;height:40px}
+  .hero-grid{background-size:44px 44px}
+  .aurora{filter:blur(60px)}
+  .a1{width:78vw;height:78vw}
+  .a2{width:70vw;height:70vw}
+  .a3{width:64vw;height:64vw}
+  .ft-bigname{padding-bottom:18px}
   footer .footer-inner{padding:0 24px;flex-direction:column;align-items:flex-start}
   .section-header{margin-bottom:48px}
 }
 @media(prefers-reduced-motion:reduce){
-  .reveal{opacity:1;transform:none;transition:none}
   *{animation:none!important;transition:none!important}
+  .js-anim .hero-eyebrow,.js-anim .hero-subtitle,.js-anim .hero-desc,
+  .js-anim .hero-actions,.js-anim .hero-soc-row,.js-anim .section-header .label{opacity:1}
+  .aurora,.hero-grid{display:none}
+  .ln-in{transform:none}
+  .loader-meta{opacity:1}
 }
 </style>
 </head>
@@ -446,17 +601,31 @@ body.dark .otw-dot{background:#34d399}
 
 <!-- Curseur -->
 <div class="c-dot" id="cDot"></div>
-<div class="c-ring" id="cRing"></div>
+<div class="c-ring" id="cRing"><span class="c-label" id="cLabel"></span></div>
 
 <!-- ─── Loader ─── -->
 <div id="loader">
-  <div style="display:flex;flex-direction:column;align-items:center;gap:20px">
-    <div class="loader-name">Vishal <span>DESAI</span></div>
-    <div class="loader-bar-wrap"><div class="loader-bar"></div></div>
+  <div class="loader-stage">
+    <div class="loader-name"><span class="ln-mask"><span class="ln-in">Vishal</span></span> <span class="ln-mask"><span class="ln-in ln-acc">DESAI</span></span></div>
+    <div class="loader-meta">
+      <span class="loader-tag" data-fr="Portfolio cybersécurité" data-en="Cybersecurity portfolio">Portfolio cybersécurité</span>
+      <span class="loader-count" id="loaderCount">0</span>
+    </div>
+    <div class="loader-bar-wrap"><div class="loader-bar" id="loaderBar"></div></div>
   </div>
+  <div class="loader-curtain" id="loaderCurtain"></div>
 </div>
 
 <div id="sp"></div>
+
+<!-- ─── Bouton retour haut + anneau de progression ─── -->
+<button class="to-top" id="toTop" aria-label="Retour en haut">
+  <svg viewBox="0 0 44 44" aria-hidden="true">
+    <circle class="tt-track" cx="22" cy="22" r="20"></circle>
+    <circle class="tt-fill" id="ttFill" cx="22" cy="22" r="20"></circle>
+  </svg>
+  <i class="fas fa-arrow-up"></i>
+</button>
 
 <!-- ─── Nav ─── -->
 <nav id="nav">
@@ -499,6 +668,12 @@ body.dark .otw-dot{background:#34d399}
 
 <!-- ─── Hero ─── -->
 <section class="hero" id="home">
+  <div class="hero-bg" aria-hidden="true">
+    <div class="aurora a1"></div>
+    <div class="aurora a2"></div>
+    <div class="aurora a3"></div>
+    <div class="hero-grid"></div>
+  </div>
   <div class="hero-body">
     <div class="hero-eyebrow">
       <div class="hero-eyebrow-line"></div>
@@ -510,7 +685,7 @@ body.dark .otw-dot{background:#34d399}
       <span class="line2">DESAI</span>
     </h1>
     <p class="hero-subtitle" data-fr="Expert en <span>Solutions de Sécurité</span>" data-en="Expert in <span>Security Solutions</span>">Expert en <span>Solutions de Sécurité</span></p>
-    <p class="hero-desc" data-fr="Consultant cybersécurité avec +3 ans d'expérience. Spécialisé dans l'intégration de solutions EDR/XDR, IAM, NGFW, SIEM et architectures Zero Trust." data-en="Cybersecurity consultant with 3+ years of experience. Specialized in integrating EDR/XDR, IAM, NGFW, SIEM solutions and Zero Trust architectures.">Consultant cybersécurité avec +3 ans d'expérience. Spécialisé dans l'intégration de solutions EDR/XDR, IAM, NGFW, SIEM et architectures Zero Trust.</p>
+    <p class="hero-desc" data-fr="Ingénieur cybersécurité &amp; réseau avec +4 ans d'expérience. Spécialisé dans l'intégration de solutions SASE, EDR/XDR, IAM, NGFW, PKI et architectures Zero Trust." data-en="Cybersecurity &amp; network engineer with 4+ years of experience. Specialized in integrating SASE, EDR/XDR, IAM, NGFW, PKI solutions and Zero Trust architectures.">Ingénieur cybersécurité &amp; réseau avec +4 ans d'expérience. Spécialisé dans l'intégration de solutions SASE, EDR/XDR, IAM, NGFW, PKI et architectures Zero Trust.</p>
     <div class="hero-actions">
       <a href="#contact" class="btn-dark" data-fr="Me Contacter" data-en="Contact Me">Me Contacter <i class="fas fa-arrow-right"></i></a>
       <a href="#projects" class="btn-ghost" data-fr="Voir mes Projets" data-en="View my Projects">Voir mes Projets</a>
@@ -529,7 +704,7 @@ body.dark .otw-dot{background:#34d399}
 
 <div class="scroll-band">
   <div class="sb-inner" id="sbInner">
-    CYBERSÉCURITÉ<span class="sb-dot">·</span>ZERO TRUST<span class="sb-dot">·</span>EDR / XDR<span class="sb-dot">·</span>IAM<span class="sb-dot">·</span>NGFW<span class="sb-dot">·</span>SIEM<span class="sb-dot">·</span>DLP<span class="sb-dot">·</span>SASE<span class="sb-dot">·</span>SOC<span class="sb-dot">·</span>PENTEST<span class="sb-dot">·</span>CYBERSÉCURITÉ<span class="sb-dot">·</span>ZERO TRUST<span class="sb-dot">·</span>EDR / XDR<span class="sb-dot">·</span>IAM<span class="sb-dot">·</span>NGFW<span class="sb-dot">·</span>SIEM<span class="sb-dot">·</span>DLP<span class="sb-dot">·</span>SASE<span class="sb-dot">·</span>SOC<span class="sb-dot">·</span>PENTEST<span class="sb-dot">·</span>
+    CYBERSÉCURITÉ<span class="sb-dot">·</span>ZERO TRUST<span class="sb-dot">·</span>EDR / XDR<span class="sb-dot">·</span>IAM<span class="sb-dot">·</span>NGFW<span class="sb-dot">·</span>SIEM<span class="sb-dot">·</span>DLP<span class="sb-dot">·</span>SASE<span class="sb-dot">·</span>PKI<span class="sb-dot">·</span>SOC<span class="sb-dot">·</span>PENTEST<span class="sb-dot">·</span>CYBERSÉCURITÉ<span class="sb-dot">·</span>ZERO TRUST<span class="sb-dot">·</span>EDR / XDR<span class="sb-dot">·</span>IAM<span class="sb-dot">·</span>NGFW<span class="sb-dot">·</span>SIEM<span class="sb-dot">·</span>DLP<span class="sb-dot">·</span>SASE<span class="sb-dot">·</span>PKI<span class="sb-dot">·</span>SOC<span class="sb-dot">·</span>PENTEST<span class="sb-dot">·</span>
   </div>
 </div>
 
@@ -549,15 +724,15 @@ body.dark .otw-dot{background:#34d399}
         </div>
         <div class="about-tag"><i class="fas fa-circle"></i> <span data-fr="Ouvert aux opportunités" data-en="Open to opportunities">Ouvert aux opportunités</span></div>
         <div class="stats-row">
-          <div class="stat-cell"><span class="stat-num" data-target="3">0</span><span class="stat-lbl" data-fr="Ans d'exp." data-en="Years exp.">Ans d'exp.</span></div>
-          <div class="stat-cell"><span class="stat-num" data-target="6">0</span><span class="stat-lbl" data-fr="Certifications" data-en="Certifications">Certifications</span></div>
+          <div class="stat-cell"><span class="stat-num" data-target="4">0</span><span class="stat-lbl" data-fr="Ans d'exp." data-en="Years exp.">Ans d'exp.</span></div>
+          <div class="stat-cell"><span class="stat-num" data-target="10">0</span><span class="stat-lbl" data-fr="Certifications" data-en="Certifications">Certifications</span></div>
           <div class="stat-cell"><span class="stat-num" data-target="15">0</span><span class="stat-lbl" data-fr="Technologies" data-en="Technologies">Technologies</span></div>
         </div>
       </div>
       <div class="about-content">
         <h2 class="heading reveal" data-fr="Ingénieur passionné par la sécurité des systèmes d'information." data-en="Engineer passionate about information systems security.">Ingénieur passionné par la sécurité des systèmes d'information.</h2>
-        <p class="about-text reveal reveal-d1" data-fr="Diplômé d'un <strong>Master 2 Cybersécurité</strong> à l'ESGI Paris, je suis consultant chez <strong>SAYCURIT</strong> depuis septembre 2022. Je me spécialise dans l'intégration et la gestion de solutions avancées : <strong>EDR/XDR, IAM, SIEM, DLP, NGFW, SASE</strong>." data-en="Graduate of a <strong>Master 2 in Cybersecurity</strong> at ESGI Paris, I have been a consultant at <strong>SAYCURIT</strong> since September 2022. I specialize in integrating and managing advanced security solutions: <strong>EDR/XDR, IAM, SIEM, DLP, NGFW, SASE</strong>.">Diplômé d'un <strong>Master 2 Cybersécurité</strong> à l'ESGI Paris, je suis consultant chez <strong>SAYCURIT</strong> depuis septembre 2022. Je me spécialise dans l'intégration et la gestion de solutions avancées : <strong>EDR/XDR, IAM, SIEM, DLP, NGFW, SASE</strong>.</p>
-        <p class="about-text reveal reveal-d2" data-fr="Mon expertise couvre les architectures <strong>Zero Trust</strong>, la réponse aux incidents et l'audit de sécurité. Formateur freelance depuis 2021, je partage mes connaissances en cybersécurité, réseaux et administration système." data-en="My expertise covers <strong>Zero Trust</strong> architectures, incident response and security audits. Freelance trainer since 2021, I share my knowledge in cybersecurity, networks and system administration.">Mon expertise couvre les architectures <strong>Zero Trust</strong>, la réponse aux incidents et l'audit de sécurité. Formateur freelance depuis 2021, je partage mes connaissances en cybersécurité, réseaux et administration système.</p>
+        <p class="about-text reveal reveal-d1" data-fr="Diplômé d'un <strong>Master 2 Cybersécurité</strong> à l'ESGI Paris, je suis <strong>ingénieur cybersécurité et réseau chez Lutessa</strong> depuis juillet 2026, après quatre ans de conseil chez SAYCURIT. J'interviens aujourd'hui sur les technologies <strong>Extreme Networks, Netskope (SASE/SSE) et Evertrust (PKI)</strong>." data-en="Graduate of a <strong>Master 2 in Cybersecurity</strong> at ESGI Paris, I have been a <strong>cybersecurity and network engineer at Lutessa</strong> since July 2026, after four years of consulting at SAYCURIT. I now work on <strong>Extreme Networks, Netskope (SASE/SSE) and Evertrust (PKI)</strong> technologies.">Diplômé d'un <strong>Master 2 Cybersécurité</strong> à l'ESGI Paris, je suis <strong>ingénieur cybersécurité et réseau chez Lutessa</strong> depuis juillet 2026, après quatre ans de conseil chez SAYCURIT. J'interviens aujourd'hui sur les technologies <strong>Extreme Networks, Netskope (SASE/SSE) et Evertrust (PKI)</strong>.</p>
+        <p class="about-text reveal reveal-d2" data-fr="Mon expertise couvre les architectures <strong>Zero Trust</strong>, l'<strong>EDR/XDR, l'IAM, le SIEM, le DLP et les NGFW</strong>, ainsi que la réponse aux incidents et l'audit de sécurité. Formateur freelance depuis 2021, je partage mes connaissances en cybersécurité, réseaux et administration système." data-en="My expertise covers <strong>Zero Trust</strong> architectures, <strong>EDR/XDR, IAM, SIEM, DLP and NGFW</strong>, as well as incident response and security audits. Freelance trainer since 2021, I share my knowledge in cybersecurity, networks and system administration.">Mon expertise couvre les architectures <strong>Zero Trust</strong>, l'<strong>EDR/XDR, l'IAM, le SIEM, le DLP et les NGFW</strong>, ainsi que la réponse aux incidents et l'audit de sécurité. Formateur freelance depuis 2021, je partage mes connaissances en cybersécurité, réseaux et administration système.</p>
         <div class="reveal reveal-d3">
           <button class="btn-dark" onclick="downloadCV()"><i class="fas fa-download"></i> <span data-fr="Télécharger mon CV" data-en="Download Resume">Télécharger mon CV</span></button>
         </div>
@@ -577,10 +752,37 @@ body.dark .otw-dot{background:#34d399}
     </div>
     <div class="exp-acc">
 
-      <!-- SAYCURIT -->
+      <!-- Lutessa -->
       <div class="exp-acc-item">
         <button class="exp-acc-trigger">
           <span class="exp-an">01</span>
+          <div class="exp-ahead">
+            <div class="exp-aname">Lutessa</div>
+            <div class="exp-asub">
+              <span class="exp-arole" data-fr="Ingénieur Cybersécurité &amp; Réseau" data-en="Cybersecurity &amp; Network Engineer">Ingénieur Cybersécurité &amp; Réseau</span>
+              <span class="exp-aloc" data-fr="Paris · Hybride" data-en="Paris · Hybrid">Paris · Hybride</span>
+            </div>
+          </div>
+          <span class="exp-adate" data-fr="Juil 2026 → Présent" data-en="Jul 2026 → Present">Juil 2026 → Présent</span>
+          <div class="exp-aico">+</div>
+        </button>
+        <div class="exp-panel">
+          <div class="exp-panel-inner">
+            <p class="exp-pi-sector" data-fr="Intégration réseau &amp; sécurité — CDI" data-en="Network &amp; security integration — Permanent contract">Intégration réseau &amp; sécurité — CDI</p>
+            <ul class="exp-pi-list">
+              <li data-fr="<strong>Extreme Networks</strong> — architecture et déploiement LAN/Wi-Fi, switching, gestion centralisée via ExtremeCloud IQ" data-en="<strong>Extreme Networks</strong> — LAN/Wi-Fi architecture and deployment, switching, centralized management via ExtremeCloud IQ"><strong>Extreme Networks</strong> — architecture et déploiement LAN/Wi-Fi, switching, gestion centralisée via ExtremeCloud IQ</li>
+              <li data-fr="<strong>Netskope</strong> (SASE / SSE) — mise en œuvre SWG, CASB, ZTNA et DLP cloud, politiques d'accès Zero Trust" data-en="<strong>Netskope</strong> (SASE / SSE) — SWG, CASB, ZTNA and cloud DLP implementation, Zero Trust access policies"><strong>Netskope</strong> (SASE / SSE) — mise en œuvre SWG, CASB, ZTNA et DLP cloud, politiques d'accès Zero Trust</li>
+              <li data-fr="<strong>Evertrust</strong> (PKI) — gestion du cycle de vie des certificats, automatisation des renouvellements et supervision des expirations" data-en="<strong>Evertrust</strong> (PKI) — certificate lifecycle management, renewal automation and expiry monitoring"><strong>Evertrust</strong> (PKI) — gestion du cycle de vie des certificats, automatisation des renouvellements et supervision des expirations</li>
+              <li data-fr="Accompagnement client de bout en bout : avant-vente technique, POC, intégration, documentation et transfert de compétences" data-en="End-to-end client support: technical pre-sales, POC, integration, documentation and knowledge transfer">Accompagnement client de bout en bout : avant-vente technique, POC, intégration, documentation et transfert de compétences</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- SAYCURIT -->
+      <div class="exp-acc-item">
+        <button class="exp-acc-trigger">
+          <span class="exp-an">02</span>
           <div class="exp-ahead">
             <div class="exp-aname">SAYCURIT</div>
             <div class="exp-asub">
@@ -588,7 +790,7 @@ body.dark .otw-dot{background:#34d399}
               <span class="exp-aloc">Paris 13e</span>
             </div>
           </div>
-          <span class="exp-adate" data-fr="Sep 2022 → Présent" data-en="Sep 2022 → Present">Sep 2022 → Présent</span>
+          <span class="exp-adate" data-fr="Sep 2022 → Juil 2026" data-en="Sep 2022 → Jul 2026">Sep 2022 → Juil 2026</span>
           <div class="exp-aico">+</div>
         </button>
         <div class="exp-panel">
@@ -610,7 +812,7 @@ body.dark .otw-dot{background:#34d399}
       <!-- VD Formations -->
       <div class="exp-acc-item">
         <button class="exp-acc-trigger">
-          <span class="exp-an">02</span>
+          <span class="exp-an">03</span>
           <div class="exp-ahead">
             <div class="exp-aname" data-fr="VD Formations" data-en="VD Formations">VD Formations</div>
             <div class="exp-asub">
@@ -653,12 +855,12 @@ body.dark .otw-dot{background:#34d399}
       </div>
       <div class="skill-row reveal reveal-d1">
         <div><span class="skill-num">02</span><div class="skill-name">IAM & Access Management</div></div>
-        <div class="tags"><span class="tag">SSO/MFA</span><span class="tag">SAML</span><span class="tag">OIDC</span><span class="tag">SCIM</span><span class="tag">Zero Trust</span><span class="tag">RBAC</span><span class="tag">PAM</span></div>
+        <div class="tags"><span class="tag">SSO/MFA</span><span class="tag">SAML</span><span class="tag">OIDC</span><span class="tag">SCIM</span><span class="tag">Zero Trust</span><span class="tag">RBAC</span><span class="tag">PAM</span><span class="tag">PKI</span></div>
         <i class="fas fa-user-lock skill-ico"></i>
       </div>
       <div class="skill-row reveal reveal-d2">
         <div><span class="skill-num">03</span><div class="skill-name" data-fr="Réseau & Infrastructure" data-en="Network & Infrastructure">Réseau & Infrastructure</div></div>
-        <div class="tags"><span class="tag">NGFW</span><span class="tag">VPN IPSec/SSL</span><span class="tag">SASE</span><span class="tag">SD-WAN</span><span class="tag">ADDS</span><span class="tag">CCNA</span></div>
+        <div class="tags"><span class="tag">NGFW</span><span class="tag">VPN IPSec/SSL</span><span class="tag">SASE/SSE</span><span class="tag">CASB</span><span class="tag">ZTNA</span><span class="tag">SD-WAN</span><span class="tag">Switching / Wi-Fi</span><span class="tag">ADDS</span><span class="tag">CCNA</span></div>
         <i class="fas fa-network-wired skill-ico"></i>
       </div>
       <div class="skill-row reveal reveal-d3">
@@ -687,36 +889,60 @@ body.dark .otw-dot{background:#34d399}
     <div class="cert-list">
       <div class="cert-row">
         <span class="cert-idx">01</span>
+        <span class="cert-name">Netskope Accredited SASE Associate</span>
+        <span class="cert-editor">Netskope · 2026</span>
+        <span class="cert-badge">SASE / SSE</span>
+      </div>
+      <div class="cert-row">
+        <span class="cert-idx">02</span>
+        <span class="cert-name">Extreme Certified Professional — Solutions Selling</span>
+        <span class="cert-editor">Extreme Networks · 2026</span>
+        <span class="cert-badge" data-fr="Réseau / Avant-vente" data-en="Network / Pre-sales">Réseau / Avant-vente</span>
+      </div>
+      <div class="cert-row">
+        <span class="cert-idx">03</span>
+        <span class="cert-name">Extreme Certified Associate — Solutions Selling</span>
+        <span class="cert-editor">Extreme Networks · 2026</span>
+        <span class="cert-badge" data-fr="Réseau / Avant-vente" data-en="Network / Pre-sales">Réseau / Avant-vente</span>
+      </div>
+      <div class="cert-row">
+        <span class="cert-idx">04</span>
+        <span class="cert-name">Evertrust Platform Fundamentals LVL1</span>
+        <span class="cert-editor">Evertrust · 2026</span>
+        <span class="cert-badge" data-fr="PKI / Certificats" data-en="PKI / Certificates">PKI / Certificats</span>
+      </div>
+      <div class="cert-row">
+        <span class="cert-idx">05</span>
         <span class="cert-name">MOOC ANSSI</span>
         <span class="cert-editor">ANSSI</span>
         <span class="cert-badge" data-fr="Cybersécurité" data-en="Cybersecurity">Cybersécurité</span>
       </div>
       <div class="cert-row">
-        <span class="cert-idx">02</span>
+        <span class="cert-idx">06</span>
         <span class="cert-name">SentinelOne SIREN</span>
         <span class="cert-editor">SentinelOne</span>
         <span class="cert-badge">EDR / XDR</span>
       </div>
       <div class="cert-row">
-        <span class="cert-idx">03</span>
+        <span class="cert-idx">07</span>
         <span class="cert-name">Palo Alto PSE</span>
         <span class="cert-editor">Palo Alto Networks</span>
         <span class="cert-badge">NGFW</span>
       </div>
       <div class="cert-row">
-        <span class="cert-idx">04</span>
+        <span class="cert-idx">08</span>
         <span class="cert-name">CATO Certified Associate</span>
         <span class="cert-editor">CATO Networks</span>
         <span class="cert-badge">SASE / Réseau</span>
       </div>
       <div class="cert-row">
-        <span class="cert-idx">05</span>
+        <span class="cert-idx">09</span>
         <span class="cert-name">Netwrix PSE</span>
         <span class="cert-editor">Netwrix</span>
         <span class="cert-badge">PAM / Audit AD</span>
       </div>
       <div class="cert-row">
-        <span class="cert-idx">06</span>
+        <span class="cert-idx">10</span>
         <span class="cert-name">Cisco CCNA</span>
         <span class="cert-editor">Cisco</span>
         <span class="cert-badge" data-fr="Réseau" data-en="Networking">Réseau</span>
@@ -802,6 +1028,9 @@ body.dark .otw-dot{background:#34d399}
   </div>
   <div class="tech-strip">
     <div class="tech-track">
+      <div class="tech-card" style="--tc:#582c83"><img src="logos/extreme.svg" alt="Extreme Networks"><div class="tc-info"><span class="tc-name">Extreme Networks</span><span class="tc-cat">Réseau / Wi-Fi</span></div></div>
+      <div class="tech-card" style="--tc:#00c1b5"><img src="logos/netskope.svg" alt="Netskope"><div class="tc-info"><span class="tc-name">Netskope</span><span class="tc-cat">SASE / SSE</span></div></div>
+      <div class="tech-card" style="--tc:#3b9be8"><img src="logos/evertrust.svg" alt="Evertrust"><div class="tc-info"><span class="tc-name">Evertrust</span><span class="tc-cat">PKI</span></div></div>
       <div class="tech-card" style="--tc:#f97316"><img src="logos/rapid7.png" alt="Rapid7"><div class="tc-info"><span class="tc-name">Rapid7</span><span class="tc-cat">Vulnerability</span></div></div>
       <div class="tech-card" style="--tc:#8b5cf6"><img src="logos/sentinelone.png" alt="SentinelOne"><div class="tc-info"><span class="tc-name">SentinelOne</span><span class="tc-cat">EDR / XDR</span></div></div>
       <div class="tech-card" style="--tc:#0ea5e9"><img src="logos/okta.png" alt="Okta"><div class="tc-info"><span class="tc-name">Okta</span><span class="tc-cat">IAM</span></div></div>
@@ -814,6 +1043,9 @@ body.dark .otw-dot{background:#34d399}
       <div class="tech-card" style="--tc:#d97706"><img src="logos/thehive.png" alt="TheHive"><div class="tc-info"><span class="tc-name">TheHive</span><span class="tc-cat">SOAR</span></div></div>
       <div class="tech-card" style="--tc:#7c3aed"><img src="logos/mimecast.png" alt="Mimecast"><div class="tc-info"><span class="tc-name">Mimecast</span><span class="tc-cat">Email Security</span></div></div>
       <!-- Duplicate pour boucle infinie -->
+      <div class="tech-card" style="--tc:#582c83"><img src="logos/extreme.svg" alt="Extreme Networks"><div class="tc-info"><span class="tc-name">Extreme Networks</span><span class="tc-cat">Réseau / Wi-Fi</span></div></div>
+      <div class="tech-card" style="--tc:#00c1b5"><img src="logos/netskope.svg" alt="Netskope"><div class="tc-info"><span class="tc-name">Netskope</span><span class="tc-cat">SASE / SSE</span></div></div>
+      <div class="tech-card" style="--tc:#3b9be8"><img src="logos/evertrust.svg" alt="Evertrust"><div class="tc-info"><span class="tc-name">Evertrust</span><span class="tc-cat">PKI</span></div></div>
       <div class="tech-card" style="--tc:#f97316"><img src="logos/rapid7.png" alt="Rapid7"><div class="tc-info"><span class="tc-name">Rapid7</span><span class="tc-cat">Vulnerability</span></div></div>
       <div class="tech-card" style="--tc:#8b5cf6"><img src="logos/sentinelone.png" alt="SentinelOne"><div class="tc-info"><span class="tc-name">SentinelOne</span><span class="tc-cat">EDR / XDR</span></div></div>
       <div class="tech-card" style="--tc:#0ea5e9"><img src="logos/okta.png" alt="Okta"><div class="tc-info"><span class="tc-name">Okta</span><span class="tc-cat">IAM</span></div></div>
@@ -857,8 +1089,9 @@ body.dark .otw-dot{background:#34d399}
 
 <!-- ─── Footer ─── -->
 <footer>
+  <div class="ft-bigname" aria-hidden="true"><span id="ftBig">VISHAL DESAI</span></div>
   <div class="footer-inner">
-    <p class="ft-copy">© 2025 <strong>Vishal DESAI</strong> — Ingénieur Cybersécurité</p>
+    <p class="ft-copy">© 2026 <strong>Vishal DESAI</strong> — Ingénieur Cybersécurité &amp; Réseau</p>
     <div class="ft-links">
       <a href="https://www.linkedin.com/in/vishaldesai-cybersecurity/" target="_blank" rel="noopener">LinkedIn</a>
       <a href="https://github.com/VD17" target="_blank" rel="noopener">GitHub</a>
@@ -873,100 +1106,216 @@ body.dark .otw-dot{background:#34d399}
   <span data-fr="Ouvert aux opportunités" data-en="Open to opportunities">Ouvert aux opportunités</span>
 </a>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/SplitText.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js"></script>
 <script>
-/* ══ GSAP + ScrollTrigger ══ */
-gsap.registerPlugin(ScrollTrigger);
+/* ══════════════════════════════════════════════════════════
+   Vishal DESAI — couche animation
+   GSAP 3.13 (ScrollTrigger + SplitText) · Lenis
+   ══════════════════════════════════════════════════════════ */
+gsap.registerPlugin(ScrollTrigger, SplitText);
 
-/* ══ Lenis (smooth scroll, connecté à GSAP) ══ */
+const REDUCED = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const FINE    = matchMedia('(pointer:fine)').matches;
+
+/* ── références DOM ── */
+const nav      = document.getElementById('nav');
+const spBar    = document.getElementById('sp');
+const toTop    = document.getElementById('toTop');
+const ttFill   = document.getElementById('ttFill');
+const menuBtn  = document.getElementById('menuBtn');
+const mobMenu  = document.getElementById('mobMenu');
+const cDot     = document.getElementById('cDot');
+const cRing    = document.getElementById('cRing');
+const cLabel   = document.getElementById('cLabel');
+
+/* on repart toujours du haut : l'intro du hero doit être visible */
+if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+scrollTo(0, 0);
+
+/* ══ Lenis — scroll fluide relié à GSAP ══ */
 const lenis = new Lenis({ lerp: 0.1, smoothWheel: true });
-lenis.on('scroll', () => {
+let scrollVel = 0;
+let lastY = 0;
+
+lenis.on('scroll', e => {
   ScrollTrigger.update();
+  scrollVel = e.velocity || 0;
   const h = document.documentElement.scrollHeight - innerHeight;
-  document.getElementById('sp').style.width = (scrollY / h * 100) + '%';
-  document.getElementById('nav').classList.toggle('scrolled', scrollY > 60);
+  const p = h > 0 ? Math.min(scrollY / h, 1) : 0;
+  spBar.style.width = (p * 100) + '%';
+  ttFill.style.strokeDashoffset = 126 - 126 * p;
+  toTop.classList.toggle('show', scrollY > 600);
+  nav.classList.toggle('scrolled', scrollY > 60);
+  if (!mobMenu.classList.contains('open')) {
+    nav.classList.toggle('nav-hide', scrollY > 320 && scrollY > lastY + 4);
+  }
+  lastY = scrollY;
 });
 gsap.ticker.add(t => lenis.raf(t * 1000));
 gsap.ticker.lagSmoothing(0);
 
-/* ══ Loader ══ */
-window.addEventListener('load', () => {
-  setTimeout(() => {
-    document.getElementById('loader').classList.add('out');
-    initHeroAnim();
-  }, 900);
-});
+toTop.addEventListener('click', () => lenis.scrollTo(0, { duration: 1.4 }));
 
-/* ══ Hero — split par lettres ══ */
-function initHeroAnim() {
-  // Split chaque ligne du nom en spans par lettre
-  document.querySelectorAll('.hero-name .line1, .hero-name .line2').forEach(line => {
-    line.innerHTML = [...line.textContent].map(c =>
-      c === ' ' ? ' ' : `<span class="hc" style="display:inline-block">${c}</span>`
-    ).join('');
-  });
-
-  const tl = gsap.timeline();
-  tl.from('.hero-eyebrow', { opacity: 0, y: 20, duration: 0.6, ease: 'power3.out' })
-    .from('.hc', {
-      y: '120%', opacity: 0, duration: 0.9,
-      stagger: { amount: 0.5, ease: 'power2.inOut' },
-      ease: 'power4.out'
-    }, '-=0.2')
-    .from('.hero-subtitle', { opacity: 0, y: 20, duration: 0.6, ease: 'power3.out' }, '-=0.2')
-    .from('.hero-desc', { opacity: 0, y: 24, duration: 0.7, ease: 'power3.out' }, '-=0.4')
-    .from('.hero-actions', { opacity: 0, y: 20, duration: 0.6, ease: 'power3.out' }, '-=0.4')
-    .from('.hero-soc-row', { opacity: 0, y: 16, duration: 0.5, ease: 'power3.out' }, '-=0.4');
+/* ══════════════════════════════════════════════════════════
+   LOADER — compteur, révélation du nom, rideau
+   ══════════════════════════════════════════════════════════ */
+function revealSite() {
+  document.documentElement.classList.remove('js-anim');
+  ScrollTrigger.refresh();
 }
 
-/* ══ Parallaxe du nom au scroll ══ */
-gsap.to('.hero-name', {
-  yPercent: -18,
-  ease: 'none',
-  scrollTrigger: {
-    trigger: '.hero',
-    start: 'top top',
-    end: 'bottom top',
-    scrub: 1.2
+function runLoader() {
+  const loader  = document.getElementById('loader');
+  const curtain = document.getElementById('loaderCurtain');
+  const countEl = document.getElementById('loaderCount');
+  const barEl   = document.getElementById('loaderBar');
+
+  if (REDUCED) {
+    loader.style.display = 'none';
+    revealSite();
+    gsap.set('.hero-eyebrow,.hero-subtitle,.hero-desc,.hero-actions,.hero-soc-row,.section-header .label', { opacity: 1 });
+    openFirstExperience();
+    return;
   }
-});
 
-/* ══ Révélation des titres de section (mot par mot) ══ */
-function splitWords(el) {
-  const text = el.getAttribute('data-' + (localStorage.getItem('lang') || 'fr')) || el.textContent.trim();
-  el.innerHTML = text.split(' ').map(w =>
-    `<span style="display:inline-block;overflow:hidden;vertical-align:top;padding-bottom:0.05em"><span class="sw" style="display:inline-block">${w}</span></span>`
-  ).join(' ');
+  const counter = { v: 0 };
+  gsap.timeline()
+    .to('.ln-in', { yPercent: 0, duration: 1, ease: 'power4.out', stagger: 0.1 })
+    .to('.loader-meta', { opacity: 1, duration: 0.4 }, '-=0.6')
+    .to(counter, {
+      v: 100, duration: 1.4, ease: 'power2.inOut',
+      onUpdate: () => { countEl.textContent = Math.round(counter.v); }
+    }, '-=0.7')
+    .to(barEl, { width: '100%', duration: 1.4, ease: 'power2.inOut' }, '<')
+    .to('.loader-stage', { opacity: 0, y: -26, duration: 0.45, ease: 'power2.in' }, '-=0.1')
+    /* le rideau monte et recouvre */
+    .to(curtain, { scaleY: 1, duration: 0.7, ease: 'power4.inOut' }, '-=0.3')
+    /* le loader devient transparent : seul le rideau masque la page */
+    .set(loader, { background: 'transparent' })
+    .add(revealSite)
+    .set(curtain, { transformOrigin: 'top center' })
+    /* le rideau se rétracte vers le haut et découvre le hero */
+    .to(curtain, { scaleY: 0, duration: 0.85, ease: 'power4.inOut' })
+    .add(() => { loader.style.display = 'none'; }, '-=0.05')
+    .add(heroIntro, '-=0.55');
+}
+window.addEventListener('load', () => setTimeout(runLoader, 100));
+
+/* ══════════════════════════════════════════════════════════
+   HERO — entrée typographique + fond vivant
+   ══════════════════════════════════════════════════════════ */
+function heroIntro() {
+  const nameSplit = new SplitText('.hero-name', { type: 'chars', mask: 'chars' });
+  const subSplit  = new SplitText('.hero-subtitle', { type: 'chars' });
+  const descSplit = new SplitText('.hero-desc', { type: 'lines', mask: 'lines' });
+
+  /* filet de sécurité : quoi qu'il arrive, le hero finit visible */
+  const settle = () => {
+    gsap.set('.hero-eyebrow,.hero-subtitle,.hero-desc,.hero-actions,.hero-soc-row', { opacity: 1 });
+    gsap.set('.hero-actions > *,.hero-soc', { clearProps: 'opacity,transform,translate,scale,rotate' });
+    openFirstExperience();
+  };
+
+  gsap.timeline({ defaults: { ease: 'power4.out' }, onComplete: settle })
+    .to('.hero-eyebrow', { opacity: 1, duration: 0.5 })
+    .fromTo('.hero-eyebrow-line', { scaleX: 0 }, { scaleX: 1, duration: 0.8, stagger: 0.08 }, '<')
+    .fromTo(nameSplit.chars, { yPercent: 118 }, {
+      yPercent: 0, duration: 1.15,
+      stagger: { amount: 0.55, ease: 'power2.inOut' }
+    }, '-=0.4')
+    .to('.hero-subtitle', { opacity: 1, duration: 0.3 }, '-=0.6')
+    .fromTo(subSplit.chars, { yPercent: 70, opacity: 0 }, { yPercent: 0, opacity: 1, duration: 0.6, stagger: 0.013 }, '<')
+    .to('.hero-desc', { opacity: 1, duration: 0.3 }, '-=0.35')
+    .fromTo(descSplit.lines, { yPercent: 105 }, { yPercent: 0, duration: 0.8, stagger: 0.09 }, '<')
+    .to('.hero-actions', { opacity: 1, duration: 0.5 }, '-=0.45')
+    .fromTo('.hero-actions > *', { y: 26, opacity: 0 }, { y: 0, opacity: 1, duration: 0.6, stagger: 0.09 }, '<')
+    .to('.hero-soc-row', { opacity: 1, duration: 0.5 }, '-=0.4')
+    .fromTo('.hero-soc', { y: 20, opacity: 0, scale: 0.7 }, { y: 0, opacity: 1, scale: 1, duration: 0.5, stagger: 0.06, ease: 'back.out(2)' }, '<');
 }
 
-document.querySelectorAll('.section-header .heading').forEach(el => {
-  ScrollTrigger.create({
-    trigger: el,
-    start: 'top 88%',
-    once: true,
-    onEnter: () => {
-      splitWords(el);
-      gsap.from(el.querySelectorAll('.sw'), {
-        y: '105%',
-        duration: 0.85,
-        stagger: 0.07,
-        ease: 'power4.out'
-      });
-    }
-  });
-});
+/* aurores : dérive lente + réaction à la souris */
+if (!REDUCED) {
+  gsap.to('.a1', { xPercent: 12, yPercent: 16, duration: 15, repeat: -1, yoyo: true, ease: 'sine.inOut' });
+  gsap.to('.a2', { xPercent: -14, yPercent: 12, duration: 19, repeat: -1, yoyo: true, ease: 'sine.inOut' });
+  gsap.to('.a3', { xPercent: 10, yPercent: -14, duration: 17, repeat: -1, yoyo: true, ease: 'sine.inOut' });
 
-/* ══ Labels — glissement depuis la gauche ══ */
-gsap.utils.toArray('.section-header .label').forEach(el => {
-  gsap.from(el, {
-    opacity: 0, x: -20, duration: 0.6, ease: 'power3.out',
-    scrollTrigger: { trigger: el, start: 'top 90%', once: true }
-  });
-});
+  if (FINE) {
+    document.querySelector('.hero').addEventListener('mousemove', e => {
+      const x = e.clientX / innerWidth - 0.5;
+      const y = e.clientY / innerHeight - 0.5;
+      gsap.to('.hero-bg', { x: x * 46, y: y * 34, duration: 1.4, ease: 'power2.out' });
+      gsap.to('.hero-grid', { x: x * -26, y: y * -18, duration: 1.4, ease: 'power2.out' });
+    });
+  }
 
-/* ══ Dividers — animation de largeur ══ */
+  /* sortie du hero au scroll */
+  gsap.to('.hero-body', {
+    yPercent: -12, opacity: 0, scale: 0.95, ease: 'none',
+    scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: 0.8 }
+  });
+}
+
+/* ══════════════════════════════════════════════════════════
+   TITRES & TEXTES — révélations par caractère / par mot
+   ══════════════════════════════════════════════════════════ */
+let splitRegistry = [];
+
+function clearSplits() {
+  splitRegistry.forEach(o => { o.st && o.st.kill(); o.split && o.split.revert(); });
+  splitRegistry = [];
+}
+
+function initTextAnims() {
+  clearSplits();
+  if (REDUCED) return;
+
+  /* titres de section — caractères masqués */
+  document.querySelectorAll('.section-header .heading').forEach(el => {
+    const st = ScrollTrigger.create({
+      trigger: el, start: 'top 88%', once: true,
+      onEnter: () => {
+        const s = new SplitText(el, { type: 'chars', mask: 'chars' });
+        gsap.from(s.chars, {
+          yPercent: 115, duration: 0.9, ease: 'power4.out',
+          stagger: { amount: 0.4 }
+        });
+      }
+    });
+    splitRegistry.push({ st });
+  });
+
+  /* labels — révélation en balayage */
+  document.querySelectorAll('.section-header .label').forEach(el => {
+    const st = ScrollTrigger.create({
+      trigger: el, start: 'top 94%', once: true,
+      onEnter: () => gsap.fromTo(el,
+        { opacity: 0, x: -18, clipPath: 'inset(0 100% 0 0)' },
+        { opacity: 1, x: 0, clipPath: 'inset(0 0% 0 0)', duration: 0.9, ease: 'power3.out' })
+    });
+    splitRegistry.push({ st });
+  });
+
+  /* paragraphes "à propos" — mots qui s'allument au scroll */
+  document.querySelectorAll('.about-text').forEach(el => {
+    const s = new SplitText(el, { type: 'words' });
+    const tw = gsap.from(s.words, {
+      opacity: 0.14, ease: 'none', stagger: 0.05,
+      scrollTrigger: { trigger: el, start: 'top 88%', end: 'top 45%', scrub: 0.6 }
+    });
+    splitRegistry.push({ split: s, st: tw.scrollTrigger });
+  });
+}
+
+/* ══════════════════════════════════════════════════════════
+   RÉVÉLATIONS AU SCROLL
+   ══════════════════════════════════════════════════════════ */
+
+if (!REDUCED) {
+
+/* dividers */
 gsap.utils.toArray('.divider').forEach(el => {
   gsap.from(el, {
     scaleX: 0, transformOrigin: 'left center', duration: 1.2, ease: 'power3.inOut',
@@ -974,118 +1323,332 @@ gsap.utils.toArray('.divider').forEach(el => {
   });
 });
 
-/* ══ About — photo + contenu en opposition ══ */
-gsap.from('.about-photo', {
-  opacity: 0, x: -60, duration: 1, ease: 'power3.out',
-  scrollTrigger: { trigger: '.about-grid', start: 'top 80%', once: true }
+/* about — photo & contenu */
+gsap.from('.photo-frame', {
+  clipPath: 'inset(100% 0% 0% 0%)', duration: 1.4, ease: 'power4.inOut',
+  scrollTrigger: { trigger: '.about-grid', start: 'top 82%', once: true }
+});
+gsap.fromTo('.photo-frame img', { yPercent: 0 }, {
+  yPercent: -9, ease: 'none',
+  scrollTrigger: { trigger: '.about-photo', start: 'top bottom', end: 'bottom top', scrub: 1 }
+});
+gsap.from('.about-tag', {
+  opacity: 0, y: 24, scale: 0.8, duration: 0.7, ease: 'back.out(2)',
+  scrollTrigger: { trigger: '.about-grid', start: 'top 68%', once: true }
 });
 gsap.from('.about-content > *', {
-  opacity: 0, y: 40, duration: 0.8, stagger: 0.15, ease: 'power3.out',
-  scrollTrigger: { trigger: '.about-grid', start: 'top 75%', once: true }
+  opacity: 0, y: 46, duration: 0.9, stagger: 0.14, ease: 'power3.out',
+  scrollTrigger: { trigger: '.about-grid', start: 'top 78%', once: true }
 });
 
-/* ══ Stats — compteurs avec entrée animée ══ */
+/* stats — compteurs */
 gsap.utils.toArray('.stat-cell').forEach((el, i) => {
   gsap.from(el, {
     opacity: 0, y: 30, duration: 0.6, delay: i * 0.1, ease: 'power3.out',
-    scrollTrigger: { trigger: el, start: 'top 90%', once: true }
+    scrollTrigger: { trigger: el, start: 'top 92%', once: true }
   });
   ScrollTrigger.create({
-    trigger: el, start: 'top 90%', once: true,
+    trigger: el, start: 'top 92%', once: true,
     onEnter: () => {
       const numEl = el.querySelector('.stat-num');
       const target = +numEl.dataset.target;
-      let n = 0;
-      const iv = setInterval(() => {
-        n = Math.min(n + target / 40, target);
-        numEl.textContent = Math.floor(n) + '+';
-        if (n >= target) clearInterval(iv);
-      }, 35);
+      const o = { v: 0 };
+      gsap.to(o, {
+        v: target, duration: 1.6, ease: 'power2.out',
+        onUpdate: () => { numEl.textContent = Math.floor(o.v) + '+'; },
+        onComplete: () => { numEl.textContent = target + '+'; }
+      });
     }
   });
 });
 
-/* ══ Expérience — accordion ══ */
+/* expérience */
+gsap.utils.toArray('.exp-acc-item').forEach(el => {
+  gsap.from(el, {
+    opacity: 0, y: 44, duration: 0.85, ease: 'power3.out',
+    scrollTrigger: { trigger: el, start: 'top 90%', once: true }
+  });
+});
+
+/* skills */
+gsap.utils.toArray('.skill-row').forEach(row => {
+  gsap.from(row, {
+    opacity: 0, x: -44, duration: 0.8, ease: 'power3.out',
+    scrollTrigger: { trigger: row, start: 'top 92%', once: true }
+  });
+  ScrollTrigger.create({
+    trigger: row, start: 'top 92%', once: true,
+    onEnter: () => gsap.from(row.querySelectorAll('.tag'), {
+      opacity: 0, scale: 0.7, y: 8, duration: 0.4, stagger: 0.045,
+      ease: 'back.out(2.4)', delay: 0.28
+    })
+  });
+});
+
+/* certifications */
+gsap.utils.toArray('.cert-row').forEach((row, i) => {
+  gsap.from(row, {
+    opacity: 0, x: -34, duration: 0.65, ease: 'power3.out', delay: (i % 5) * 0.05,
+    scrollTrigger: { trigger: row, start: 'top 94%', once: true }
+  });
+  ScrollTrigger.create({
+    trigger: row, start: 'top 94%', once: true,
+    onEnter: () => gsap.from(row.querySelector('.cert-badge'), {
+      opacity: 0, scale: 0.6, duration: 0.4, ease: 'back.out(2.6)', delay: 0.3
+    })
+  });
+});
+
+/* formation / projets / contact / technologies */
+gsap.from('.form-card', {
+  opacity: 0, y: 56, rotateX: -8, transformPerspective: 900,
+  duration: 0.9, stagger: 0.14, ease: 'power3.out',
+  scrollTrigger: { trigger: '.formation-grid', start: 'top 86%', once: true }
+});
+gsap.utils.toArray('.proj-card').forEach((el, i) => {
+  gsap.from(el, {
+    opacity: 0, y: 70, scale: 0.95, duration: 1, delay: i * 0.12, ease: 'power3.out',
+    scrollTrigger: { trigger: '.projects-grid', start: 'top 86%', once: true }
+  });
+});
+gsap.from('.ct-card', {
+  opacity: 0, y: 56, duration: 0.85, stagger: 0.15, ease: 'power3.out',
+  scrollTrigger: { trigger: '.contact-wrap', start: 'top 88%', once: true }
+});
+gsap.from('.tech-card', {
+  opacity: 0, y: 26, stagger: 0.03, duration: 0.5, ease: 'power3.out',
+  scrollTrigger: { trigger: '.tech-strip', start: 'top 92%', once: true }
+});
+
+} /* fin des révélations au scroll */
+
+/* ══════════════════════════════════════════════════════════
+   BANDEAUX DÉFILANTS — vitesse & sens pilotés par le scroll
+   ══════════════════════════════════════════════════════════ */
+function marquee(el, baseSpeed) {
+  if (!el || REDUCED) return;
+  let x = 0, half = 0, dir = 1, paused = false;
+  const measure = () => { half = el.scrollWidth / 2; };
+  measure();
+  ScrollTrigger.addEventListener('refreshInit', measure);
+  addEventListener('resize', measure);
+  el.addEventListener('mouseenter', () => paused = true);
+  el.addEventListener('mouseleave', () => paused = false);
+
+  gsap.ticker.add(() => {
+    if (!half) { measure(); return; }
+    if (Math.abs(scrollVel) > 0.8) dir = scrollVel > 0 ? 1 : -1;
+    const boost = 1 + Math.min(Math.abs(scrollVel) / 12, 4);
+    x -= baseSpeed * boost * (paused ? 0.12 : 1) * dir;
+    if (x <= -half) x += half;
+    if (x > 0) x -= half;
+    el.style.transform = 'translate3d(' + x + 'px,0,0)';
+  });
+}
+marquee(document.getElementById('sbInner'), 0.9);
+marquee(document.querySelector('.tech-track'), 0.7);
+
+/* signature géante du footer */
+if (!REDUCED) {
+gsap.to('#ftBig', {
+  xPercent: -10, ease: 'none',
+  scrollTrigger: { trigger: 'footer', start: 'top bottom', end: 'bottom bottom', scrub: 1 }
+});
+gsap.from('#ftBig', {
+  yPercent: 110, duration: 1.2, ease: 'power4.out',
+  scrollTrigger: { trigger: 'footer', start: 'top 95%', once: true }
+});
+}
+
+/* ══════════════════════════════════════════════════════════
+   NUMÉROS FANTÔMES
+   ══════════════════════════════════════════════════════════ */
+const ghostData = {
+  about: '01', experience: '02', skills: '03', certifications: '04',
+  formation: '05', projects: '06', technologies: '07', contact: '08'
+};
+Object.entries(ghostData).forEach(([id, num]) => {
+  const sec = document.getElementById(id);
+  if (!sec) return;
+  const g = document.createElement('div');
+  g.className = 'ghost-num';
+  g.textContent = num;
+  sec.appendChild(g);
+  if (REDUCED) return;
+  gsap.fromTo(g, { yPercent: 15 }, {
+    yPercent: -30, ease: 'none',
+    scrollTrigger: { trigger: sec, start: 'top bottom', end: 'bottom top', scrub: 1.5 }
+  });
+});
+
+/* ══════════════════════════════════════════════════════════
+   ACCORDÉON EXPÉRIENCE
+   ══════════════════════════════════════════════════════════ */
 document.querySelectorAll('.exp-acc-trigger').forEach(btn => {
   btn.addEventListener('click', () => {
-    const item = btn.closest('.exp-acc-item');
-    const panel = item.querySelector('.exp-panel');
-    const inner = item.querySelector('.exp-panel-inner');
+    const item   = btn.closest('.exp-acc-item');
+    const panel  = item.querySelector('.exp-panel');
+    const inner  = item.querySelector('.exp-panel-inner');
     const isOpen = item.classList.contains('open');
+
     document.querySelectorAll('.exp-acc-item.open').forEach(i => {
       i.classList.remove('open');
       gsap.to(i.querySelector('.exp-panel'), { height: 0, duration: 0.45, ease: 'power3.inOut' });
     });
+
     if (!isOpen) {
       item.classList.add('open');
-      gsap.to(panel, { height: inner.offsetHeight, duration: 0.55, ease: 'power3.out' });
+      gsap.to(panel, {
+        height: inner.offsetHeight, duration: 0.6, ease: 'power3.out',
+        onComplete: () => ScrollTrigger.refresh()
+      });
+      gsap.fromTo(inner.querySelectorAll('.exp-pi-sector,.exp-pi-list li'),
+        { opacity: 0, x: -22 },
+        { opacity: 1, x: 0, duration: 0.55, stagger: 0.07, ease: 'power3.out', delay: 0.12 });
     }
   });
 });
-setTimeout(() => document.querySelector('.exp-acc-trigger')?.click(), 1100);
+function openFirstExperience() {
+  const first = document.querySelector('.exp-acc-trigger');
+  if (first && !first.closest('.exp-acc-item').classList.contains('open')) first.click();
+}
 
-/* ══ Expérience — items en décalé ══ */
-gsap.utils.toArray('.exp-acc-item').forEach((el, i) => {
-  gsap.from(el, {
-    opacity: 0, y: 50, duration: 0.8, ease: 'power3.out',
-    scrollTrigger: { trigger: el, start: 'top 85%', once: true }
+/* ══════════════════════════════════════════════════════════
+   NAV ACTIVE
+   ══════════════════════════════════════════════════════════ */
+['home', 'about', 'experience', 'skills', 'certifications', 'formation', 'projects', 'technologies', 'contact'].forEach(id => {
+  const sec = document.getElementById(id);
+  if (!sec) return;
+  ScrollTrigger.create({
+    trigger: sec, start: 'top 52%', end: 'bottom 52%',
+    onEnter: () => setNav(id), onEnterBack: () => setNav(id)
+  });
+});
+function setNav(id) {
+  document.querySelectorAll('.nav-links a').forEach(a => {
+    a.classList.toggle('nav-active', a.getAttribute('href') === '#' + id);
+  });
+}
+
+/* ══════════════════════════════════════════════════════════
+   INTERACTIONS POINTEUR
+   ══════════════════════════════════════════════════════════ */
+const CURSOR_LABELS = {
+  view: { fr: 'Voir', en: 'View' },
+  open: { fr: 'Ouvrir', en: 'Open' }
+};
+document.querySelectorAll('.proj-card a.proj-link').forEach(el => el.dataset.cursor = 'view');
+document.querySelectorAll('.ct-card').forEach(el => el.dataset.cursor = 'open');
+
+if (FINE && !REDUCED) {
+  const pos = { x: innerWidth / 2, y: innerHeight / 2, rx: innerWidth / 2, ry: innerHeight / 2 };
+  let dotScale = 1, dotTarget = 1;
+
+  gsap.set([cDot, cRing], { left: 0, top: 0 });
+  addEventListener('mousemove', e => { pos.x = e.clientX; pos.y = e.clientY; });
+
+  gsap.ticker.add(() => {
+    pos.rx += (pos.x - pos.rx) * 0.14;
+    pos.ry += (pos.y - pos.ry) * 0.14;
+    dotScale += (dotTarget - dotScale) * 0.2;
+    cDot.style.transform  = `translate3d(${pos.x}px,${pos.y}px,0) translate(-50%,-50%) scale(${dotScale})`;
+    cRing.style.transform = `translate3d(${pos.rx}px,${pos.ry}px,0) translate(-50%,-50%)`;
+  });
+
+  document.querySelectorAll('a,button,.skill-row,.cert-row,.tech-card').forEach(el => {
+    el.addEventListener('mouseenter', () => { cRing.classList.add('hov'); dotTarget = 0.35; });
+    el.addEventListener('mouseleave', () => { cRing.classList.remove('hov'); dotTarget = 1; });
+  });
+
+  document.querySelectorAll('[data-cursor]').forEach(el => {
+    el.addEventListener('mouseenter', () => {
+      cLabel.textContent = (CURSOR_LABELS[el.dataset.cursor] || {})[lang] || '';
+      cRing.classList.add('lbl'); cDot.classList.add('hide');
+    });
+    el.addEventListener('mouseleave', () => {
+      cRing.classList.remove('lbl'); cDot.classList.remove('hide');
+    });
+  });
+
+  /* halo + inclinaison 3D des cartes */
+  document.querySelectorAll('.proj-card,.form-card,.ct-card').forEach(card => {
+    card.addEventListener('mousemove', e => {
+      const r = card.getBoundingClientRect();
+      const px = (e.clientX - r.left) / r.width;
+      const py = (e.clientY - r.top) / r.height;
+      card.style.setProperty('--mx', px * 100 + '%');
+      card.style.setProperty('--my', py * 100 + '%');
+      gsap.to(card, {
+        rotateY: (px - 0.5) * 10, rotateX: -(py - 0.5) * 10,
+        transformPerspective: 900, duration: 0.4, ease: 'power2.out'
+      });
+    });
+    card.addEventListener('mouseleave', () => {
+      gsap.to(card, { rotateY: 0, rotateX: 0, duration: 0.8, ease: 'elastic.out(1,.45)' });
+    });
+  });
+
+  /* boutons magnétiques */
+  document.querySelectorAll('.btn-dark,.btn-ghost,.nav-cta,.hero-soc').forEach(btn => {
+    btn.addEventListener('mousemove', e => {
+      const r = btn.getBoundingClientRect();
+      gsap.to(btn, {
+        x: (e.clientX - r.left - r.width / 2) * 0.34,
+        y: (e.clientY - r.top - r.height / 2) * 0.34,
+        duration: 0.4, ease: 'power2.out'
+      });
+    });
+    btn.addEventListener('mouseleave', () => {
+      gsap.to(btn, { x: 0, y: 0, duration: 0.75, ease: 'elastic.out(1,.4)' });
+    });
+  });
+}
+
+/* ══ Brouillage typographique au survol ══ */
+const SCHARS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#&$';
+function addScramble(sel) {
+  if (REDUCED || !FINE) return;
+  document.querySelectorAll(sel).forEach(el => {
+    let iv;
+    el.addEventListener('mouseenter', () => {
+      if (el._scrambling) return;
+      const orig = el.textContent;
+      el._orig = orig;
+      el._scrambling = true;
+      let n = 0;
+      clearInterval(iv);
+      iv = setInterval(() => {
+        el.textContent = [...orig].map((c, i) =>
+          i < n ? c : (c === ' ' ? ' ' : SCHARS[Math.floor(Math.random() * SCHARS.length)])
+        ).join('');
+        if (n++ >= orig.length) { clearInterval(iv); el.textContent = orig; el._scrambling = false; }
+      }, 26);
+    });
+    el.addEventListener('mouseleave', () => {
+      clearInterval(iv);
+      if (el._orig) { el.textContent = el._orig; el._scrambling = false; }
+    });
+  });
+}
+addScramble('.proj-card h3');
+addScramble('.cert-name');
+addScramble('.exp-aname');
+
+/* ══ Ondulation au clic ══ */
+document.querySelectorAll('.btn-dark,.btn-ghost,.nav-cta').forEach(btn => {
+  btn.addEventListener('click', e => {
+    const r = btn.getBoundingClientRect();
+    const size = Math.max(r.width, r.height);
+    const el = document.createElement('span');
+    el.style.cssText = `position:absolute;width:${size}px;height:${size}px;left:${e.clientX - r.left - size / 2}px;top:${e.clientY - r.top - size / 2}px;background:rgba(255,255,255,.22);border-radius:50%;transform:scale(0);animation:rippleOut .6s ease-out forwards;pointer-events:none;z-index:0`;
+    btn.appendChild(el);
+    setTimeout(() => el.remove(), 700);
   });
 });
 
-/* ══ Skills — lignes depuis la gauche ══ */
-gsap.utils.toArray('.skill-row').forEach((el, i) => {
-  gsap.from(el, {
-    opacity: 0, x: -40, duration: 0.7, ease: 'power3.out',
-    scrollTrigger: { trigger: el, start: 'top 88%', once: true }
-  });
-});
-
-/* ══ Projets — direction alternée gauche / bas / droite ══ */
-gsap.utils.toArray('.proj-card').forEach((el, i) => {
-  gsap.from(el, {
-    opacity: 0,
-    x: i === 1 ? 0 : (i % 2 === 0 ? -70 : 70),
-    y: i === 1 ? 60 : 0,
-    scale: 0.95, duration: 1, delay: i * 0.12, ease: 'power3.out',
-    scrollTrigger: { trigger: '.projects-grid', start: 'top 82%', once: true }
-  });
-});
-
-/* ══ Formation cards ══ */
-gsap.utils.toArray('.form-card').forEach((el, i) => {
-  gsap.from(el, {
-    opacity: 0, y: 50, duration: 0.75, delay: i * 0.12, ease: 'power3.out',
-    scrollTrigger: { trigger: '.formation-grid', start: 'top 84%', once: true }
-  });
-});
-
-/* ══ Contact cards ══ */
-gsap.utils.toArray('.ct-card').forEach((el, i) => {
-  gsap.from(el, {
-    opacity: 0, y: 50, duration: 0.75, delay: i * 0.15, ease: 'power3.out',
-    scrollTrigger: { trigger: '.contact-wrap', start: 'top 84%', once: true }
-  });
-});
-
-/* ══ Certifications — lignes en stagger ══ */
-gsap.utils.toArray('.cert-row').forEach((el, i) => {
-  gsap.from(el, {
-    opacity: 0, x: -36, duration: 0.65, ease: 'power3.out',
-    delay: i * 0.08,
-    scrollTrigger: { trigger: '.cert-list', start: 'top 84%', once: true }
-  });
-});
-
-/* ══ Tech cards ══ */
-gsap.from('.tech-card', {
-  opacity: 0, y: 24, stagger: 0.04, duration: 0.5, ease: 'power3.out',
-  scrollTrigger: { trigger: '.tech-strip', start: 'top 88%', once: true }
-});
-
-/* ══ Mobile menu ══ */
-const menuBtn = document.getElementById('menuBtn');
-const mobMenu  = document.getElementById('mobMenu');
-
+/* ══════════════════════════════════════════════════════════
+   MENU MOBILE
+   ══════════════════════════════════════════════════════════ */
 function closeMenu() {
   menuBtn.classList.remove('open');
   mobMenu.classList.remove('open');
@@ -1097,6 +1660,7 @@ function openMenu() {
   menuBtn.classList.add('open');
   mobMenu.classList.add('open');
   mobMenu.setAttribute('aria-hidden', 'false');
+  nav.classList.remove('nav-hide');
   document.documentElement.style.overflow = 'hidden';
   lenis.stop();
 }
@@ -1104,27 +1668,28 @@ menuBtn.addEventListener('click', () => mobMenu.classList.contains('open') ? clo
 mobMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
 document.addEventListener('keydown', e => { if (e.key === 'Escape') closeMenu(); });
 
-/* contrôles dans l'overlay mobile */
 const langToggleMob  = document.getElementById('langToggleMob');
 const themeToggleMob = document.getElementById('themeToggleMob');
 const themeIconMob   = document.getElementById('themeIconMob');
 function syncMobControls() {
-  if (langToggleMob)  langToggleMob.textContent = lang === 'fr' ? 'EN' : 'FR';
-  if (themeIconMob)   themeIconMob.className = theme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+  if (langToggleMob) langToggleMob.textContent = lang === 'fr' ? 'EN' : 'FR';
+  if (themeIconMob)  themeIconMob.className = theme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
 }
 langToggleMob?.addEventListener('click', () => { lang = lang === 'fr' ? 'en' : 'fr'; applyLang(); syncMobControls(); });
 themeToggleMob?.addEventListener('click', () => { theme = theme === 'dark' ? 'light' : 'dark'; applyTheme(); syncMobControls(); });
 
-/* ══ Smooth anchor ══ */
+/* ══ Ancres fluides ══ */
 document.querySelectorAll('a[href^="#"]').forEach(a => {
   a.addEventListener('click', e => {
     e.preventDefault();
     const t = document.querySelector(a.getAttribute('href'));
-    if (t) lenis.scrollTo(t, { offset: -80, duration: 1.2 });
+    if (t) lenis.scrollTo(t, { offset: -80, duration: 1.4 });
   });
 });
 
-/* ══ Theme ══ */
+/* ══════════════════════════════════════════════════════════
+   THÈME · LANGUE · CV
+   ══════════════════════════════════════════════════════════ */
 let theme = localStorage.getItem('theme') || 'light';
 function applyTheme() {
   document.body.classList.toggle('dark', theme === 'dark');
@@ -1139,15 +1704,17 @@ document.getElementById('themeToggle').addEventListener('click', () => {
   syncMobControls();
 });
 
-/* ══ Language ══ */
 let lang = localStorage.getItem('lang') || 'fr';
 function applyLang() {
+  clearSplits();
   document.querySelectorAll('[data-fr]').forEach(el => {
     const v = el.getAttribute('data-' + lang);
     if (v) el.innerHTML = v;
   });
   document.getElementById('langToggle').textContent = lang === 'fr' ? 'EN' : 'FR';
   localStorage.setItem('lang', lang);
+  initTextAnims();
+  ScrollTrigger.refresh();
 }
 applyLang();
 syncMobControls();
@@ -1157,7 +1724,6 @@ document.getElementById('langToggle').addEventListener('click', () => {
   syncMobControls();
 });
 
-/* ══ CV download ══ */
 function downloadCV() {
   const f = lang === 'fr' ? 'CV_Vishal_DESAI_FR.pdf' : 'CV_Vishal_DESAI_EN.pdf';
   const a = document.createElement('a');
@@ -1165,176 +1731,9 @@ function downloadCV() {
   document.body.appendChild(a); a.click(); document.body.removeChild(a);
 }
 
-/* ══ Curseur custom ══ */
-const cDot = document.getElementById('cDot');
-const cRing = document.getElementById('cRing');
-let cx = 0, cy = 0, rx2 = 0, ry2 = 0;
-window.addEventListener('mousemove', e => { cx = e.clientX; cy = e.clientY; });
-(function loopCursor() {
-  rx2 += (cx - rx2) * .13;
-  ry2 += (cy - ry2) * .13;
-  cDot.style.left = cx + 'px'; cDot.style.top = cy + 'px';
-  cRing.style.left = rx2 + 'px'; cRing.style.top = ry2 + 'px';
-  requestAnimationFrame(loopCursor);
-})();
-document.querySelectorAll('a,button,.proj-card,.form-card,.ct-card,.skill-row,.cert-row,.exp-item,.tech-card').forEach(el => {
-  el.addEventListener('mouseenter', () => { cRing.classList.add('hov'); cDot.classList.add('hov'); });
-  el.addEventListener('mouseleave', () => { cRing.classList.remove('hov'); cDot.classList.remove('hov'); });
-});
-
-/* ══ Scroll band (scrub inversé) ══ */
-gsap.to('#sbInner', {
-  xPercent: -25,
-  ease: 'none',
-  scrollTrigger: {
-    trigger: '.scroll-band',
-    start: 'top bottom',
-    end: 'bottom top',
-    scrub: 1
-  }
-});
-
-/* ══ Ghost numbers parallax ══ */
-const ghostData = {
-  about:'01', experience:'02', skills:'03',
-  certifications:'04', formation:'05',
-  projects:'06', technologies:'07', contact:'08'
-};
-Object.entries(ghostData).forEach(([id, num]) => {
-  const sec = document.getElementById(id);
-  if (!sec) return;
-  const g = document.createElement('div');
-  g.className = 'ghost-num';
-  g.textContent = num;
-  sec.appendChild(g);
-  gsap.to(g, {
-    yPercent: -25,
-    ease: 'none',
-    scrollTrigger: { trigger: sec, start: 'top bottom', end: 'bottom top', scrub: 1.5 }
-  });
-});
-
-/* ══ Clip-path reveal — photo about ══ */
-gsap.from('.photo-frame', {
-  clipPath: 'inset(100% 0 0 0)',
-  duration: 1.3,
-  ease: 'power4.inOut',
-  scrollTrigger: { trigger: '.about-grid', start: 'top 80%', once: true }
-});
-
-/* ══ 3D tilt — cards au hover ══ */
-document.querySelectorAll('.proj-card,.form-card,.ct-card').forEach(card => {
-  card.addEventListener('mousemove', e => {
-    const r = card.getBoundingClientRect();
-    const x = (e.clientX - r.left - r.width  / 2) / r.width;
-    const y = (e.clientY - r.top  - r.height / 2) / r.height;
-    gsap.to(card, { rotateY: x * 9, rotateX: -y * 9, transformPerspective: 900, duration: .35, ease: 'power2.out' });
-  });
-  card.addEventListener('mouseleave', () => {
-    gsap.to(card, { rotateY: 0, rotateX: 0, duration: .7, ease: 'elastic.out(1,.45)' });
-  });
-});
-
-/* ══ Boutons magnétiques ══ */
-document.querySelectorAll('.btn-dark,.btn-ghost,.nav-cta').forEach(btn => {
-  btn.addEventListener('mousemove', e => {
-    const r = btn.getBoundingClientRect();
-    const x = (e.clientX - r.left - r.width  / 2) * .38;
-    const y = (e.clientY - r.top  - r.height / 2) * .38;
-    gsap.to(btn, { x, y, duration: .4, ease: 'power2.out' });
-  });
-  btn.addEventListener('mouseleave', () => {
-    gsap.to(btn, { x: 0, y: 0, duration: .7, ease: 'elastic.out(1,.4)' });
-  });
-});
-
-/* ══ Ligne timeline expérience (scrub) ══ */
-const expLine = document.createElement('div');
-expLine.className = 'exp-line';
-document.querySelector('.exp-list')?.prepend(expLine);
-gsap.to(expLine, {
-  height: '100%', ease: 'none',
-  scrollTrigger: { trigger: '.exp-list', start: 'top 65%', end: 'bottom 70%', scrub: 1.2 }
-});
-
-/* ══ Nav active au scroll ══ */
-['home','about','experience','skills','certifications','formation','projects','technologies','contact'].forEach(id => {
-  const sec = document.getElementById(id);
-  if (!sec) return;
-  ScrollTrigger.create({
-    trigger: sec, start: 'top 52%', end: 'bottom 52%',
-    onEnter: () => setNav(id), onEnterBack: () => setNav(id)
-  });
-});
-function setNav(id) {
-  document.querySelectorAll('.nav-links a').forEach(a => {
-    a.classList.toggle('nav-active', a.getAttribute('href') === '#' + id);
-  });
-}
-
-/* ══ Tags skills — pop in ══ */
-gsap.utils.toArray('.skill-row').forEach(row => {
-  ScrollTrigger.create({
-    trigger: row, start: 'top 88%', once: true,
-    onEnter: () => gsap.from(row.querySelectorAll('.tag'), {
-      opacity: 0, scale: .7, duration: .35, stagger: .05,
-      ease: 'back.out(2.5)', delay: .3
-    })
-  });
-});
-
-/* ══ Badges certifs — pop in ══ */
-gsap.utils.toArray('.cert-row').forEach(row => {
-  ScrollTrigger.create({
-    trigger: row, start: 'top 88%', once: true,
-    onEnter: () => gsap.from(row.querySelector('.cert-badge'), {
-      opacity: 0, scale: .6, duration: .4, ease: 'back.out(2.5)', delay: .35
-    })
-  });
-});
-
-/* ══ Scramble hover (titres projets + noms certifs) ══ */
-const SCHARS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#&$';
-function addScramble(sel) {
-  document.querySelectorAll(sel).forEach(el => {
-    const orig = el.textContent.trim();
-    let iv;
-    el.addEventListener('mouseenter', () => {
-      let n = 0; clearInterval(iv);
-      iv = setInterval(() => {
-        el.textContent = [...orig].map((c, i) =>
-          i < n ? c : (c === ' ' ? ' ' : SCHARS[Math.floor(Math.random() * SCHARS.length)])
-        ).join('');
-        if (n++ >= orig.length) { clearInterval(iv); el.textContent = orig; }
-      }, 28);
-    });
-    el.addEventListener('mouseleave', () => { clearInterval(iv); el.textContent = orig; });
-  });
-}
-addScramble('.proj-card h3');
-addScramble('.cert-name');
-
-/* ══ Ripple au clic sur les boutons ══ */
-document.querySelectorAll('.btn-dark,.btn-ghost,.nav-cta').forEach(btn => {
-  btn.addEventListener('click', e => {
-    const r = btn.getBoundingClientRect();
-    const size = Math.max(r.width, r.height);
-    const el = document.createElement('span');
-    el.style.cssText = `position:absolute;width:${size}px;height:${size}px;left:${e.clientX-r.left-size/2}px;top:${e.clientY-r.top-size/2}px;background:rgba(255,255,255,.22);border-radius:50%;transform:scale(0);animation:rippleOut .6s ease-out forwards;pointer-events:none;z-index:0`;
-    btn.appendChild(el);
-    setTimeout(() => el.remove(), 700);
-  });
-});
-
-/* ══ Parallaxe légère sur l'icône formation ══ */
-gsap.utils.toArray('.form-card').forEach(card => {
-  const ico = card.querySelector('.form-year');
-  if (!ico) return;
-  gsap.to(ico, {
-    yPercent: -15, ease: 'none',
-    scrollTrigger: { trigger: card, start: 'top bottom', end: 'bottom top', scrub: 1 }
-  });
-});
+/* recalcul après chargement des polices */
+document.fonts && document.fonts.ready.then(() => ScrollTrigger.refresh());
+addEventListener('resize', () => ScrollTrigger.refresh());
 </script>
 </body>
 </html>
